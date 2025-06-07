@@ -84,7 +84,7 @@ while ($year >= 1970) { // On va chercher le contenu jusqu'au années 1970
                         $key = $name_cast . '|' . $shows['id'];
 
                         // Vérifie si la combinaison acteur + film a déjà été insérée
-                        if (!!isset($tab_acteur_series[$key])) {
+                        if (!isset($tab_acteur_series[$key])) {
                             $sql2->bind_param("sis", $name_cast, $shows['id'], $img);
                             $sql2->execute();
 

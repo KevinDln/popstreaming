@@ -99,12 +99,12 @@ while ($year >= 1970 ) { // On va chercher le contenu jusqu'au années 1970
                             $key = $name_cast . '|' . $movie['id'];
 
                         // Vérifie si la combinaison acteur + film a déjà été insérée
-                        if (!in_array($key, $tab_acteur_film)) {
+                        if (!isset($tab_acteur_series[$key])) {
                             $sql2->bind_param("sis", $name_cast, $movie['id'], $img);
                             $sql2->execute();
 
                             // Enregistre la paire pour ne pas la réinsérer
-                            $tab_acteur_film[] = $key;
+                            $tab_acteur_film[$key] = true;
                         }
                             
 
