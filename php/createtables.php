@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS profils (
 );
 
 CREATE TABLE IF NOT EXISTS films (
-    id_film INT(11) AUTO_INCREMENT PRIMARY KEY,
+    idPK INT(11) AUTO_INCREMENT PRIMARY KEY,
+    id_movie INT(32) NOT NULL,
     title VARCHAR(255) NOT NULL,
     genre VARCHAR(255) NOT NULL,
     original_language VARCHAR(4) NOT NULL,
@@ -50,12 +51,14 @@ CREATE TABLE IF NOT EXISTS films (
     poster_path VARCHAR(255),
     nb_vote INT(255) NOT NULL DEFAULT 0,
     rating INT(1) DEFAULT 0,
-    content_duration INT(255)
+    content_duration INT(255),
+    trailer VARCHAR(255)
 );
 
 
 CREATE TABLE IF NOT EXISTS series (
-    id_series INT(11) AUTO_INCREMENT PRIMARY KEY,
+    idPK INT(11) AUTO_INCREMENT PRIMARY KEY,
+    id_shows INT(32) NOT NULL,
     genre VARCHAR(255) NOT NULL,
     original_language VARCHAR(4) NOT NULL,
     overview TEXT NOT NULL,
@@ -64,13 +67,13 @@ CREATE TABLE IF NOT EXISTS series (
     poster_path VARCHAR(255),
     nb_vote INT(255) NOT NULL DEFAULT 0,
     rating INT(1) DEFAULT 0,
-    content_duration INT(255)
+    title VARCHAR(255) NOT NULL,
+    trailer VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS acteurs (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
-    prenom VARCHAR(255) NOT NULL,
     casting_film int(255) DEFAULT 0,
     casting_serie int(255) DEFAULT 0,
     img VARCHAR(255) NOT NULL    
