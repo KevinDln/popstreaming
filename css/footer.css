@@ -1,0 +1,30 @@
+.footer {
+    background-color: #182832;
+    padding: 20px;
+
+}
+
+.c {
+    font-size: 16px;
+    font-family: Poppins;
+    color: #FAF5F5;
+    text-decoration: none;
+}
+
+.ul1{
+    display: flex;
+    flex-direction: row;
+    gap: 53px;
+    margin-bottom: 53px;
+    justify-content: center;
+    padding : 0;
+    color : #182832;
+}
+
+.ul2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color : #182832;
+    padding: 0;
+}

@@ -1,0 +1,17 @@
+.header{
+    background-color : #182832;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.body {
+    background-color : #182832;
+    color: #FAF5F5;
+}
+
+.Titre {
+    font-size: 24px;
+    font-family: Poppins;
+}
+
