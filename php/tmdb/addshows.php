@@ -26,10 +26,10 @@ $showsApi = ShowsAPI::getInstance();
 $year = 2025;
 $genreShows = [];
 $tab_acteur_series = [];
-while ($year >= 1970) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 2000) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categoriesTV as $name => $genreId) {
         // Recupere toutes les informations de la série
-        $genreShows[$name] = $showsApi->getSeriesByGenreAndYear($genreId, $year, 10);
+        $genreShows[$name] = $showsApi->getSeriesByGenreAndYear($genreId, $year, 5);
 
         // Ajout dans la base de données les informations nécessaires
         // original_language, release_year = $year,$name = genre, 

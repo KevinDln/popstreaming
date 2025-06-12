@@ -1,3 +1,4 @@
+
 <?php
 require_once __DIR__ . '/../config/tmdb.php';
 require_once __DIR__ . '/../config/api_config.php';
@@ -222,25 +223,13 @@ class ShowsAPI
         /* Fonction permettant de récuperer la clé de l'url de la vidéo pour la série
         Args : $showId (int) : ID de la série
 
-        Returns : 
+        Returns :
             json : format json contenant les informations
         */
 
         $curl = curl_init();
 
-        curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api.themoviedb.org/3/tv/$showsId/videos?language=en-US",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM1MTJlN2JkMWZiODYyNzg1OTk5NDA5MzIwZGQxYSIsIm5iZiI6MTc0ODg0OTkwMy45MzcsInN1YiI6IjY4M2Q1NGVmZjMzNzVhMjQyZTUzODM5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AqmxrhhO78EM5KAee66Dxieypej_t6aai38R_uX7ibw",
-            "accept: application/json"
-        ],
-        ]);
+        curl_setopt_array($curl, getCurlOptionsV2("shows","video",$showsId));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -248,36 +237,24 @@ class ShowsAPI
         curl_close($curl);
 
         if ($err) {
-        echo "cURL Error #:" . $err;
+            echo "cURL Error #:" . $err;
         } else {
-        return $response;
+            return $response;
         }
     }
 
 
     public function getCastingShows($showId) {
-        /* Fonction permettant de récuperer le casting d'une série, pour un maximum de 
-        5 acteurs par séries 
+        /* Fonction permettant de récuperer le casting d'une série, pour un maximum de
+        5 acteurs par séries
         Args : $showId (int) : ID de la série
 
-        Returns : 
+        Returns :
             table : table contenant les castings
         */
         $curl = curl_init();
 
-        curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$showId/credits?language=fr",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => [
-        "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM1MTJlN2JkMWZiODYyNzg1OTk5NDA5MzIwZGQxYSIsIm5iZiI6MTc0ODg0OTkwMy45MzcsInN1YiI6IjY4M2Q1NGVmZjMzNzVhMjQyZTUzODM5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AqmxrhhO78EM5KAee66Dxieypej_t6aai38R_uX7ibw",
-        "accept: application/json"
-        ],
-        ]);
+        curl_setopt_array($curl, getCurlOptionsV2("shows","cast",$showId));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -285,7 +262,7 @@ class ShowsAPI
         curl_close($curl);
 
         if ($err) {
-        echo "cURL Error #:" . $err;
+            echo "cURL Error #:" . $err;
         } else {
             $cast =[]; // Initialise un tab de casting
             $result = json_decode($response,true);
@@ -299,8 +276,8 @@ class ShowsAPI
                     $cast[$i]['id_movie'] = $showId;
                 }
             }
-            
-        return $cast;
+
+            return $cast;
         }
 
 
