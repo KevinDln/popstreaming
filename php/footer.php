@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="../css/footer.css">
 <footer class="footer">
     <nav>
-        <ul class="Ul1">
+        <ul class="ul1 flex">
             <li>
                 <a href="https://www.facebook.com/?locale=fr_FR">
                     <img src="../img/facebook.png" height="24px" width="24px" alt="X">

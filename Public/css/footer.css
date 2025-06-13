@@ -1,12 +1,11 @@
 .footer {
-    background-color: #182832;
     padding: 20px;
-
+    background-color: var(--Nuances-noir);
 }
 
 .c {
     font-size: 16px;
-    font-family: Poppins;
+    font-family: "Poppins-regular";
     color: #FAF5F5;
     text-decoration: none;
 }
