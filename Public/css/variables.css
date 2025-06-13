@@ -1,0 +1,111 @@
+:root {
+    --Nuances-noir : #0C1419;
+    --Nuances-bleu-fonce : #182832;
+    --Nuances-bleu : #305064;
+    --Nuances-bleu-clair : #487896;
+    --Nuances-jaune : #EFBD3F;
+    --Nuances-jaune-fonce : #CB9C27;
+    --Nuances-rouge : #9B1C31;
+    --Nuances-rouge-clair : #C15D6E;
+    --Nuances-bleu-ciel : #B9F2FF;
+    --Nuances-blanc :#FAF9F9;
+}
+
+body {
+    background-color: var(--Nuances-noir);
+}
+
+h1, h2 {
+    color: var(--Nuances-blanc);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 12px;
+    color: var(--Nuances-blanc);
+}
+.input-fond-sombre {
+    color: var(--Nuances-blanc);
+    background-color: var(--Nuances-noir);
+    padding: 10px 20px;
+}
+
+.input-fond-clair {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-blanc);
+    padding: 10px 20px;
+}
+
+.btn-retour {
+    background-color: var(--Nuances-jaune);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.icon-navigation {
+    width: 30px;
+}
+
+.btn-primary {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-jaune);
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.btn-secondary {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-blanc);
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.btn-plus-infos {
+    background-color: rgba(48, 80, 100, 50);
+    color: var(--Nuances-blanc);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.carte-connexion {
+    background-color: var(--Nuances-bleu-fonce);
+    color : var(--Nuances-bleu-clair);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.pagination {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-blanc);
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.tags {
+    background-color: var(--Nuances-bleu);
+    color: var(--Nuances-blanc);
+    border-radius: 10px;
+    font-size: 16px;
+}
+.affiche-horizontal {
+    width: auto;
+    height: 230px;
+}
+
+.affiche-horizontal {
+    width: auto;
+    height: 400px;
+}
+
+.affiche-vertical {
+    width: auto;
+    height: 230px;
+}
+
+.presentation-user {
+
+}
