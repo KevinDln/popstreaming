@@ -1,0 +1,34 @@
+.header{
+    background-color : #182832;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.body {
+    background-color : #182832;
+    color: #FAF5F5;
+}
+
+.Titre {
+    font-size: 24px;
+    font-family: Poppins;
+    margin-left: 690px;
+}
+
+.label1 {
+    margin-left: 690px;
+    margin-right: -650px;
+
+}
+
+.p {
+    font-family: Poppins;
+    font-size: 16px;
+    color : #0C1419;
+    background-color: #FAF9F9;
+    width: 445px;
+    height: 56px;
+    border-radius: 10px;
+
+}

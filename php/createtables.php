@@ -77,15 +77,24 @@ CREATE TABLE IF NOT EXISTS acteurs (
     nom VARCHAR(255) NOT NULL,
     casting_film int(255) DEFAULT 0,
     casting_serie int(255) DEFAULT 0,
-    img VARCHAR(255) NOT NULL
+    img VARCHAR(255) NOT NULL    
 );
 
-CREATE TABLE IF NOT EXISTS commentaires (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    commentaire TEXT NOT NULL,
-    film_id INT(11) NOT NULL,
-    user_id INT(11) NOT NULL 
+
+CREATE TABLE IF NOT EXISTS favoris_films (
+    id_profil INT(11) NOT NULL,
+    id_film INT(11) NOT NULL,
+    primary key (id_profil, id_film),
+    index (id_profil)
 );
+
+CREATE TABLE IF NOT EXISTS favoris_series (
+    id_profil INT(11) NOT NULL,
+    id_serie INT(11) NOT NULL,
+    primary key (id_profil, id_serie),
+    index (id_profil)
+);
+
 
 ";
 

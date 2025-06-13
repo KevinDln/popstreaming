@@ -223,19 +223,7 @@ class MovieAPI
         */
 
         $curl = curl_init();
-        curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$movieId/videos?language=fr",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM1MTJlN2JkMWZiODYyNzg1OTk5NDA5MzIwZGQxYSIsIm5iZiI6MTc0ODg0OTkwMy45MzcsInN1YiI6IjY4M2Q1NGVmZjMzNzVhMjQyZTUzODM5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AqmxrhhO78EM5KAee66Dxieypej_t6aai38R_uX7ibw",
-            "accept: application/json"
-        ],
-        ]);
+        curl_setopt_array($curl, getCurlOptionsV2("movie","video", $movieId));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -261,19 +249,7 @@ class MovieAPI
 
         $curl = curl_init();
 
-        curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$movieId/credits?language=fr",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => [
-        "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM1MTJlN2JkMWZiODYyNzg1OTk5NDA5MzIwZGQxYSIsIm5iZiI6MTc0ODg0OTkwMy45MzcsInN1YiI6IjY4M2Q1NGVmZjMzNzVhMjQyZTUzODM5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AqmxrhhO78EM5KAee66Dxieypej_t6aai38R_uX7ibw",
-        "accept: application/json"
-        ],
-        ]);
+        curl_setopt_array($curl, getCurlOptionsV2("movie","cast", $movieId));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
