@@ -1,3 +1,16 @@
+:root{
+    --Nuances-noir : #0C1419;
+    --Nuances-bleu-fonce : #182832;
+    --Nuances-bleu : #305064;
+    --Nuances-bleu-clair : #487896;
+    --Nuances-jaune : #EFBD3F;
+    --Nuances-jaune-fonce : #CB9C27;
+    --Nuances-rouge : #9B1C31;
+    --Nuances-rouge-clair : #C15D6E;
+    --Nuances-bleu-ciel : #B9F2FF;
+    --Nuances-blanc : #FAF9F9;
+}
+
 body {
     background-color: var(--Nuances-noir);
 }
@@ -32,19 +45,6 @@ p {
 
 .icon-navigation {
     width: 30px;
-}
-
-:root{
---Nuances-noir : #0C1419;
---Nuances-bleu-fonce : #182832;
---Nuances-bleu : #305064;
---Nuances-bleu-clair : #487896;
---Nuances-jaune : #EFBD3F;
---Nuances-jaune-fonce : #CB9C27;
---Nuances-rouge : #9B1C31;
---Nuances-rouge-clair : #C15D6E;
---Nuances-bleu-ciel : #B9F2FF;
---Nuances-blanc : #FAF9F9;
 }
 
 .btn-primary {
