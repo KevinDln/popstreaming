@@ -36,12 +36,13 @@ CREATE TABLE IF NOT EXISTS profils (
     id_compte INT(11) NOT NULL,
     nom VARCHAR(255) NOT NULL,
     img VARCHAR(255) NOT NULL,
-    controle_parental INT(1) NOT NULL DEFAULT 0
+    controle_parental INT(1) NOT NULL DEFAULT 0,
+    CONSTRAINT FOREIGN KEY (id_compte) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS films (
     idPK INT(11) AUTO_INCREMENT PRIMARY KEY,
-    id_movie INT(32) NOT NULL,
+    id_movie INT(32) NOT NULL ,
     title VARCHAR(255) NOT NULL,
     genre VARCHAR(255) NOT NULL,
     original_language VARCHAR(4) NOT NULL,
@@ -77,7 +78,25 @@ CREATE TABLE IF NOT EXISTS acteurs (
     casting_film int(255) DEFAULT 0,
     casting_serie int(255) DEFAULT 0,
     img VARCHAR(255) NOT NULL    
-);";
+);
+
+
+CREATE TABLE IF NOT EXISTS favoris_films (
+    id_profil INT(11) NOT NULL,
+    id_film INT(11) NOT NULL,
+    primary key (id_profil, id_film),
+    index (id_profil)
+);
+
+CREATE TABLE IF NOT EXISTS favoris_series (
+    id_profil INT(11) NOT NULL,
+    id_serie INT(11) NOT NULL,
+    primary key (id_profil, id_serie),
+    index (id_profil)
+);
+
+
+";
 
 
 if ($conn->multi_query($user) === TRUE) {

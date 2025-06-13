@@ -31,11 +31,11 @@ $year = 2025;
 $genreMovies = [];
 $tab_acteur_film = [];
 
-while ($year >= 2000 ) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categories as $name => $genreId) {
         // Recupere toutes les informations du films
         // On prends 10 films par catégorie, 150 films par années
-        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 5);
+        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 2);
 
         /* 
         Ajout dans la base de données les informations nécessaires
