@@ -1,90 +1,82 @@
 <!DOCTYPE html>
-<div lang="fr">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="mo">
+    <link rel="stylesheet" href="../Public/css/nav.css">
+    <link rel="stylesheet" href="../Public/css/styles.css">
+    <link rel="stylesheet" href="../Public/css/variables.css">
+    <link rel="stylesheet" href="../Public/css/font.css">
+    <link rel="stylesheet" href="../Public/css/moyens.css">
+    <link rel="stylesheet" href="../Public/css/footer.css">
 </head>
 
 
-<div class="body">
+<body>
+<nav>
+    <div>
 
-<header class="header">
-    <img src="images/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
-</header>
+        <img src="../img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+        <a href="  "><img src="../img/chevron.png"></a>
+    </div>
+</nav>
 
+<div class="center">
+    <h1>Payez en ligne</h1>
 
-<h1 class="Titre">Payez en ligne</h1>
-
-        <label>
+    <div class="flex">
+        <div class="flex">
             <input type="radio" id="mode" name="mode" value="">
-        </label>
+            <img src="../img/logo-cb.jpg" width="41" height="25" alt="CB">
+        </div>
 
-        <label>
-            <img src="images/logo-cb.jpg" width="41" height="25" alt="CB">
-        </label>
+        <div class="flex">
+             <input type="radio" id="mode" name="mode" value="">
+             <img src="../img/Visa.jpg" width="41" height="20" alt="visa">
+        </div>
 
-
-        <label>
+        <div>
             <input type="radio" id="mode" name="mode" value="">
-        </label>
+            <img src="../img/MasterCard.png" width="41" height="20" alt="MasterCard">
+        </div>
+    </div>
+        <br>
 
+    <div class="flex">
         <label>
-            <img src="images/visa.jpg" width="41" height="20" alt="visa">
-        </label>
 
-        <label>
-            <input type="radio" id="mode" name="mode" value="">
-        </label>
+            <div class="flex1">
+                <p>Nom de la carte</p>
+                <img src="../img/credit-card.png" width="46" height="45">
+            </div>
 
-        <label>
-            <img src="images/MasterCard.png" width="41" height="20" alt="MasterCard">
-        </label>
-
-   <br>
+            <input type="nomcarte" id="nomcarte" name="nomcarte" required="">
 
 
-<p class="p">Nom de la carte</p>
+        <p class="p">Numéro de la carte</p>
 
-<input class="input2" type="nomcarte" id="nomcarte" name="nomcarte" required="">
+        <input type="nomcarte" id="nomcarte" name="nomcarte" value="    ... ... ... ...">
+            <br>
+    <div class="flex">
+        <p>Date d'expiration</p>
 
+        <p>Cryptogramme visuel</p>
+    </div>
 
-<br>
+        <input  type="nomcarte" id="nomcarte" name="nomcarte" value="    MM/AA">
 
-
-<img src="images/credit-card.png" width="46" height="45">
-
-<p class="p">Numéro de la carte</p>
-
-
-
-<input class="input2" type="nomcarte" id="nomcarte" name="nomcarte" value="    ... ... ... ...">
-
-
+        <input  type="nomcarte" id="nomcarte" name="nomcarte" value="    ...">
     <br>
+        <input  type="submit" value="Payer">
 
-
-<p>Date d'expiration</p>
-
- <p>Cryptogramme visuel</p>
-
-    <br>
-
-
-<input class="input4" type="nomcarte" id="nomcarte" name="nomcarte" value="    MM/AA">
-
-<input class="input4" type="nomcarte" id="nomcarte" name="nomcarte" value="    ...">
-
-<input class="input5" type="submit" value="Payer">
-
-
+        </label>
+    </div>
 </div>
-<footer>
     <?php
     include "footer.php"
     ?>
-</footer>
+
 
 </body>
 </html>
