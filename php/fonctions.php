@@ -1,4 +1,5 @@
 <?php
+require_once "connectdb.php"; // Connexion a la base de données
 // Fonctions de recherches selon les informations passés
 
 
@@ -60,8 +61,15 @@ function selectByType($type,$conn) {
     $tableau = [];
     $i = 0;
     $resfinal = []; // Tableau stockant toutes les images des contenus
+
+    $table = ($type === "films") ? "films" : "series"; 
+    $MinMax = $conn->query("SELECT MIN(idPK) as min, MAX(idPK) as max FROM $table");
+    $range = $MinMax->fetch_assoc();
+    $minId = (int)$range['min'];
+    $maxId = (int)$range['max'];
+
     while ($i < 50) {
-        $val = rand(1, 100); // valeur a changer plus tard avec le nombre max de film
+        $val = rand($minId, $maxId); // Min et Max selon la table et selon le type 
         if (!in_array($val, $tableau)) {
             $tableau[] =$val; // Ajoute la valeur dans le table
             $i++;
@@ -205,6 +213,136 @@ function selectByDecadeShows($year,$conn) {
 
 }
 
+function getTendances($conn) {
+    /*
+    Fonction permettant de récuperer les tendances du moment
+    @args : $conn => mysqli : la connexion a la base de données
+    return array : la liste des img des films ET des series
+    */
+
+    $tableau = [];
+    $sql = $conn->prepare("SELECT poster_path FROM films ORDER BY popularity DESC LIMIT 5");
+    $sql2 = $conn->prepare("SELECT poster_path FROM series ORDER BY popularity DESC LIMIT 5");
+   
+    if ($sql) { 
+        $sql->execute();
+        $result = $sql->get_result();
+        foreach ($result as $res) {
+            $tableau[] = $res['poster_path'];
+        }
+        $sql->close(); 
+    }
+    
+    if ($sql2) { 
+        $sql2->execute();
+        $result2 = $sql2->get_result();
+        foreach ($result2 as $res) {
+            $tableau[] = $res['poster_path'];
+        }
+        $sql2->close();
+    }
+
+    return $tableau;
+}
+
+
+function getMyList($conn, $userId) {
+    /*
+    Fonction permettant de récuperer la liste des films et séries d'un utilisateur
+    @args : $conn => mysqli : la connexion a la base de données
+            $userId => int : l'id de l'utilisateur
+    return array : la liste des img des films ET des series favoris
+    */
+
+    $tableauFilm = [];
+    $tableauSerie = [];
+    $sql = $conn->prepare("SELECT id_film FROM favoris_films WHERE id_utilisateur = (?)");
+    $sql2 = $conn->prepare("SELECT id_serie FROM favoris_series WHERE id_utilisateur = (?)");
+
+    if ($sql) { 
+        $sql->bind_param("i", $userId);
+        $sql->execute();
+        $result = $sql->get_result();
+        foreach ($result as $res) { // Ajoute les id des films dans le tableau
+            $tableauFilm[] = $res['id_film'];
+        }
+        $sql->close(); 
+    }
+    
+    if ($sql2) { 
+        $sql2->bind_param("i", $userId);
+        $sql2->execute();
+        $result2 = $sql2->get_result();
+        foreach ($result2 as $res) { // Ajoute les id des séries dans le tableau
+            $tableauSerie[] = $res['id_serie'];
+        }
+        $sql2->close();
+    }
+
+    // Récupération des images des films
+    $tableau = [];
+
+    foreach ($tableauFilm as $id) { // Pour chaque id de film
+        $sql3 = $conn->prepare("SELECT poster_path FROM films WHERE id_movie = (?)");
+        if ($sql3) {
+            $sql3->bind_param("i", $id);
+            $sql3->execute();
+            $result = $sql3->get_result();
+            foreach ($result as $res) {
+                $tableau[] = $res['poster_path']; // Ajoute l'image du film dans le tableau
+            }
+            $sql3->close();
+        }
+    }
+    foreach ($tableauSerie as $id) { // Pour chaque id de série
+        $sql4 = $conn->prepare("SELECT poster_path FROM series WHERE id_shows = (?)");
+        if ($sql4) {
+            $sql4->bind_param("i", $id);
+            $sql4->execute();
+            $result2 = $sql4->get_result();
+            foreach ($result2 as $res) {
+                $tableau[] = $res['poster_path']; // Ajoute l'image de la série dans le tableau
+            }
+            $sql4->close();
+        }
+    }
+
+
+    return $tableau;
+}
+
+function getAffiche($conn){
+    /*
+    Fonction permettant de récuperer l'affiche d'un film'
+    @args : $conn => mysqli : la connexion a la base de données
+    return string : le chemin de l'affiche du film
+    */
+
+
+    // faire un nombre aléatoire dans la base de données des films
+    $table = "films"; 
+    $MinMax = $conn->query("SELECT MIN(idPK) as min, MAX(idPK) as max FROM $table");
+    $range = $MinMax->fetch_assoc();
+    $minId = (int)$range['min'];
+    $maxId = (int)$range['max'];
+
+    $val = rand($minId, $maxId); // Min et Max selon la table et selon le type
+    $sql = $conn->prepare("SELECT poster_path FROM films WHERE idPK = (?)");
+    if ($sql) {
+        $sql->bind_param("i", $val);
+        $sql->execute();
+        $result = $sql->get_result();
+        if ($result->num_rows > 0) {
+            $res = $result->fetch_assoc();
+            return $res['poster_path']; // Retourne le chemin de l'affiche du film
+        }
+        $sql->close();
+    }
+    return null; // Si aucun film trouvé, retourne null
+
+  
+}
+
 
 /* TEST
 
@@ -232,6 +370,15 @@ var_dump($test); // Doit retourner les films des années 2010 jusqu'a 2019 GOOD
 
 $test = selectByDecadeShows(2010,$conn);
 var_dump($test);
+
+
+
+$test = getTendances($conn);
+echo $test[0] // Doit retourner les tendances du moment GOOD
+
+$test = getAffiche($conn);
+echo $test; // Doit retourner une affiche aléatoire d'un film GOOD
+
 
 */
 
