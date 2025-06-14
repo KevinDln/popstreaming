@@ -51,7 +51,6 @@ require "fonctions.php";
 
             if (!isset($_GET['genre'])) {
                 $films = selectByType("films",$conn);
-                echo "GENRE EST PAS DEFINI";
 
 
 

@@ -11,7 +11,7 @@ function selectByGenreMovie($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT poster_path FROM films WHERE genre = (?)");
+    $sql = $conn->prepare("SELECT poster_path FROM films WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -33,7 +33,7 @@ function selectByGenreShows($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT poster_path FROM series WHERE genre = (?)");
+    $sql = $conn->prepare("SELECT poster_path FROM series WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -172,7 +172,7 @@ function selectByDecadeShows($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -190,7 +190,7 @@ function selectByDecadeShows($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
