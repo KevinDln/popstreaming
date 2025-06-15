@@ -76,7 +76,7 @@ function selectByType($type,$conn) {
     $minId = (int)$range['min'];
     $maxId = (int)$range['max'];
 
-    while ($i < 50) {
+    while ($i < 60) {
         $val = rand($minId, $maxId); // Min et Max selon la table et selon le type 
         if (!in_array($val, $tableau)) {
             $tableau[] =$val; // Ajoute la valeur dans le table
@@ -87,26 +87,33 @@ function selectByType($type,$conn) {
 
     if ($type == "films") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT poster_path FROM films WHERE idPK = (?)");
+        $sql = $conn->prepare("SELECT id_movie,poster_path FROM films WHERE idPK = (?)");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $film) {
-                $resfinal[] = $film;
+                $resfinal[] = [
+                'id' => $film['id_movie'], // Ajoute l'id du film
+                'poster_path' => $film['poster_path'], // Ajoute le chemin de l'image du film;
+                'type' => 'film'];
             }
         }
 
     }
     if ($type == "shows") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT poster_path FROM series WHERE idPK = (?)");
+        $sql = $conn->prepare("SELECT id_shows, poster_path FROM series WHERE idPK = (?)");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $film) {
-                $resfinal[] = $film;
+                $resfinal[] = [
+                'id' => $film['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $film['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'show' // Indique que c'est une série];
+            ];
             }
         }
 
@@ -121,7 +128,7 @@ function selectByDecadeMovies($year,$conn) {
     Fonction permettant de récuperer une liste de film selon la décennie passé en argument
     @args : $year => int : Corresponds à la décennie a rechercher, plus précisement la première année
 
-    return array : la liste des img des films de la décennie recherché
+    return array : les img, l'id et le type de contenu
 
     */
 
@@ -136,12 +143,16 @@ function selectByDecadeMovies($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT poster_path FROM films WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE release_year = (?)");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $res) {
-                $tableau[] =  $res['poster_path']; // On veut afficher que les images pour le moment
+                $tableau[] = [
+                'id' => $res['id_movie'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'movie' // Indique que c'est une série
+                ];
             }
             $year++;
         }
@@ -154,12 +165,16 @@ function selectByDecadeMovies($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT poster_path FROM films WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE release_year = (?)");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $res) {
-                $tableau[] = $res['poster_path']; // On veut afficher que les images pour le moment
+                $tableau[] = [
+                'id' => $res['id_movie'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'movie' // Indique que c'est une série
+                ]; // On veut afficher que les images pour le moment
             }
             $year++;
         }
@@ -188,12 +203,16 @@ function selectByDecadeShows($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?) ORDER BY title");
+            $sql = $conn->prepare("SELECT id_shows, poster_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $res) {
-                $tableau[] = $res['poster_path']; // On veut afficher que les images pour le moment
+                $tableau[] = [
+                'id' => $res['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'shows' // Indique que c'est une série
+                ];
             }
             $year++;
         }
@@ -206,13 +225,16 @@ function selectByDecadeShows($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT poster_path FROM series WHERE release_year = (?) ORDER BY title");
+            $sql = $conn->prepare("SELECT id_shows, poster_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
             foreach ($result as $res) {
-                $tableau[] = $res['poster_path']; // On veut afficher que les images pour le moment
-
+                $tableau[] = [
+                'id' => $res['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'shows' // Indique que c'est une série
+                ];
             }
             $year++;
         }
@@ -229,14 +251,18 @@ function getTendances($conn) {
     */
 
     $tableau = [];
-    $sql = $conn->prepare("SELECT poster_path FROM films ORDER BY popularity DESC LIMIT 5");
-    $sql2 = $conn->prepare("SELECT poster_path FROM series ORDER BY popularity DESC LIMIT 5");
+    $sql = $conn->prepare("SELECT id_movie, poster_path FROM films ORDER BY popularity DESC LIMIT 5");
+    $sql2 = $conn->prepare("SELECT id_shows, poster_path FROM series ORDER BY popularity DESC LIMIT 5");
    
     if ($sql) { 
         $sql->execute();
         $result = $sql->get_result();
         foreach ($result as $res) {
-            $tableau[] = $res['poster_path'];
+            $tableau[] = [
+                'id' => $res['id_movie'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'film' // Indique que c'est une série
+                ];
         }
         $sql->close(); 
     }
@@ -245,7 +271,11 @@ function getTendances($conn) {
         $sql2->execute();
         $result2 = $sql2->get_result();
         foreach ($result2 as $res) {
-            $tableau[] = $res['poster_path'];
+            $tableau[] = [
+                'id' => $res['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'shows' // Indique que c'est une série
+                ];
         }
         $sql2->close();
     }
@@ -282,7 +312,11 @@ function getMyList($conn, $userId) {
         $sql2->execute();
         $result2 = $sql2->get_result();
         foreach ($result2 as $res) { // Ajoute les id des séries dans le tableau
-            $tableauSerie[] = $res['id_serie'];
+            $tableauSerie[] = [
+                'id' => $res['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'shows' // Indique que c'est une série
+                ];
         }
         $sql2->close();
     }
@@ -291,25 +325,33 @@ function getMyList($conn, $userId) {
     $tableau = [];
 
     foreach ($tableauFilm as $id) { // Pour chaque id de film
-        $sql3 = $conn->prepare("SELECT poster_path FROM films WHERE id_movie = (?)");
+        $sql3 = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE id_movie = (?)");
         if ($sql3) {
             $sql3->bind_param("i", $id);
             $sql3->execute();
             $result = $sql3->get_result();
             foreach ($result as $res) {
-                $tableau[] = $res['poster_path']; // Ajoute l'image du film dans le tableau
+                $tableau[] = [
+                'id' => $res['id_movie'], // Ajoute l'id du film
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'film' // Indique que c'est un film
+                ];
             }
             $sql3->close();
         }
     }
     foreach ($tableauSerie as $id) { // Pour chaque id de série
-        $sql4 = $conn->prepare("SELECT poster_path FROM series WHERE id_shows = (?)");
+        $sql4 = $conn->prepare("SELECT id_shows, poster_path FROM series WHERE id_shows = (?)");
         if ($sql4) {
             $sql4->bind_param("i", $id);
             $sql4->execute();
             $result2 = $sql4->get_result();
             foreach ($result2 as $res) {
-                $tableau[] = $res['poster_path']; // Ajoute l'image de la série dans le tableau
+                $tableau[] = [
+                'id' => $res['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'shows' // Indique que c'est une série
+                ];
             }
             $sql4->close();
         }
@@ -335,18 +377,28 @@ function getAffiche($conn){
     $maxId = (int)$range['max'];
 
     $val = rand($minId, $maxId); // Min et Max selon la table et selon le type
-    $sql = $conn->prepare("SELECT poster_path FROM films WHERE idPK = (?)");
+    $sql = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE idPK = (?)");
+    
+    if (!$sql) return null;
+    
+    $affiche = null;
     if ($sql) {
         $sql->bind_param("i", $val);
         $sql->execute();
         $result = $sql->get_result();
         if ($result->num_rows > 0) {
             $res = $result->fetch_assoc();
-            return $res['poster_path']; // Retourne le chemin de l'affiche du film
+            $affiche[] = [
+            'id' => $res['id_movie'], // Ajoute l'id du film
+            'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+            'type' => 'film' // Indique que c'est un film
+            ];
+            
         }
         $sql->close();
+        return $affiche;
+        
     }
-    return null; // Si aucun film trouvé, retourne null
 
   
 }
@@ -385,9 +437,9 @@ $test = getTendances($conn);
 echo $test[0] // Doit retourner les tendances du moment GOOD
 
 $test = getAffiche($conn);
-echo $test; // Doit retourner une affiche aléatoire d'un film GOOD
-
+echo $test[0]['poster_path']; // Doit retourner une affiche aléatoire d'un film GOOD
 
 */
+
 
 ?>

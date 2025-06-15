@@ -101,7 +101,7 @@ $end = false;
                 for ($j=0; $j < 5 ; $j++) {
                     if (isset($films[$init]['poster_path'])) {
                         $img = $films[$init]['poster_path'];
-                        echo "<img src='$img' width='200' height='200'> " ;
+                        echo "<a href=\"\"><img src='$img' width='200' height='200'> </a>" ;
                         $total++;
                     }
                     $init++;

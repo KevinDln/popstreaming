@@ -107,7 +107,7 @@ $end = false;
             // Vérifier si l'index existe dans le tableau
             if (isset($Series[$init]['poster_path'])) {
                 $img = $Series[$init]['poster_path'];
-                echo "<img src='$img' width='200' height='200'> " ;
+                echo "<a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
                 $total++;
             }
             $init++;

@@ -1,6 +1,6 @@
 <nav class="navbar" id="navbar" name="navbar">
     <ul>
-        <li><a href="#">Accueil</a></li>
+        <li><a href="accueil.php">Accueil</a></li>
         <li><a href="affichageTendances.php">Tendances</a></li>
         <li><a href="affichageFilms.php">Films</a></li>
         <li><a href="affichageSeries.php">Séries</a></li>

@@ -38,8 +38,8 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
                 for ($j=0; $j < 5 ; $j++) {
                     // Vérifier si l'index existe dans le tableau
                     if (isset($tendances[$init])) {                        
-                        $img = $tendances[$init];
-                        echo "<p> $number </p> <img src='$img' width='200' height='200'> " ;
+                        $img = $tendances[$init]['poster_path'];
+                        echo "<p> $number </p> <a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
                         $number++;
                     }
                     $init++;

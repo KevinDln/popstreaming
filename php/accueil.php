@@ -49,7 +49,7 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
         
         <div class="affiche" id="affiche" name="affiche">
             <!--- Div de stockage de l'affiche, attendre css pour mise en forme --->
-            <img src="#">
+            <img src="<?php echo $affiche[0]['poster_path']; ?>" alt="Affiche du film" width="80%" height="50%">
         </div>
 
         <div class="contenu" id="contenu" name="contenu">
@@ -62,8 +62,8 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
                 $init = 0;
                 for ($i=0; $i <5 ; $i++) { // Les lignes
                     if (isset($tendances[$init])) {
-                        $img = $tendances[$init];
-                        echo "<img src='$img' width='250' height='200'> " ;
+                        $img = $tendances[$init]['poster_path'];
+                        echo "<a href=\"\"> <img src='$img' width='250' height='200'> </a>" ;
                     }
                     $init++;
                 }
