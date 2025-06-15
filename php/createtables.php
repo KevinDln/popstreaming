@@ -25,9 +25,9 @@ $user="CREATE TABLE IF NOT EXISTS utilisateur (
     id INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
     prenom VARCHAR(255) NOT NULL,
     nom VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     mdp VARCHAR(255) NOT NULL,
-    type_abo varchar(50) NOT NULL,
+    date_naissance DATE NOT NULL,
     date_creation DATE NOT NULL
 );
 
@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS films (
     popularity INT(5) NOT NULL DEFAULT 0,
     release_year YEAR(4) NOT NULL,
     poster_path VARCHAR(255),
-    nb_vote INT(255) NOT NULL DEFAULT 0,
-    rating INT(1) DEFAULT 0,
+    nb_vote INT UNSIGNED NOT NULL DEFAULT 0,
+    rating DECIMAL(3,2) DEFAULT 0,
     content_duration INT(255),
     trailer VARCHAR(255)
 );
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS series (
     release_year YEAR(4) NOT NULL,
     poster_path VARCHAR(255),
     nb_vote INT(255) NOT NULL DEFAULT 0,
-    rating INT(1) DEFAULT 0,
+    rating DECIMAL(3,2) DEFAULT 0,
     title VARCHAR(255) NOT NULL,
     trailer VARCHAR(255)
 );
@@ -93,6 +93,15 @@ CREATE TABLE IF NOT EXISTS favoris_series (
     id_serie INT(11) NOT NULL,
     primary key (id_profil, id_serie),
     index (id_profil)
+);
+
+CREATE TABLE commentaires (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_contenu INT NOT NULL,
+    type ENUM('film', 'serie') NOT NULL,
+    id_utilisateur INT,
+    commentaire TEXT NOT NULL,
+    date_commentaire DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 

@@ -8,11 +8,11 @@ require_once "connectdb.php"; // Connexion a la base de données
 function selectByGenreMovie($genre,$conn){
     /* Fonction permettant de récuperer TOUTES les informations selon le genre passé en argument
     @args : $genre => $string : le genre du contenu a rechercher
-     return array contenant les images des films;
+     return array contenant les images des films ainsi que l'id du film;
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT poster_path FROM films WHERE genre = (?) ORDER BY title");
+    $sql = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -21,7 +21,11 @@ function selectByGenreMovie($genre,$conn){
     }
     if ($num > 0) {
         foreach($res as $film){
-            $result[] = $film;
+            $result[] = [
+                'id' => $film['id_movie'], // Ajoute l'id du film
+                'poster_path' => $film['poster_path'], // Ajoute le chemin de l'image du film;
+                'type' => 'film'
+            ];
         }
     }
     return $result;
@@ -34,7 +38,7 @@ function selectByGenreShows($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT poster_path FROM series WHERE genre = (?) ORDER BY title");
+    $sql = $conn->prepare("SELECT id_shows,poster_path FROM series WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -43,7 +47,11 @@ function selectByGenreShows($genre,$conn){
     }
     if ($num > 0) {
         foreach($res as $film){
-            $result[] = $film;
+            $result[] = [
+                'id' => $film['id_shows'], // Ajoute l'id de la série
+                'poster_path' => $film['poster_path'], // Ajoute le chemin de l'image de la série
+                'type' => 'show' // Indique que c'est une série
+                ];
         }
     }
     return $result;

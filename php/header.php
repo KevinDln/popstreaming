@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../Public/css/header.css">
+<script src="../JS/header.js"></script>
 <header>
    <a href="accueil.php" class="logo">
                 <img src="../img/logo_POP_STREAMING.png" alt="Logo">
@@ -15,7 +17,7 @@
                 
                 <div class="langue">
                     <button class="langue-selection">Langue</button>
-                    <ul class="language-dropdown">
+                    <ul class="language-affichage">
                         <li><a href="#">Français</a></li>
                         <li><a href="#">English</a></li>
                         <li><a href="#">Español</a></li>
