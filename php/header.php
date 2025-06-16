@@ -6,8 +6,10 @@
             </a>
             
             <div class="recherche">
-                <input type="search" placeholder="Rechercher">
-                <button type="submit">Rechercher</button>
+                <form action="recherche.php" method="POST">
+                    <input type="search" id="film" name="film" placeholder="Rechercher un film, une série...">
+                    <button type="submit">Rechercher</button>
+                </form>
             </div>
             
             <div class="nav-actions">
@@ -16,16 +18,20 @@
                 </button>
                 
                 <div class="langue">
-                    <button class="langue-selection">Langue</button>
+                    <button class="langue-selection">FR</button>
                     <ul class="language-affichage">
-                        <li><a href="#">Français</a></li>
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Español</a></li>
+                        <li><a href="#">FR</a></li>
+                        <li><a href="#">EN</a></li>
+                        <li><a href="#">ES</a></li>
                     </ul>
                 </div>
                 
                 <a href="#" class="profile-link">
                     <img src="" alt="Photo de profil" class="profile-image">
+                    <ul class="options-affichage">
+                        <li> <a href="#"> Mon compte</a> </li>
+                        <li> <a href="#"> Se déconnecter </a> </li>
+                    </ul>
                 </a>
             </div>
         </nav>
