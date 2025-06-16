@@ -39,10 +39,7 @@ function getCurlOptions($url)
     return $options;
 }
 
-function getCurlOptionsV2($type,$cast,$id)
-{
-
-
+function getCurlOptionsV2($type,$cast,$id){
     if ($type == "movie" && $cast == "video") {
         $options = [
             CURLOPT_URL => "https://api.themoviedb.org/3/movie/$id/videos?language=fr",
@@ -58,9 +55,11 @@ function getCurlOptionsV2($type,$cast,$id)
             ],
         ];
 
-    } elseif ($type == "movie" && $cast == "cast") {
+    }
+
+    elseif ($type == "movie" && $cast == "cast") {
         $options = [
-            CURLOPT_URL => "https://api.themoviedb.org/3/movie/id/credits?language=fr",
+            CURLOPT_URL => "https://api.themoviedb.org/3/movie/$id/credits?language=fr",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -75,6 +74,7 @@ function getCurlOptionsV2($type,$cast,$id)
 
 
     }
+
     elseif ($type == "shows" && $cast == "video") {
         $options = [
             CURLOPT_URL => "https://api.themoviedb.org/3/tv/$id/videos?language=en-US",
@@ -117,4 +117,5 @@ function getCurlOptionsV2($type,$cast,$id)
         $options[CURLOPT_PROXYPORT] = $PROXY_CONFIG[ENV]['port'];
     }
     return $options;
+
 }

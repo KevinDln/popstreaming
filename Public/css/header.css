@@ -1,0 +1,24 @@
+/* Header styles */
+/* Valeurs et attributs a changer, ici c'est juste un test pour voir si mon javascript fonctionne */
+
+
+.language-affichage {
+  display: none; /* cache la liste de langues */
+  position: absolute; /* pour que la liste s'affiche en superposition */
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  z-index: 1000;
+}
+
+.recherche input[type="search"] {
+  display: none; /* cache la barre de recherche par défaut */
+}
+
+.recherche.active input[type="search"] {
+  display: inline-block; /* affiche le champ quand .recherche a la classe active */
+}
+

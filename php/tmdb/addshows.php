@@ -26,10 +26,10 @@ $showsApi = ShowsAPI::getInstance();
 $year = 2025;
 $genreShows = [];
 $tab_acteur_series = [];
-while ($year >= 2024) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 2000) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categoriesTV as $name => $genreId) {
         // Recupere toutes les informations de la série
-        $genreShows[$name] = $showsApi->getSeriesByGenreAndYear($genreId, $year, 3);
+        $genreShows[$name] = $showsApi->getSeriesByGenreAndYear($genreId, $year, 2);
 
         // Ajout dans la base de données les informations nécessaires
         // original_language, release_year = $year,$name = genre, 
@@ -84,12 +84,12 @@ while ($year >= 2024) { // On va chercher le contenu jusqu'au années 1970
                         $key = $name_cast . '|' . $shows['id'];
 
                         // Vérifie si la combinaison acteur + film a déjà été insérée
-                        if (!isset($tab_acteur_series[$key])) {
+                        if (!in_array($key, $tab_acteur_series)) {
                             $sql2->bind_param("sis", $name_cast, $shows['id'], $img);
                             $sql2->execute();
 
                             // Enregistre la paire pour ne pas la réinsérer
-                            $tab_acteur_series[$key] = true;
+                            $tab_acteur_series[] = $key;
                         }
 
 
