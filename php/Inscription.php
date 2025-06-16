@@ -21,7 +21,7 @@
         <br>
         <label for="mdp">Confirmer Mot de passe:</label> <input type="text" id="mdp" name="mdp" required>
         <br>
-        <label for="date_de_naissance">Date de naissance:</label> <input type="text" id="date_de_naissance" name="date_de_naissance" required>
+        <label for="date_naissance">Date de naissance:</label> <input type="text" id="date_naissance" name="date_naissance" required>
         <br>
         <br>
         <input type="submit" value="Valider">
