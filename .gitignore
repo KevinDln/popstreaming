@@ -1,5 +1,5 @@
 # Ignorer tout dans cache/
-cache/*
+php/tmdb/cache/
 
 # Sauf le fichier .gitkeep (pour garder le dossier vide dans le dépôt)
 !cache/.gitkeep

@@ -214,11 +214,11 @@ class MovieAPI
 
 
     // Va chercher a récuperer la KEY necessaire pour l'url de la vidéo 
-    public function getKeyMovies($movieId){ 
+    public function getKeyMovies($movieId){
         /* Fonction permettant de récuperer la clé de l'url de la vidéo pour la série
         Args : $showId (int) : ID de la série
 
-        Returns : 
+        Returns :
             json : format json contenant les informations
         */
 
@@ -231,19 +231,19 @@ class MovieAPI
         curl_close($curl);
 
         if ($err) {
-        echo "cURL Error #:" . $err;
+            echo "cURL Error #:" . $err;
         } else {
-        return $response;
+            return $response;
         }
     }
 
 
     public function getCastingMovie($movieId) {
-        /* Fonction permettant de récuperer le casting d'une série, pour un maximum de 
-        5 acteurs par séries 
+        /* Fonction permettant de récuperer le casting d'une série, pour un maximum de
+        5 acteurs par séries
         Args : $showId (int) : ID de la série
 
-        Returns : 
+        Returns :
             table : table contenant les castings
         */
 
@@ -257,11 +257,11 @@ class MovieAPI
         curl_close($curl);
 
         if ($err) {
-        echo "cURL Error #:" . $err;
+            echo "cURL Error #:" . $err;
         } else {
             $cast =[]; // Initialise un tab de casting
             $result = json_decode($response,true);
-            if (!empty($result['cast'])){ // Si on récupère bien le casting 
+            if (!empty($result['cast'])){ // Si on récupère bien le casting
 
                 $maxActors = (count($result['cast']) > 5) ? 5 : count($result['cast']);
 
@@ -271,8 +271,8 @@ class MovieAPI
                     $cast[$i]['id_movie'] = $movieId;
                 }
             }
-            
-        return $cast;
+
+            return $cast;
         }
 
 
