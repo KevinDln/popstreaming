@@ -26,6 +26,10 @@
                 
                 <a href="#" class="profile-link">
                     <img src="" alt="Photo de profil" class="profile-image">
+                    <ul class="options-affichage">
+                        <li> <a href="#"> Mon compte</a> </li>
+                        <li> <a href="#"> Se déconnecter </a> </li>
+                    </ul>
                 </a>
             </div>
         </nav>
