@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6beea8d7-0008-40a1-8a61-7f903d3db6a3" name="C:\xampp\htdocs\greta\popstreaming\" url="http://localhost:8000/greta/popstreaming/">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\greta\popstreaming" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
