@@ -1,18 +1,82 @@
-.flex1{
-    display: flex;
-    flex-direction: row-reverse;
-
-
-}
-
-.p1{
-    border-color: white;
-}
-
-.input1 {
-    color: var(--Nuances-blanc);
-    background-color: var(--Nuances-noir);
-    padding: 10px 15px;
-    font-size: 20px;
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
     border-radius: 10px;
+    margin-left: 50px;
+}
+
+.div1{
+    gap: 120px;
+}
+
+.div2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div3 {
+    display : flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.input {
+    display : flex;
+    border-radius: 10px;
+    width: 445px;
+    height: 46px;
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    color: #838789;
+}
+
+.input2 {
+    display : flex;
+    border-radius: 10px;
+    width: 445px;
+    height: 46px;
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    background-color: var(--Nuances-noir);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-blanc);
+}
+
+.input3 {
+    display : flex;
+    border-radius: 10px;
+    width: 209px;
+    height: 46px;
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    color: #838789;
+}
+
+.input4 {
+    display : flex;
+    border-radius: 10px;
+    width: 209px;
+    height: 46px;
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    background-color: var(--Nuances-noir);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-blanc);
+}
+
+.input5 {
+    font-size: 16px;
+    font-family: "Poppins-bold";
+    color: var(--Nuances-noir);
+    border-radius: 10px;
+    width: 448px;
+    height: 46px;
+    background-color: var(--Nuances-jaune);
+}
+
+.input6 {
+    position : absolute;
+    margin : 15px;
 }
