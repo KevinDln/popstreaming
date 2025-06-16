@@ -10,7 +10,7 @@
 <body>
 <header>
     <form method="POST" action="RechercheTraitement.php" placeholder="Rechercher un film, une série..." >
-        <label for="film">Nom:</label> <input type="text" id="film" name="film" required>
+        <label for="film">Recherche </label> <input type="text" id="film" name="film" required>
         <input type="submit" value="Rechercher">
     </form>
 </header>

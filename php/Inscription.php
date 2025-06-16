@@ -17,9 +17,9 @@
         <br>
         <label for="email">E-mail:</label> <input type="text" id="email" name="email" required>
         <br>
-        <label for="mdp">Mot de passe:</label> <input type="text" id="mdp" name="mdp" required>
+        <label for="mdp">Mot de passe:</label> <input type="password" id="mdp" name="mdp" required>
         <br>
-        <label for="mdp">Confirmer Mot de passe:</label> <input type="text" id="mdp" name="mdp" required>
+        <label for="mdp">Confirmer Mot de passe:</label> <input type="password" id="mdp" name="mdp" required>
         <br>
         <label for="date_naissance">Date de naissance:</label> <input type="text" id="date_naissance" name="date_naissance" required>
         <br>
