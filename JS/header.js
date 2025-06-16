@@ -1,16 +1,19 @@
 // Partie barre de recherche
 
 document.addEventListener('DOMContentLoaded', function() {
+  const profileDropdown = document.querySelector('.options-affichage');
+  profileDropdown.style.display = 'none';
   const rechercheDiv = document.querySelector('.recherche');
   const searchButton = rechercheDiv.querySelector('button[type="submit"]');
   const searchInput = rechercheDiv.querySelector('input[type="search"]');
 
 
   searchButton.addEventListener('click', function(e) {
-    e.preventDefault();
+    
 
     // Si la barre est cachée, on l'affiche et on focus dessus
     if (!rechercheDiv.classList.contains('active')) {
+      e.preventDefault();
       rechercheDiv.classList.add('active');
       searchInput.focus();
     } else {
@@ -23,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
       rechercheDiv.classList.remove('active');
       searchInput.value = '';
     }
+
+    // Fermer menu profil
+        if (!e.target.closest('.profile-link')) {
+            profileDropdown.style.display = 'none';
+        }
+
   });
 
 
@@ -57,20 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Partie Menu profil
 
-  const profilDiv = document.querySelector('.profile-link');
-  const optionsLinks = document.querySelectorAll('.options-affichage a');
-  profilDiv.addEventListener('click', function(e) {
-    e.stopPropagation();
-    menuaffichage.style.display = (menuaffichage.style.display === 'block') ? 'none' : 'block';
-  });
+const profileLink = document.querySelector('.profile-link');
+  profileLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+    });
 
 
 
 });
-
-
-
-
-
-
-

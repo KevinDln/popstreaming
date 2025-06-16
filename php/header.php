@@ -6,8 +6,10 @@
             </a>
             
             <div class="recherche">
-                <input type="search" placeholder="Rechercher">
-                <button type="submit">Rechercher</button>
+                <form action="recherche.php" method="POST">
+                    <input type="search" id="film" name="film" placeholder="Rechercher un film, une série...">
+                    <button type="submit">Rechercher</button>
+                </form>
             </div>
             
             <div class="nav-actions">
@@ -16,11 +18,11 @@
                 </button>
                 
                 <div class="langue">
-                    <button class="langue-selection">Langue</button>
+                    <button class="langue-selection">FR</button>
                     <ul class="language-affichage">
-                        <li><a href="#">Français</a></li>
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Español</a></li>
+                        <li><a href="#">FR</a></li>
+                        <li><a href="#">EN</a></li>
+                        <li><a href="#">ES</a></li>
                     </ul>
                 </div>
                 

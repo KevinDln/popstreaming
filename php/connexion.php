@@ -11,19 +11,23 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
     // Recherche dans la base de données si l'email est bien dedans
-
-    $sql= $conn->prepare("SELECT email,mdp FROM utilisateur WHERE email = ?"); // Récupère l'email et le mdp
+    $sql= $conn->prepare("SELECT id,email,mdp FROM utilisateur WHERE email = ?"); // Récupère l'email et le mdp
     $sql->bind_param("s", $email);
     $sql->execute();
     $res = $sql->get_result();
-    if ($sql->num_rows > 0) {
+    if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+        
         // Mail est dans la base de données donc on peut passer a la vérification du mot de passe
-        if ( $res['mdp'] === password_hash($mdp, PASSWORD_DEFAULT) ) {
+        if (password_verify($mdp,$row['mdp']) ) {
             // Si le mdp est bon, on peut rediriger a l'accueil
+            echo "Connexion réussie";
             $_SESSION['connected'] = true;
+            $_SESSION['id'] = $row['id'];
             header("Location: accueil.php");
         }
         else {
+            echo "Mot de passe incorrect";
             $incorrect = true;
         }
     }
