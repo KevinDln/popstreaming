@@ -1,30 +1,41 @@
+// Partie barre de recherche
+
 document.addEventListener('DOMContentLoaded', function() {
+  const profileDropdown = document.querySelector('.options-affichage');
+  profileDropdown.style.display = 'none';
   const rechercheDiv = document.querySelector('.recherche');
   const searchButton = rechercheDiv.querySelector('button[type="submit"]');
   const searchInput = rechercheDiv.querySelector('input[type="search"]');
 
-  // Quand on clique sur "Rechercher" : toggle l'affichage du champ input
+
   searchButton.addEventListener('click', function(e) {
-    e.preventDefault();
+    
 
     // Si la barre est cachée, on l'affiche et on focus dessus
     if (!rechercheDiv.classList.contains('active')) {
+      e.preventDefault();
       rechercheDiv.classList.add('active');
       searchInput.focus();
     } else {
-      // Sinon, tu peux éventuellement gérer la soumission ou la recherche ici
-      // Par exemple, récupérer la valeur et faire une recherche
       console.log("Recherche lancée pour:", searchInput.value);
     }
   });
 
-  // Si on clique ailleurs que sur .recherche, on cache la barre et on vide le champ
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.recherche')) {
       rechercheDiv.classList.remove('active');
       searchInput.value = '';
     }
+
+    // Fermer menu profil
+        if (!e.target.closest('.profile-link')) {
+            profileDropdown.style.display = 'none';
+        }
+
   });
+
+
+
 
   // Gestion menu langue
   const langButton = document.querySelector('.langue-selection');
@@ -50,4 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
       langList.style.display = 'none';
     }
   });
+
+
+
+  // Partie Menu profil
+
+const profileLink = document.querySelector('.profile-link');
+  profileLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+
+
 });

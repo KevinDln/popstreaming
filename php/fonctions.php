@@ -284,7 +284,7 @@ function getTendances($conn) {
 }
 
 
-function getMyList($conn, $userId) {
+function getMyList($userId, $conn) {
     /*
     Fonction permettant de récuperer la liste des films et séries d'un utilisateur
     @args : $conn => mysqli : la connexion a la base de données
@@ -294,6 +294,8 @@ function getMyList($conn, $userId) {
 
     $tableauFilm = [];
     $tableauSerie = [];
+    $idPresentFilm = [];
+    $idPresentSerie = [];
     $sql = $conn->prepare("SELECT id_film FROM favoris_films WHERE id_utilisateur = (?)");
     $sql2 = $conn->prepare("SELECT id_serie FROM favoris_series WHERE id_utilisateur = (?)");
 
@@ -302,30 +304,37 @@ function getMyList($conn, $userId) {
         $sql->execute();
         $result = $sql->get_result();
         foreach ($result as $res) { // Ajoute les id des films dans le tableau
-            $tableauFilm[] = $res['id_film'];
+            $idFilm = $res['id_film'];
+            if (!in_array($idFilm, $idPresentFilm)) { // Si l'id n'est pas déjà présent
+                $tableauFilm[] = $res['id_film'];
+                $idPresentFilm[] = $idFilm; // Ajoute l'id du film dans le tableau
+            }
+            
         }
         $sql->close(); 
     }
+
     
     if ($sql2) { 
         $sql2->bind_param("i", $userId);
         $sql2->execute();
         $result2 = $sql2->get_result();
         foreach ($result2 as $res) { // Ajoute les id des séries dans le tableau
-            $tableauSerie[] = [
-                'id' => $res['id_shows'], // Ajoute l'id de la série
-                'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
-                'type' => 'shows' // Indique que c'est une série
-                ];
+            $idSerie = $res['id_serie'];
+            if (!in_array($idSerie, $idPresentSerie)) { // Si l'id n'est pas déjà présent
+                $tableauSerie[] = $res['id_serie'];
+                $idPresentSerie[] = $idSerie; // Ajoute l'id du film dans le tableau
+            }
         }
         $sql2->close();
     }
+        
 
     // Récupération des images des films
     $tableau = [];
 
     foreach ($tableauFilm as $id) { // Pour chaque id de film
-        $sql3 = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE id_movie = (?)");
+        $sql3 = $conn->prepare("SELECT DISTINCT id_movie, poster_path FROM films WHERE id_movie = (?)");
         if ($sql3) {
             $sql3->bind_param("i", $id);
             $sql3->execute();
@@ -340,6 +349,7 @@ function getMyList($conn, $userId) {
             $sql3->close();
         }
     }
+
     foreach ($tableauSerie as $id) { // Pour chaque id de série
         $sql4 = $conn->prepare("SELECT id_shows, poster_path FROM series WHERE id_shows = (?)");
         if ($sql4) {
@@ -355,7 +365,7 @@ function getMyList($conn, $userId) {
             }
             $sql4->close();
         }
-    }
+    } 
 
 
     return $tableau;
@@ -404,6 +414,37 @@ function getAffiche($conn){
 }
 
 
+// Fonction de Nico
+function fonctionRecherche($mot, $conn){
+    $tableresult = [ ];
+    $titre = "%".$mot."%";
+    $stmt = $conn->prepare("SELECT * FROM films WHERE title LIKE ? ");
+    $stmt->bind_param("s", $titre);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $nbresults = $result->num_rows;
+    if ($nbresults > 0){
+        foreach ($result as $row){
+            $tableresult[] = $row['poster_path'];
+        }
+
+    }
+    $stmt = $conn->prepare("SELECT * FROM series WHERE title LIKE ? ");
+    $stmt->bind_param("s", $titre);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $nbresults = $result->num_rows;
+    if ($nbresults > 0){
+        foreach ($result as $row){
+            $tableresult[] = $row['poster_path'];
+        }
+
+    }
+
+    return $tableresult;
+}
+
+
 /* TEST
 
 
@@ -438,6 +479,10 @@ echo $test[0] // Doit retourner les tendances du moment GOOD
 
 $test = getAffiche($conn);
 echo $test[0]['poster_path']; // Doit retourner une affiche aléatoire d'un film GOOD
+
+
+$test = getMyList(1, $conn); // Doit retourner la liste des films et séries favoris de l'utilisateur avec id 1
+var_dump($test); // GOOD
 
 */
 

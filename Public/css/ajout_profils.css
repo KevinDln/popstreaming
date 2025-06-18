@@ -1,0 +1,77 @@
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+.container-profils{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement si tu veux */
+    text-align: center;
+}
+
+.profils {
+    gap: 68px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.ajouter .cercle {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Nuances-bleu-fonce);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profil {
+     display: flex;
+     flex-direction: column;
+     color: var(--Nuances-blanc);
+ }
+
+.ajouter .plus {
+    font-size: 200px;
+    color: var(--Nuances-blanc);
+}
+
+.ajouter .cercle {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Nuances-bleu-fonce);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.p1{
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+
+}
+
+
+.input1 {
+    border-radius: 10px;
+    width: 400px;
+    height: 53px;
+    font-family:  "Poppins-regular";
+    font-size: 16px;
+    background-color: var(--Nuances-blanc);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-noir);
+    padding : 15px;
+}
+
+.gap {
+    gap : 50px;
+}
