@@ -18,11 +18,7 @@
                     <img src="../img/youtube.png"  height="24px" width="24px" alt="You tube">
                 </a>
             </li>
-            <li> <a href="http://x.com">
-                <img src="../img/twitter-bird-.png" height="24px" width="24px" alt="twitter">
-                </a>
-            </li>
-        </ul>
+                   </ul>
     </nav>
 
     <nav>

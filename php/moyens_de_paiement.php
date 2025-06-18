@@ -71,9 +71,10 @@
         <input class="input4" type="nomcarte" id="nomcarte" name="nomcarte" value="    ...">
     </div><br>
 
-    <a href="pre_accueil.php"><input class="input5" type="submit" value="Payer"> </a> <br>
-
+    <a class="btn-primary" href="modif_profils.php">Payer</a> <br>
 </div>
+
+
 <?php
 include "footer.php"
 ?>
