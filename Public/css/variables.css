@@ -1,3 +1,16 @@
+:root {
+    --Nuances-noir : #0C1419;
+    --Nuances-bleu-fonce : #182832;
+    --Nuances-bleu : #305064;
+    --Nuances-bleu-clair : #487896;
+    --Nuances-jaune : #EFBD3F;
+    --Nuances-jaune-fonce : #CB9C27;
+    --Nuances-rouge : #9B1C31;
+    --Nuances-rouge-clair : #C15D6E;
+    --Nuances-bleu-ciel : #B9F2FF;
+    --Nuances-blanc :#FAF9F9;
+}
+
 body {
     background-color: var(--Nuances-noir);
 }
@@ -34,40 +47,20 @@ p {
     width: 30px;
 }
 
-:root{
---Nuances-noir : #0C1419;
---Nuances-bleu-fonce : #182832;
---Nuances-bleu : #305064;
---Nuances-bleu-clair : #487896;
---Nuances-jaune : #EFBD3F;
---Nuances-jaune-fonce : #CB9C27;
---Nuances-rouge : #9B1C31;
---Nuances-rouge-clair : #C15D6E;
---Nuances-bleu-ciel : #B9F2FF;
---Nuances-blanc : #FAF9F9;
-}
-
 .btn-primary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-jaune);
-    padding: 10px 50px;
-    font-size: 12px;
+    padding: 10px 15px;
+    font-size: 20px;
     border-radius: 10px;
-    font-family: 'Poppins-bold', sans-serif;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--Nuances-jaune-fonce);
 }
 
 .btn-secondary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-blanc);
-    padding: 10px 50px;
-    font-size: 12px;
+    padding: 10px 15px;
+    font-size: 20px;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .btn-plus-infos {
@@ -115,8 +108,4 @@ p {
 
 .presentation-user {
 
-}
-
-section {
-    padding: 50px;
 }

@@ -1,10 +1,9 @@
 # Ignorer tout dans cache/
-php/tmdb/cache/
+cache/*
 
 # Sauf le fichier .gitkeep (pour garder le dossier vide dans le dépôt)
 !cache/.gitkeep
 
 # Ignorer les fichiers système macOS
 .DS_Store
-
-.idea/
+.idea
