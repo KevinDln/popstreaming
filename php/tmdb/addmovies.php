@@ -77,7 +77,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                     $sql->execute(); // A ajouté les valeurs dans la base de données
 
 
-
+/*
                     // PARTIE ACTEURS 
 
                     // Récupère les 5 premiers acteurs présent dans le film
@@ -108,9 +108,9 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                         }
                             
 
-                            
+
                         
-                    }
+                    }*/
                     
             }
 
