@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="PublishConfigData" serverName="C:\xampp\htdocs\greta\popstreaming\" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData">
     <serverData>
       <paths name="C:\xampp\htdocs\greta\popstreaming\">
         <serverdata>
@@ -12,7 +11,4 @@
       </paths>
     </serverData>
   </component>
-=======
-  <component name="PublishConfigData" serverName="C:\xampp\htdocs\greta\popstreaming\" remoteFilesAllowedToDisappearOnAutoupload="false" />
->>>>>>> a0d064e00ca93d3e900d11e8a9adb0030cf8b3fe
 </project>
