@@ -33,10 +33,10 @@
                 <input class="input1" type="text" name="prenom" value="Prénom" alt="Prénom"/>
                 <input class="input1" type="text" name="e-mail" value="E-mail" alt="e-mail"/>
                 <input class="input1" type="text" name="mot de passe" value="Mot de passe" alt="mdp"/>
-                <input class="input1" type="text" name="gérer" value="Gérer les profils des utilisateurs"/>
+                <input class="input1" type="text" name="gérer" value="Gérer les profils des utilisateurs" alt="gérer les profils utilisateurs"/>
                 <div class="center flex gap">
-                    <a href="profils.php"><input class="input2"  type="submit" value="Sauvegarder les modifications"/></a>
-                    <a href="profils.php"><input class="input3" type="submit" value="Annuler"/></a>
+                    <a class="btn-primary"  href="profils.php">Sauvegarder les modifications</a>
+                    <a class="input3" href="profils.php">Annuler</a>
                 </div>
             </div>
         </div>
