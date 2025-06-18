@@ -1,5 +1,5 @@
 /* ------------------------------ CSS -- */
-/*@charset "utf-8";*/
+@charset "utf-8";
 
 /*-----LESS:    width: ~"calc(50% - 20px)";*/
 /*-----CSS:    width: calc(50% - 20px);*/
@@ -28,7 +28,7 @@ li {
   list-style-type: none;
 }
 .center {
-  width: 1200px;
+  width: 1400px;
   margin: 0 auto;
 }
 .clear {

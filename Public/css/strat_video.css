@@ -1,0 +1,145 @@
+#player {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.film-list {
+    display: flex;
+    gap: 10px;
+}
+
+.film img {
+    width: 200px;
+    cursor: pointer;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+video {
+    width: 80%;
+    max-height: 90vh;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+/*Mistral*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #0C1419 0%, #0C1419 0%, rgba(60.96, 101.60, 127, 0) 100%);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Align to the left */
+    text-align: left; /* Ensure text alignment is left */
+
+}
+
+.content .size-container {
+    width: 80%;
+}
+
+.content h1 {
+    margin-top: 0;
+}
+
+.content p {
+    font-size: 14px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    width: fit-content;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    cursor: pointer;
+    width: fit-content;
+    height: 44px; background: rgba(48, 80, 100, 0.50);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.info-icon span:first-child {
+    background-color: white;
+    color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.info-text {
+    font-size: 14px;
+}
