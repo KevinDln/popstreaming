@@ -3,23 +3,23 @@
         <ul class="ul1 flex">
             <li>
                 <a href="https://www.facebook.com/?locale=fr_FR">
-                    <img src="../img/facebook.png" height="24px" width="24px" alt="X">
+                    <img src="../Public/img/facebook.png" height="24px" width="24px" alt="X">
                 </a>
             </li>
             <li> <a href="https://x.com/">
-                    <img src="../img/X.png" height="24px" width="24px" alt="X">
+                    <img src="../Public/img/X.png" height="24px" width="24px" alt="X">
                 </a>
             </li>
             <li> <a href="https://fr.linkedin.com/">
-                    <img src="../img/linkedin.png"  height="24px" width="24px" alt="Linkedin">
+                    <img src="../Public/img/linkedin.png"  height="24px" width="24px" alt="Linkedin">
                 </a>
             </li>
             <li> <a href="https://www.youtube.com/?app=desktop&hl=FR">
-                    <img src="../img/youtube.png"  height="24px" width="24px" alt="You tube">
+                    <img src="../Public/img/youtube.png"  height="24px" width="24px" alt="You tube">
                 </a>
             </li>
             <li> <a href="http://x.com">
-                <img src="../img/twitter-bird-.png" height="24px" width="24px" alt="twitter">
+                <img src="../Public/img/twitter-bird-.png" height="24px" width="24px" alt="twitter">
                 </a>
             </li>
         </ul>

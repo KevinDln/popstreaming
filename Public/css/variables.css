@@ -50,17 +50,24 @@ p {
 .btn-primary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-jaune);
-    padding: 10px 15px;
-    font-size: 20px;
+    padding: 10px 50px;
+    font-size: 12px;
     border-radius: 10px;
+    font-family: 'Poppins-bold', sans-serif;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--Nuances-jaune-fonce);
 }
 
 .btn-secondary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-blanc);
-    padding: 10px 15px;
-    font-size: 20px;
+    padding: 10px 50px;
+    font-size: 12px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn-plus-infos {
@@ -108,4 +115,8 @@ p {
 
 .presentation-user {
 
+}
+
+section {
+    padding: 50px;
 }
