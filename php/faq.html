@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aide - Pop Stream</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .left-panel {
+      flex: 1 1 60%;
+      min-width: 300px;
+    }
+
+    .right-panel {
+      flex: 1 1 30%;
+      min-width: 250px;
+      padding-left: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .option {
+      background-color: #222;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .option:hover {
+      background-color: #333;
+    }
+
+    .quick-links {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quick-links h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .quick-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .quick-links a:hover {
+      text-decoration: underline;
+    }
+
+    .help-box {
+      background-color: #333;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .help-link {
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .contact-button button {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .contact-button button:hover {
+      background-color: #e6b800;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .right-panel {
+        padding-left: 0;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+      <h1>Comment pouvons-nous vous aider ?</h1>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Saississez une question, un sujet ou un problème" />
+      </div>
+
+      <div class="section">
+        <h2>Premier pas</h2>
+        <div class="option">Rejoindre Pop Stream <span>+</span></div>
+        <div class="option">Configuration de l’appareil <span>+</span></div>
+      </div>
+
+      <div class="section">
+        <h2>Compte et facturation</h2>
+        <div class="option">Paramètre du compte <span>+</span></div>
+        <div class="option">Paiment <span>+</span></div>
+      </div>
+
+      <div class="section">
+        <h2>Résoudre un problème</h2>
+        <div class="option">Problème de compte / Facturation <span>+</span></div>
+        <div class="option">Code d’erreur / Problème de lecture <span>+</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel">
+      <div class="quick-links">
+        <h2>Liens rapides</h2>
+        <ul>
+          <li><a href="#">Réinitialiser le mot de passe</a></li>
+          <li><a href="#">Mettre à jour l’e-mail</a></li>
+          <li><a href="#">Obtenir de l’aide pour vous identifier</a></li>
+          <li><a href="#">Mettre à jour le mode de paiement</a></li>
+          <li><a href="#">Demander des films ou des série TV</a></li>
+        </ul>
+
+        <div class="help-box">
+          <a href="https://tonlien.com/contact" class="help-link">Besoin d’aide supplémentaire ?</a>
+        </div>
+
+        <div class="contact-button">
+          <button>Nous contacter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
