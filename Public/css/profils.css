@@ -1,0 +1,65 @@
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.p1{
+    font-size: 24px;
+}
+
+.p2{
+    text-align: center;
+}
+
+.profils {
+    display: flex;
+    justify-content: center;
+    gap: 68px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--Nuances-blanc);
+}
+
+.profil img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--Nuances-blanc);
+}
+
+.ajouter .cercle {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Nuances-bleu-fonce);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ajouter .plus {
+    font-size: 200px;
+    color: var(--Nuances-blanc);
+}
+
+.input5 {
+    font-size: 20px;
+    font-family: "Poppins-bold";
+    color: var(--Nuances-blanc);
+    border-radius: 10px;
+    border-color:  var(--Nuances-blanc);
+    width: 200px;
+    height: 59px;
+    background-color: var(--Nuances-noir);
+}

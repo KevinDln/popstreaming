@@ -1,48 +1,77 @@
+<?php
+require "connectdb.php"; // Connexion a la BD
+session_start();
+
+$incorrect = false;
+// Partie vérification des informations passés dans le formulaire
+$message = "Email ou mot de passe incorrect, veuillez réessayer";
+
+if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
+    // MDP et EMAIL reçu
+    $email = $_POST['email'];
+    $mdp = $_POST['mdp'];
+    // Recherche dans la base de données si l'email est bien dedans
+    $sql= $conn->prepare("SELECT id,email,mdp FROM utilisateur WHERE email = ?"); // Récupère l'email et le mdp
+    $sql->bind_param("s", $email);
+    $sql->execute();
+    $res = $sql->get_result();
+    if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+        
+        // Mail est dans la base de données donc on peut passer a la vérification du mot de passe
+        if (password_verify($mdp,$row['mdp']) ) {
+            // Si le mdp est bon, on peut rediriger a l'accueil
+            echo "Connexion réussie";
+            $_SESSION['connected'] = true;
+            $_SESSION['id'] = $row['id'];
+            header("Location: accueil.php");
+        }
+        else {
+            echo "Mot de passe incorrect";
+            $incorrect = true;
+        }
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop Streaming - Identifiez-vous</title>
-    <link rel="stylesheet" href="../public/css/connexion.css">
-    <link rel="stylesheet" href="../public/css/nav.css">
-    <link rel="stylesheet" href="../public/css/styles.css">
-    <link rel="stylesheet" href="../public/css/variables.css">
-    <link rel="stylesheet" href="../public/css/font.css">
-    <link rel="stylesheet" href="../public/css/strat_video.css">
-    <link rel="stylesheet" href="../public/css/footer.css">
-    <link rel="stylesheet" href="../public/css/modal-info.css">background-color: rgba(0, 0, 0, 0.9);
-</head>
-<body>
-<header>
-    <img src="http://localhost/popstreaming/public/img/images/logo-pop-streaming.png" alt="Pop Streaming Logo">
-    <div class="language-selector">
-        <select id="languageSwitch" onchange="switchLanguage()">
-            <option value="fr">FR</option>
-            <option value="en">EN</option>
-        </select>
-    </div>
-</header>
-<main>
-    <div class="login-container">
-        <h1>Identifiez-vous</h1>
-        <form>
-            <input type="email" placeholder="adressemail@gmail.com">
-            <input type="password" placeholder="********">
-            <button type="submit" class="btn">M'identifier</button>
-        </form>
-        <div class="divider">OU</div>
-        <button class="btn code-btn">Utiliser un code d'identification</button>
-        <div class="options">
-            <label>
-                <input type="checkbox"> Se souvenir de moi
-            </label>
-            <a href="#">Mot de passe oublié ?</a>
-        </div>
-        <button class="btn create-account-btn">Créer votre compte</button>
-        <p>Première visite sur Pop Streaming ?</p>
-    </div>
-</main>
 
-</body>
+<head>
+    <title> Connexion </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../JS/mdp.js"> </script>
+
+</head>
+
+    <body>
+
+        <div class="connexion" id="connexion">
+            <?php if ($incorrect) : echo $message?>  <!-- Si on a remplis le formulaire avec informations incorrect -->
+            <?php else :?> <p> Identifiez-vous <p> <!-- Si on a pas remplis le formulaire dans un premier temps -->
+            <?php endif;?>
+            <form method="POST" action="connexion.php">
+                <input type="email" id="email" name="email" placeholder="Email ou numéro de mobile" required> <br> <br>
+                <input type="password" id="mdp" name="mdp" placeholder="mot de passe" required>
+                <input type="checkbox" onclick="showPassword()"> <br> <br>
+                <input type="submit" name="identifier" value="M'identifier">
+                <p> OU </p>
+                <input type="submit" formaction="codeidentification.php" name="code" value="Utiliser un code d'identification" > <br>
+
+                <a href="mdpoublie.php"> Mot de passe oublié ? </a> <br>
+                Se souvenir de moi <input type="checkbox" id="souvenir" name="souvenir">
+                <p> Première visite sur Pop Streaming ? </p>
+                <input type="submit" formaction="inscription.php" value="Créer votre compte">
+            </form>
+
+        </div>
+
+    </body>
+
 </html>
+
+

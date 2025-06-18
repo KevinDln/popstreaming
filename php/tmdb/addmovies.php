@@ -31,7 +31,7 @@ $year = 2025;
 $genreMovies = [];
 $tab_acteur_film = [];
 
-while ($year >= 2024 ) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categories as $name => $genreId) {
         // Recupere toutes les informations du films
         // On prends 10 films par catégorie, 150 films par années
@@ -77,7 +77,7 @@ while ($year >= 2024 ) { // On va chercher le contenu jusqu'au années 1970
                     $sql->execute(); // A ajouté les valeurs dans la base de données
 
 
-
+/*
                     // PARTIE ACTEURS 
 
                     // Récupère les 5 premiers acteurs présent dans le film
@@ -108,9 +108,9 @@ while ($year >= 2024 ) { // On va chercher le contenu jusqu'au années 1970
                         }
                             
 
-                            
+
                         
-                    }
+                    }*/
                     
             }
 
