@@ -22,3 +22,47 @@
   display: inline-block; /* affiche le champ quand .recherche a la classe active */
 }
 
+.photo-profils {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.header {
+  padding: 20px;
+  background-color: var(--Nuances-noir);
+}
+
+.btn-FR {
+  background-color: var(--Nuances-noir);
+  color : var(--Nuances-blanc);
+  padding: 5px;
+  font-size: 15px;
+  font-family: Poppins-regular;
+}
+
+.btn-FR1 {
+  background-color: var(--Nuances-noir);
+  color : var(--Nuances-blanc);
+  font-size: 15px;
+  padding: 5px;
+  font-family: Poppins-regular;
+}
+
+.btn-recherche{
+  background-color: var(--Nuances-noir);
+  color : var(--Nuances-blanc);
+  font-size: 15px;
+  padding: 5px;
+  font-family: Poppins-regular;
+}
+.p{
+  font-family: Poppins-regular;
+  font-size: 16px;
+  color: var(--Nuances-blanc);
+}
+
+.flex1 {
+  display: flex;
+  flex-direction: row;
+}
