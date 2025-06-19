@@ -22,9 +22,9 @@
                 <div class="langue">
                     <button class="langue-selection">FR</button>
                     <ul class="language-affichage">
-                        <li><a href="#">FR</a></li>
-                        <li><a href="#">EN</a></li>
-                        <li><a href="#">ES</a></li>
+                        <li><a data-id="FR" href="#">FR</a></li>
+                        <li><a data-id="EN" href="#">EN</a></li>
+                        <li><a data-id="ES" href="#">ES</a></li>
                     </ul>
                 </div>
                 
