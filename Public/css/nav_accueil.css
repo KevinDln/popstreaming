@@ -38,30 +38,48 @@
 }
 
 .btn-FR {
-  background-color: var(--Nuances-noir);
+  padding: 10px;
+  outline: none;
+  box-shadow: none;
+  border-radius: 10px;
+  border: none;
   color : var(--Nuances-blanc);
-  padding: 5px;
   font-size: 15px;
-  font-family: Poppins-regular;
+  background-color: transparent;
 }
 
 .btn-FR1 {
-  background-color: var(--Nuances-noir);
+  background-color: var(--Nuances-bleu-fonce);
   color : var(--Nuances-blanc);
   font-size: 15px;
   padding: 5px;
-  font-family: Poppins-regular;
+}
+
+.barre-de-recherche{
+  padding: 10px;
+  outline: none;
+  box-shadow: none;
+  border-radius: 10px;
+  border: none;
+  background: var(--Nuances-bleu-fonce);
+  color: var(--Nuances-blanc);
+  width: 300px;
+}
+.barre-de-recherche::placeholder{
+  color: var(--Nuances-blanc);
+  letter-spacing: 1px;
 }
 
 .btn-recherche{
-  background-color: var(--Nuances-noir);
+  background-color: transparent;
+  border: none;
   color : var(--Nuances-blanc);
   font-size: 15px;
-  padding: 5px;
-  font-family: Poppins-regular;
+  width: 30px;
+  height: 30px;
 }
+
 .p{
-  font-family: Poppins-regular;
   font-size: 16px;
   color: var(--Nuances-blanc);
 }
@@ -76,7 +94,16 @@
   display: flex;
   gap: 20px;
 }
+
 .nav-actions {
   align-content: center;
   gap: 20px;
+}
+
+.backgourd-rgba .container-nav .nav-action {
+  background-color: red;
+}
+
+.nav-action .profile-link ul li {
+  position: absolute;
 }

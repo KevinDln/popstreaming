@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Public/css/header.css">
+<link rel="stylesheet" href="../Public/css/nav_accueil.css">
 <script src="../JS/header2.js"></script>
 <header>
    <a href="accueil.php" class="logo">
