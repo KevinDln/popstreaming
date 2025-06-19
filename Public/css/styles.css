@@ -28,7 +28,7 @@ li {
     list-style-type: none;
 }
 .center {
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }
 .clear {
@@ -53,4 +53,3 @@ body {
         margin: 0;
     }
 }
-

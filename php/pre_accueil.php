@@ -183,6 +183,3 @@ include "footer.php"
 </html>
 
 <script src="../Public/js/toggle.js"></script>
-
-</body>
-</html>
