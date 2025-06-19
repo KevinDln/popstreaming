@@ -1,17 +1,10 @@
 <link rel="stylesheet" href="../Public/css/header.css">
-<script src="../JS/header.js"></script>
+<script src="../JS/header2.js"></script>
 <header>
    <a href="accueil.php" class="logo">
-                <img src="../img/logo_POP_STREAMING.png" alt="Logo">
+                <img src="../Public/img/logo-pop-streaming.png" alt="Logo">
             </a>
-            
-            <div class="recherche">
-                <form action="afficheRecherche.php" method="POST">
-                    <input type="search" id="film" name="film" placeholder="Rechercher un film, une série...">
-                    <button type="submit">Rechercher</button>
-                </form>
-            </div>
-            
+
             <div class="nav-actions">
                 <button class="notification">
                     <img src="" alt="Notifications">
