@@ -416,6 +416,12 @@ function getAffiche($conn){
 
 // Fonction de Nico
 function fonctionRecherche($mot, $conn){
+    if ($mot == "") { // Si on clique sur rechercher sans avoir inscrit d'élément
+        return null;
+    }
+    $intablefilm= [];
+    $intableserie = [];
+
     $tableresult = [ ];
     $titre = "%".$mot."%";
     $stmt = $conn->prepare("SELECT * FROM films WHERE title LIKE ? ");
@@ -423,11 +429,20 @@ function fonctionRecherche($mot, $conn){
     $stmt->execute();
     $result = $stmt->get_result();
     $nbresults = $result->num_rows;
-    if ($nbresults > 0){
-        foreach ($result as $row){
-            $tableresult[] = $row['poster_path'];
-        }
+    if ($nbresults > 0) {
+        foreach ($result as $row) {
+            $idFilm = $row['id_movie'];
+            if (!in_array($idFilm, $intablefilm)) { // Si l'id du film n'est pas encore ajouté
+                $tableresult[] = [
+                    'id' => $row['id_movie'], // Ajoute l'id du film
+                    'poster_path' => $row['poster_path'], // Ajoute le chemin de l'image de la série
+                    'type' => 'film' // Indique que c'est un film
+                ];
+                $intablefilm[] = $idFilm;
 
+            }
+
+        }
     }
     $stmt = $conn->prepare("SELECT * FROM series WHERE title LIKE ? ");
     $stmt->bind_param("s", $titre);
@@ -436,7 +451,15 @@ function fonctionRecherche($mot, $conn){
     $nbresults = $result->num_rows;
     if ($nbresults > 0){
         foreach ($result as $row){
-            $tableresult[] = $row['poster_path'];
+            $idSerie = $row['id_shows'];
+            if (!in_array($idSerie, $intableserie)) {
+                $tableresult[] = [
+                    'id' => $row['id_shows'], // Ajoute l'id du film
+                    'poster_path' => $row['poster_path'], // Ajoute le chemin de l'image de la série
+                    'type' => 'shows' // Indique que c'est un film
+                ];
+                $intableserie[] = $idSerie;
+            }
         }
 
     }

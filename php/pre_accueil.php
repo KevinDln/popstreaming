@@ -180,6 +180,9 @@ include "footer.php"
 <script src="../Public/js/slide.js"></script>
 <script src="../Public/js/start_video.js"></script>
 <script src="../JS/header.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
 </body>
 </html>
 
