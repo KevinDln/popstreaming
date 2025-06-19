@@ -1,54 +1,45 @@
-function getLang() { // Pour retourner dynamiquement la langue dans les parametres
-    const langButton = document.querySelector('.langue-selection');
-    if (langButton.textContent === "FR") {
-        let lang =  "francais";
-        return $.ajax({
-            url: "parametres.php",
-            method: "POST",
-            dataType : 'json',
-            data:
-                {
-                    langue: lang
-                },
-            success: function (feedback) {
-                console.log(feedback);
-            },
-        });
-
-    }
-    else if (langButton.textContent === "EN") {
-        let lang =  "english";
-        $.ajax({
-            url: "http://localhost:8000/greta/popstreaming/php/parametres.php",
-            method: "POST",
-            dataType : 'json',
-            data:
-                {
-                    langue: lang
-                },
-            success: function (feedback) {
-                console.log("Langue sélectionné : ", data[0].langue);
-            },
-        });
-    } else if (langButton.textContent === "ES") {
-        let lang =  "español";
-        $.ajax({
-            url: "http://localhost:8000/greta/popstreaming/php/parametres.php",
-            method: "POST",
-            dataType : 'json',
-            data:
-                {
-                    langue: lang
-                },
-            success: function (feedback) {
-                console.log("Langue sélectionné : ", data[0].langue);
-            },
-        });
-    }
-}
 document.addEventListener('DOMContentLoaded', function () {
+    const langueAffichage = document.querySelector('.langue-selection');
+    const langues = document.querySelectorAll('.language-affichage a');
 
-    getLang();
+    langues.forEach(langue => {
+        langue.addEventListener('click', function (e) {
+            //e.preventDefault();
 
+            const langId = langue.getAttribute('data-id');
+
+            // Met à jour le texte du bouton (affichage uniquement)
+            if (langueAffichage) {
+                langueAffichage.textContent = langId;
+            }
+
+            let lang;
+            if (langId === "FR") {
+                lang = "français";
+            } else if (langId === "EN") {
+                lang = "english";
+            } else if (langId === "ES") {
+                lang = "español";
+            } else {
+                lang = "unknown";
+            }
+
+            console.log("Langue envoyée :", lang);
+
+            $.ajax({
+                url: "ajaxParametres.php",
+                method: "POST",
+                data: {
+                    langue: lang
+                },
+                success: function (feedback) {
+                    console.log("Réponse:", feedback);
+                    location.reload(); // Recharge la page pour appliquer la nouvelle langue
+                },
+                error: function(xhr, status, error) {
+                    console.log("Erreur:", error);
+                }
+            });
+        });
+    });
 });
-

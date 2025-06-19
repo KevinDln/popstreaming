@@ -3,8 +3,8 @@ require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
 
 
-/*
-session_start();
+
+session_start();/*
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();

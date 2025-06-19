@@ -1,7 +1,7 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
-
+session_start();
 
 
 // Catalogue des films et séries.
