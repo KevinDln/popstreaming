@@ -178,8 +178,5 @@ include "footer.php"
 <script src="../Public/js/toggle_faq.js"></script>
 <script src="../Public/js/slide.js"></script>
 <script src="../Public/js/start_video.js"></script>
-
 </body>
 </html>
-
-<script src="../Public/js/toggle.js"></script>
