@@ -23,13 +23,16 @@
             </div>
         </div>
         <div class="nav-actions">
-            <a href="../php/profils.php" class="profile-link">
-                <img class="photo-profils profile-image" src="../Public/img/defaut_profil.jpeg" alt="Photo de profil">
+            <div class="profile-link">
+                <a href="../php/profils.php">
+                    <img class="photo-profils profile-image" src="../Public/img/defaut_profil.jpeg" alt="Photo de profil">
+                </a>
                 <ul class="options-affichage">
-                    <li> <a class="p" href="../php/modif_profils.php"> Mon compte</a> </li>
-                    <li> <a class="p" href="../php/deconnexion.php"> Se déconnecter </a> </li>
+                    <li><a class="p" href="../php/modif_profils.php">Mon compte</a></li>
+                    <li><a class="p" href="../php/deconnexion.php">Se déconnecter</a></li>
                 </ul>
-            </a>
+            </div>
+
         </div>
     </div>
 </nav>
