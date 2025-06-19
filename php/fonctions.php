@@ -387,7 +387,7 @@ function getAffiche($conn){
     $maxId = (int)$range['max'];
 
     $val = rand($minId, $maxId); // Min et Max selon la table et selon le type
-    $sql = $conn->prepare("SELECT id_movie, poster_path FROM films WHERE idPK = (?)");
+    $sql = $conn->prepare("SELECT id_movie, backdrop_path FROM films WHERE idPK = (?)");
     
     if (!$sql) return null;
     
@@ -400,7 +400,7 @@ function getAffiche($conn){
             $res = $result->fetch_assoc();
             $affiche[] = [
             'id' => $res['id_movie'], // Ajoute l'id du film
-            'poster_path' => $res['poster_path'], // Ajoute le chemin de l'image de la série
+            'backdrop_path' => $res['backdrop_path'], // Ajoute le chemin de l'image de la série
             'type' => 'film' // Indique que c'est un film
             ];
             
