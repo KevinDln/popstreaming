@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="../Public/css/header.css">
-<script src="../JS/header.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
 <header>
    <a href="accueil.php" class="logo">
                 <img src="../img/logo_POP_STREAMING.png" alt="Logo">
