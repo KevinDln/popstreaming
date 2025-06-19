@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="../Public/css/pre_accueil.css">
     <link rel="stylesheet" href="../Public/css/strat_video.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
+    <link rel="stylesheet" href="../Public/css/header.css">
 </head>
 <body>
 <header>
     <?php
-    include "nav_pre_accueil.php";
+    include "nav_accueil.php";
     ?>
     <div class="center flex container-header">
         <h1>Films et séries en illimité, et bien plus</h1>
@@ -178,7 +179,7 @@ include "footer.php"
 <script src="../Public/js/toggle_faq.js"></script>
 <script src="../Public/js/slide.js"></script>
 <script src="../Public/js/start_video.js"></script>
-
+<script src="../JS/header.js"></script>
 </body>
 </html>
 

@@ -15,7 +15,7 @@
 
 </head>
 
-<?php require "header.php"; ?>
+<?php require "nav_accueil.php"; ?>
 
 <body>
 <div class="center">
