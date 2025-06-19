@@ -10,7 +10,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  width: max-content;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -62,7 +62,14 @@
   color: var(--Nuances-blanc);
 }
 
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex1 {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }

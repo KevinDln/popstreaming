@@ -15,12 +15,12 @@
 <body>
 
     <nav>
-        <img src="../img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+        <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 
     </nav>
     <br>
 
-    <a href="accueil.php"><input class="chevron" type="image" src="../img/chevron-gauche.png" alt="<"</a>
+    <a href="../php/accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
 
     <div class="center">
         <h1>Qui est-ce ?</h1>
@@ -28,7 +28,7 @@
 
         <div class="profils">
             <div class="profil">
-                <a href="ajout_profils.php"><img src="../img/defaut_profil.jpeg" alt="NOM"></a><br>
+                <a href="ajout_profils.php"><img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
                 <p class="p1">Nom</p>
             </div>
 
@@ -62,7 +62,7 @@
 <br> <br>
 
 
-    <a class="btn-secondary" href="modif_profils.php">Gérer les profils ?</a>
+    <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
 <br>
 
 
