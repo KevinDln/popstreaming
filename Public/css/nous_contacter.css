@@ -1,0 +1,25 @@
+.p{
+    font-family: Poppins-regular;
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+}
+
+.p1{
+    font-family: Poppins-bold;
+    font-size: 18px;
+    color: var(--Nuances-blanc);
+}
+.p2{
+    font-family: Poppins-regular;
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+    paddind: 5px;
+}
+
+.textarea {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-blanc);
+
+    font-size: 15px;
+    border-radius: 10px;
+}

@@ -1,4 +1,4 @@
-:root{
+:root {
     --Nuances-noir : #0C1419;
     --Nuances-bleu-fonce : #182832;
     --Nuances-bleu : #305064;
@@ -8,7 +8,7 @@
     --Nuances-rouge : #9B1C31;
     --Nuances-rouge-clair : #C15D6E;
     --Nuances-bleu-ciel : #B9F2FF;
-    --Nuances-blanc : #FAF9F9;
+    --Nuances-blanc :#FAF9F9;
 }
 
 body {

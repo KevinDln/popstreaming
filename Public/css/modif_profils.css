@@ -1,0 +1,112 @@
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+.profil {
+    display: flex;
+    flex-direction: column;
+    color: var(--Nuances-blanc);
+}
+.profils {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.container-modifs{
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.bloc-gauche {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bloc-droite {
+    display: flex;
+    gap: 15px;
+    width: 60%;
+}
+.ajouter .plus {
+    font-size: 200px;
+    color: var(--Nuances-blanc);
+}
+
+.ajouter .cercle {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Nuances-bleu-fonce);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ajouter .plus {
+    font-size: 200px;
+    color: var(--Nuances-blanc);
+}
+
+.p1{
+    font-family: Poppins-regular;
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+    text-align: center;
+}
+
+.div2 {
+    align-items: center;
+
+}
+
+.input1 {
+    border-radius: 10px;
+    width: 100%;
+    height: 53px;
+    font-family:  Poppins-regular;
+    font-size: 16px;
+    background-color: var(--Nuances-blanc);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-noir);
+    padding: 20px;
+
+}
+
+.input2 {
+    border-radius: 10px;
+    width: 320px;
+    height: 53px;
+    font-family:  Poppins-regular;
+    font-size: 16px;
+    background-color: var(--Nuances-jaune);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-noir);
+}
+
+.input3 {
+    display : flex;
+    border-radius: 10px;
+    width: 320px;
+    height: 53px;
+    padding: 10px 15px;
+    font-family: Poppins-regular;
+    font-size: 20px;
+    background-color: var(--Nuances-blanc);
+    border: 1px solid var(--Nuances-blanc);
+    color :  var(--Nuances-noir);
+}
+
+.input6 {
+    position : absolute;
+    margin : 20px;
+}
+
+.gap {
+    gap : 10px;
+    justify-content: space-between;
+}

@@ -1,18 +1,17 @@
-// Toggle FAQ Item
-function toggleFAQ(item) {
-    const isActive = item.classList.contains('active');
+document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', () => {
+        const answer = item.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
 
-    // Close all items
-    faqItems.forEach(faqItem => {
-        faqItem.classList.remove('active');
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.textContent = '+';
+            item.classList.remove('active'); // Supprime la classe active
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.textContent = '-';
+            item.classList.add('active'); // Ajoute la classe active
+        }
     });
 
-    // Open clicked item if it wasn't active
-    if (!isActive) {
-        item.classList.add('active');
-    }
-}
-
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initFAQ);
+});

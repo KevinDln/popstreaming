@@ -1,0 +1,53 @@
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.p1{
+    font-size: 24px;
+}
+
+
+.profils {
+    display: flex;
+    justify-content: center;
+    gap: 68px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--Nuances-blanc);
+}
+
+.profil img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--Nuances-blanc);
+}
+
+.ajouter .cercle {
+    width: 170px;
+    height: 170px;
+    background-color: var(--Nuances-bleu-fonce);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ajouter .plus {
+    font-size: 160px;
+    color: var(--Nuances-blanc);
+}
+
+
