@@ -3,8 +3,13 @@ session_start();
 // Récuperer les informations de langues, de controle parental et verrouillage des profils
 // Pas de fonctionnalité pour verrouillage des profils donc on passe a coté
 // Récuperer infomationss via js ? ou stocker dans un session la langue ?
+echo $_SERVER['REQUEST_METHOD'];
+if (isset($_POST)) var_dump($_POST);
+if (isset ($_POST['langue'])) { // ACTUELLEMENT RECUPERE PAS EN JSON
+    header('Content-type: application/json ',true);
+    echo json_encode($_POST['langue']);
+    exit();
 
-if (isset ($_POST['langue'])) {
     echo ($_POST['langue']);
 } else {
     echo "Pas défini";

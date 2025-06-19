@@ -4,7 +4,7 @@
 <script src="../JS/rechercher.js"></script>
 <header>
    <a href="accueil.php" class="logo">
-                <img src="../img/logo_POP_STREAMING.png" alt="Logo">
+                <img src="../Public/img/logo-pop-streaming.png" alt="Logo">
             </a>
             
             <div class="recherche">
