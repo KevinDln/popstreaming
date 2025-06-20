@@ -90,9 +90,11 @@
   align-content: center;
 }
 
-.flex1 {
-  display: flex;
-  gap: 20px;
+
+.space_between {
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
 }
 
 .nav-actions {
