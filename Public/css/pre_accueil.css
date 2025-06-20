@@ -19,7 +19,7 @@ header::before {
     width: 100%;
     height: 100%;
     background: linear-gradient(360deg, rgba(12, 20, 25, 0.50) 0%, #0C1419 100%), linear-gradient(90deg, #0C1419 0%, #0C1419 0%, rgba(61, 102, 127, 0) 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     opacity: 0.9;
     pointer-events: none;
 }
@@ -42,6 +42,12 @@ header::before {
     color: white;
 }
 
+
+h2 {
+    position: relative;
+    z-index: 2;
+}
+
 .container-header p {
     width: 50%;
     margin-top: 20px;
@@ -49,8 +55,7 @@ header::before {
 
 .tendances-actuelles {
     margin-top: -150px;
-    margin-left: auto;
-    width: 3000px;
+    margin-left: 400px;
 }
 
 .slider-container {
@@ -61,12 +66,24 @@ header::before {
     gap: 10px;
 }
 
+.film-list {
+    margin-left: -50px;
+}
+
 .slider {
     display: flex;
     gap: 10px;
     width: max-content;
     animation: scroll 10s linear infinite;
     height: 100%;
+}
+
+.tendances-actuelles {
+    display: none;
+}
+
+.films-tendances {
+    text-align: left;
 }
 
 .numerotation-tendances {
@@ -78,9 +95,6 @@ header::before {
     margin-bottom: 100px;
 }
 
-.films-tendances {
-    flex-shrink: 0;
-}
 
 .card-film {
     width: 190px;
@@ -88,13 +102,25 @@ header::before {
     margin: 0 10px;
 }
 
-.next{
-    background: black;
+.next {
+    position: absolute;
+    right: -28px;
+    top: 40%;
+    transform: translateY(-50%);
+    background: transparent;
     color: white;
     border: none;
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
+    z-index: 10;
+    width: 100px;
+    height: 100px;
+}
+
+.catalogue {
+    justify-content: center;
+    align-content: center;
 }
 
 .btn-catalogue {
@@ -103,6 +129,8 @@ header::before {
 
 .btn-primary {
     padding: 20px 100px;
+    display: inline-block;
+    margin: 0;
 }
 
 .btn-catalogue img{
@@ -113,6 +141,9 @@ header::before {
     right: 10px
 }
 
+.faq {
+    margin-bottom: 100px;
+}
 
 .faq-icon img {
     width: 20px;
@@ -185,6 +216,8 @@ header::before {
 .form-start {
     text-align: center;
     padding: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .form-start p {
@@ -193,15 +226,36 @@ header::before {
 
 .form-start input[type="email"] {
     width: 50%;
-    padding: 10px;
+    padding: 18px;
     margin: 10px 0;
     border-radius: 5px;
     border: 1px Solid var(--Nuances-blanc);
     color: var(--Nuances-blanc);
     background-color: var(--Nuances-noir);
+    min-width: 244.2px ;
 }
 
 .form-start input[type="submit"] {
     display: inline-block;
     border: none;
+}
+
+
+
+@media (max-width: 1200px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+    footer {
+    display: none
+    }
+
+    p {
+        font-size: 12px;
+    }
+    .container-header h1, p {
+        padding: 20px;
+    }
 }

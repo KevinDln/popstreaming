@@ -15,6 +15,10 @@ body {
     background-color: var(--Nuances-noir);
 }
 
+section {
+    min-height: 200px;
+}
+
 h1, h2 {
     color: var(--Nuances-blanc);
     font-size: 24px;
@@ -50,17 +54,23 @@ p {
 .btn-primary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-jaune);
-    padding: 10px 15px;
-    font-size: 20px;
+    padding: 10px 50px;
+    font-size: 12px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--Nuances-jaune-fonce);
 }
 
 .btn-secondary {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-blanc);
-    padding: 10px 15px;
+    padding: 10px 50px;
     font-size: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn-plus-infos {
