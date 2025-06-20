@@ -24,18 +24,22 @@
         <a href="../php/pre_accueil.php">
             <input class="chevron" type="image" src="../Public/img/btn-retour.png"/>
         </a> <br>
-    <?php require "nav.php"; ?>
+    <div class="flex">
+        <?php require "nav.php"; ?>
 
-
-    <div class="centrer">
-        <h2> Se déconnecter </h2>
-        <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
-        <form action="accueil.php">
-            <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
-            <button class="btn-secondary input" type="submit" > Rester connecter </button>
-        </form>
+        <div class=centrer>
+            <h2> Se déconnecter </h2>
+            <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
+            <form action="accueil.php">
+                <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
+                <button class="btn-secondary input" type="submit" > Rester connecter </button>
+            </form>
+        </div>
     </div>
 
+    <script src="../JS/langues.js"></script>
+    <script src="../JS/profil.js"></script>
+    <script src="../JS/rechercher.js"></script>
 
     <?php require "footer.php"; ?>
     </body>
