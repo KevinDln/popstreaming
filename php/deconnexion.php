@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,7 +10,7 @@
 
     </head>
 
-    <?php require "header.php"; ?>
+    <?php require "nav_accueil.php"; ?>
     <body>
         <?php require "nav.php"; ?>
         <h2> Se déconnecter </h2>

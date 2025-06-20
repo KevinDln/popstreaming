@@ -8,7 +8,7 @@
 
 </head>
 
-<?php require "header.php"; ?>
+<?php require "nav_accueil.php"; ?>
     <body>
         <h2> Se déconnecter </h2>
         <p> Déconnectez-vous de votre compte Pop Streaming </p>
