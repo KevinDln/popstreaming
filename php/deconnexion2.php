@@ -13,28 +13,23 @@
     <link rel="stylesheet" href="../Public/css/deconnexion.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
 </head>
-
-
     <body>
-    <?php require "nav_accueil.php"; ?>
-    <br>
-    <a href="../php/pre_accueil.php">
-        <input class="chevron" type="image" src="../Public/img/btn-retour.png"/>
-    </a> <br>
+        <?php require "nav_accueil.php"; ?>
+        <br>
+        <a href="../php/pre_accueil.php">
+            <input class="chevron" type="image" src="../Public/img/btn-retour.png"/>
+        </a>
+        <br>
 
-
-
-    <div class="centrer">
-        <h2> Se déconnecter </h2>
-        <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
-        <form action="../php/accueil.php">
-            <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
-            <button class="btn-secondary input" type="submit" > Rester connecter </button>
-        </form>
-
-
-
-    <?php require "footer.php"; ?>
+        <div class="centrer">
+            <h2> Se déconnecter </h2>
+            <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
+            <form action="../php/accueil.php">
+                <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
+                <button class="btn-secondary input" type="submit" > Rester connecter </button>
+            </form>
+        </div>
+        <?php require "footer.php"; ?>
         <script src="../JS/header.js"></script>
         <script src="../JS/langues.js"></script>
         <script src="../JS/profil.js"></script>
