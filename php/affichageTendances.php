@@ -2,8 +2,9 @@
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
 
-/*
+
 session_start();
+/*
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
@@ -20,7 +21,9 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 
     </head>
 
-    <?php require "header.php";  ?>
+    <?php
+    include "nav_accueil.php"
+    ?>
     <body>
         
         <?php require "nav.php"; // On inclut la barre de navigation ?>
