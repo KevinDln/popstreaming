@@ -13,8 +13,3 @@ document.querySelector('.close').addEventListener('click', () => {
     document.querySelector('.video-container').style.display = 'none';
     document.getElementById('video-player').pause();
 });
-
-
-document.querySelector('.info-icon').addEventListener('click', function() {
-    alert('Plus d\'infos: Cette section contient plus d\'informations sur Marius et son aventure.');
-});

@@ -8,18 +8,6 @@ body, html {
     background-position: center;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8; /* Ajuste la transparence */
-    pointer-events: none; /* Évite d'interagir avec le calque */
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
 header {
     display: flex;
     justify-content: space-between;
@@ -97,4 +85,8 @@ header {
     background-color: transparent;
     color: #FFD700;
     border: 1px solid #FFD700;
+}
+
+.connexion {
+    margin: 0 auto;
 }

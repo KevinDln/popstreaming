@@ -1,27 +1,34 @@
-.navbar {
-    width: 53px;
-    margin-left: 50px;
-    display: flex;
-    justify-content: center; /* Centrage horizontal (si jamais navbar devient horizontale) */
+nav.menu {
+    height: 100px;
+    background: linear-gradient(360deg, rgba(12, 20, 25, 0.50) 0%, #0C1419 100%);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 50px;
+    position: absolute;
+    align-content: center;
+    width: 100%;
 }
 
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px; /* Espace entre les icônes */
-    height: 500px; /* Toute la hauteur de l'écran */
-    justify-content: center; /* Centrage vertical */
+a.logo {
+    width: 100px;
+    height: 49px;
 }
 
-.navbar li {
-    display: flex;
-    justify-content: center;
+nav.menu .wrap {
+    justify-content: flex-end;
+    align-content: center;
+    margin-left: auto;
 }
 
-.navbar a img {
-    display: block;
+.btn-primary {
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+
 }
