@@ -1,4 +1,4 @@
-:root {
+:root{
     --Nuances-noir : #0C1419;
     --Nuances-bleu-fonce : #182832;
     --Nuances-bleu : #305064;
@@ -8,13 +8,13 @@
     --Nuances-rouge : #9B1C31;
     --Nuances-rouge-clair : #C15D6E;
     --Nuances-bleu-ciel : #B9F2FF;
-    --Nuances-blanc :#FAF9F9;
+    --Nuances-blanc : #FAF9F9;
 }
+
 
 body {
     background-color: var(--Nuances-noir);
 }
-
 section {
     min-height: 200px;
 }
@@ -57,6 +57,7 @@ p {
     padding: 10px 50px;
     font-size: 12px;
     border-radius: 10px;
+    font-family: 'Poppins-bold', sans-serif;
     cursor: pointer;
 }
 
@@ -68,7 +69,7 @@ p {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-blanc);
     padding: 10px 50px;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -118,4 +119,8 @@ p {
 
 .presentation-user {
 
+}
+
+section {
+    padding: 50px;
 }

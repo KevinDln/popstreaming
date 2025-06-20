@@ -44,7 +44,7 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
 
     <body>
         
-        <?php require "header.php"; // On inclut l'entête de la page ?>
+        <?php require "nav_accueil.php"; // On inclut l'entête de la page ?>
         <?php require "nav.php"; // On inclut la barre de navigation ?>
         
         <div class="affiche" id="affiche" name="affiche">
