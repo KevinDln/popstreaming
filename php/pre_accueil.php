@@ -6,18 +6,18 @@
     <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <title>Pop Streaming</title>
     <link rel="stylesheet" href="../Public/css/nav.css">
+    <link rel="stylesheet" href="../Public/css/menu_burger.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
     <link rel="stylesheet" href="../Public/css/pre_accueil.css">
     <link rel="stylesheet" href="../Public/css/strat_video.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
-
 </head>
 <body>
 <header>
     <?php
-    include "nav_accueil.php";
+    include "nav_pre_accueil.php";
     ?>
     <div class="center flex container-header">
         <h1>Films et séries en illimité, et bien plus</h1>
@@ -26,10 +26,10 @@
     </div>
 </header>
 <main>
-    <section class="tendances-actuelles">
+    <section class="center tendances-actuelles">
         <h2>Tendances actuelles</h2>
         <div class="slider-container">
-            <div class="center flex slider film-list">
+            <div class="flex slider film-list">
                 <div class="flex films-tendances">
                     <span class="numerotation-tendances">1</span>
                     <div class="card-film">
@@ -120,19 +120,21 @@
                         </video>
                     </div>
                 </div>
-                <div class="flex films-tendances film data-video="film2.mp4">
-                <span class="numerotation-tendances">10</span>
-                <div class="card-film">
-                    <img src="../Public/img/film.jpg" alt=""><video class="video-hover" loop muted>
-                        <source src="video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="flex films-tendances">
+                    <span class="numerotation-tendances">10</span>
+                    <div class="card-film">
+                        <img src="http://localhost/popstreaming/Public/img/film.jpg" alt="">
+                        <video class="video-hover" loop muted>
+                            <source src="video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <button class="next">→</button>
             </div>
+            <button class="next"><img src="../Public/img/btn-commence-drop-down.png" alt=""></button>
         </div>
     </section>
-    <section class="catalogue">
+    <section class="flex catalogue">
         <div class="btn-catalogue">
             <a class="btn-primary" href="catalogue.php">
                 <img class="icon-catalogue" src="../Public/img/btn-catalogue.png" alt="">
@@ -179,12 +181,5 @@ include "footer.php"
 <script src="../Public/js/toggle_faq.js"></script>
 <script src="../Public/js/slide.js"></script>
 <script src="../Public/js/start_video.js"></script>
-<script src="../JS/header.js"></script>
-<script src="../JS/langues.js"></script>
-<script src="../JS/profil.js"></script>
-<script src="../JS/rechercher.js"></script>
-
 </body>
 </html>
-
-

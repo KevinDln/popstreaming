@@ -35,11 +35,11 @@ video {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: red;
-    color: white;
     font-size: 20px;
     cursor: pointer;
     border: none;
+    width: 20px;
+    height: 20px;
 }
 
 
@@ -126,20 +126,39 @@ body, html {
     height: 44px; background: rgba(48, 80, 100, 0.50);
     border-radius: 10px;
     padding: 20px;
+    gap: 10px;
+    align-content: center;
 }
 
-.info-icon span:first-child {
-    background-color: white;
-    color: black;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+.info-icon span {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+}
+
+.info-icon img {
+    width: 20px;
+    height: 20px;
 }
 
 .info-text {
     font-size: 14px;
 }
+
+@media (max-width: 1200px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+    p {
+        width: 100%;
+    }
+
+    .content .size-container {
+        width: 100%;
+    }
+
+    .content .size-container P {
+        width: 100%;
+    }
+}
+
