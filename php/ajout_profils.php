@@ -14,11 +14,11 @@
 
 <body>
 <nav>
-    <img src="../img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 </nav>
 <br>
 
-<a href="accueil.php"><input class="chevron" type="image" src="../img/chevron-gauche.png" alt="bouton retour accueil"/></a>
+<a href="accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="bouton retour accueil"/></a>
 <div class="center container-profils">
     <div class="profils ajouter flex">
         <div class="profil cercle">
@@ -38,8 +38,8 @@
     <br><br>
 
     <div class="flex gap">
-        <a class="btn-primary" href="accueil.php">Valider</a>
-        <a class="btn-secondary"  href="profils.php">Annuler</a>
+        <a class="btn-primary" href="..php/accueil.php">Valider</a>
+        <a class="btn-secondary"  href="..php/profils.php">Annuler</a>
     </div>
 </div>
 </body>

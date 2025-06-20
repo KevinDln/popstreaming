@@ -20,7 +20,9 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 
     </head>
 
-    <?php require "header.php";  ?>
+    <?php
+    include "nav_accueil.php"
+    ?>
     <body>
         
         <?php require "nav.php"; // On inclut la barre de navigation ?>

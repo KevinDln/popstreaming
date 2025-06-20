@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<?php require "header.php";  ?>
+<?php require "nav_accueil.php";  ?>
 
 <h1>Politique relative aux Choix liés à la Publicité de Popstreaming</h1>
 <h2>1. Utilisation de la publicité</h2>
