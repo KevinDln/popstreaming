@@ -33,12 +33,15 @@ p {
     color: var(--Nuances-blanc);
     background-color: var(--Nuances-noir);
     padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .input-fond-clair {
     color: var(--Nuances-noir);
     background-color: var(--Nuances-blanc);
     padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
 }
 
 .btn-retour {
@@ -59,6 +62,7 @@ p {
     border-radius: 10px;
     font-family: 'Poppins-bold', sans-serif;
     cursor: pointer;
+    border: none;
 }
 
 .btn-primary:hover {

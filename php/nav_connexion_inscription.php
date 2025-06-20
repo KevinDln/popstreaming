@@ -1,7 +1,13 @@
-<nav class="flex backgourd-rgba menu">
-    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
-    <div class="flex wrap">
-        <a href="" class="btn-primary">S'inscrire</a>
-        <a href="" class="btn-primary">S'identifier</a>
+<nav class="menu flex">
+    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt="Logo"></a>
+    <div class="nav-actions">
+        <div class="langue">
+            <button class="langue-selection btn-FR">FR</button>
+            <ul class="language-affichage ">
+                <li><a class="btn-FR1" href="#">FR</a></li>
+                <li><a class="btn-FR1" href="#">EN</a></li>
+                <li><a class="btn-FR1" href="#">ES</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
