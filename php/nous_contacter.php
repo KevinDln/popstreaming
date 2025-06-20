@@ -43,11 +43,18 @@ require "nav_accueil.php";
          </ul>
 </div>
 
+<?php
+require "footer.php";
+?>
+
+<script src="../JS/header.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
+
 </body>
 
-<?php
-    require "footer.php";
-    ?>
+
 
 </html>
 
