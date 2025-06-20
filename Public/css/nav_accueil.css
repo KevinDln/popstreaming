@@ -37,23 +37,6 @@
   background-color: var(--Nuances-noir);
 }
 
-.btn-FR {
-  padding: 10px;
-  outline: none;
-  box-shadow: none;
-  border-radius: 10px;
-  border: none;
-  color : var(--Nuances-blanc);
-  font-size: 15px;
-  background-color: transparent;
-}
-
-.btn-FR1 {
-  background-color: var(--Nuances-bleu-fonce);
-  color : var(--Nuances-blanc);
-  font-size: 15px;
-  padding: 5px;
-}
 
 .barre-de-recherche{
   padding: 10px;
