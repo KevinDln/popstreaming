@@ -124,3 +124,29 @@ p {
 section {
     padding: 50px;
 }
+
+.btn-FR {
+    padding: 10px;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color : var(--Nuances-blanc);
+    font-size: 15px;
+    background-color: transparent;
+}
+.language-affichage {
+    display: block;
+    width: 40px;
+    border: 1px solid var(--Nuances-noir);
+}
+
+.btn-FR1 {
+    background-color: var(--Nuances-bleu-fonce);
+    color : var(--Nuances-blanc);
+    font-size: 15px;
+    padding: 5px;
+    width: 40px;
+    display: block;
+    border: none;
+    text-align: center;
+}

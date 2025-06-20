@@ -1,5 +1,5 @@
-<nav class="flex backgourd-rgba menu">
-    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
+<nav class="flex space_between backgourd-rgba menu">
+    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" height="78" width="180" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">
             <form action="../php/Recherche.php" method="POST">
@@ -35,4 +35,7 @@
 
         </div>
     </div>
-</nav>
+    <script src="../JS/langues.js"></script>
+    <script src="../JS/profil.js"></script>
+    <script src="../JS/rechercher.js"></script>
+ </nav>

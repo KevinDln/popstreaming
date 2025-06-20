@@ -1,19 +1,15 @@
 .p{
-    font-family: Poppins-regular;
     font-size: 16px;
     color: var(--Nuances-blanc);
 }
 
 .p1{
-    font-family: Poppins-bold;
     font-size: 18px;
     color: var(--Nuances-blanc);
 }
 .p2{
-    font-family: Poppins-regular;
     font-size: 16px;
     color: var(--Nuances-blanc);
-    paddind: 5px;
 }
 
 .textarea {
