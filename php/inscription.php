@@ -8,7 +8,7 @@
 
 
 <body>
-<header>
+<a href="pre_accueil.php"> retour pre accueil </a>
     <form method="POST" action="InscriptionTraitement.php" placeholder="Rechercher un film, une série..." >
 
         <label for="nom">Nom:</label> <input type="text" id="nom" name="nom" required>
@@ -21,11 +21,11 @@
         <br>
         <label for="mdp">Confirmer Mot de passe:</label> <input type="password" id="mdp" name="mdp" required>
         <br>
-        <label for="date_naissance">Date de naissance:</label> <input type="text" id="date_naissance" name="date_naissance" required>
+        <label for="date_naissance">Date de naissance:</label> <input type="date" id="date_naissance" name="date_naissance" required>
         <br>
         <br>
         <input type="submit" value="Valider">
     </form>
-</header>
+
 </body>
 </html>

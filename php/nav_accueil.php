@@ -1,5 +1,5 @@
 <nav class="flex backgourd-rgba menu">
-    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
+    <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">
             <form action="../php/Recherche.php" method="POST">

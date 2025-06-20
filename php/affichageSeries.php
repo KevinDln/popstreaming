@@ -1,6 +1,7 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
+require "fonctionParentales.php";
 session_start();
 
 /*
@@ -93,14 +94,25 @@ $end = false;
     // Vérifier si un GET est passé en parametre
     // Si un get n'est pas défini
 
-    if (!isset($_GET['genre'])) {
+    if (!isset($_GET['genre']) && $_SESSION['controle'] == 1) {
+        $Series = selectByTypeParent("shows",$conn);
+
+    }
+
+    elseif (!isset($_GET['genre']) && $_SESSION['controle'] == 0) {
         $Series = selectByType("shows",$conn);
 
-
-
-    } else { // Un get a été défini =>
-        $Series = selectByGenreShows($_GET['genre'],$conn);
     }
+
+    elseif (isset($_GET['genre']) && $_SESSION['controle'] == 0) {
+        $Series = selectByGenreShows($_GET['genre'],$conn);
+
+    }
+
+    else { // Un get a été défini =>
+        $Series = selectByGenreShowsParent($_GET['genre'],$conn);
+    }
+
     $total = 0;
     for ($i=0; $i <=2; $i++) { // Les lignes
         for ($j=0; $j < 5 ; $j++) {
@@ -131,7 +143,7 @@ $end = false;
             <?php endif; ?>
 
 </div>
-
+<?php require "footer.php" ?>
 </body>
 
 </html>

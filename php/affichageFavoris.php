@@ -1,6 +1,7 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
+require "fonctionParentales.php";
 session_start();
 /*
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
@@ -76,7 +77,7 @@ if (isset($_GET['page'])) {
             <a href="<?php echo $urlSuivant?>"> Page suivante </a> 
             <?php endif; ?>
         </div>
-
+        <?php require "footer.php" ?>
     </body>
 
 </html>

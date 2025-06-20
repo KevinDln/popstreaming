@@ -16,7 +16,7 @@
             <button type="submit" formaction="logout.php"> Déconnexion </button>
             <button type="submit" > Rester connecter </button>
         </form>
-
+        <?php require "footer.php" ?>
     </body>
 
 </html>

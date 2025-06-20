@@ -24,31 +24,31 @@
     <nav>
         <ul class="ul2">
             <li>
-                <a class="c" href="../php/FAQ.php">FAQ
+                <a class="c" href="FAQ.php">FAQ
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/contact.php">Nous contacter
+                <a class="c" href="nous_contacter.php">Nous contacter
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/conditions-utilisation.php">Conditions d’utilisation
+                <a class="c" href="conditionUtilisation.php">Conditions d’utilisation
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/confidentialite.php">Confidentialité
+                <a class="c" href="confidentialites.php">Confidentialité
                 </a>
             </li>
             <li>
-                <a class="c" href="choix-publicite.php">Choix liée à la pub
+                <a class="c" href="politiquePub.php">Choix liée à la pub
                 </a>
             </li>
             <li>
-                <a class="c" href="preferences-cookies.php">Préférence des coockies
+                <a class="c" href="#">Préférence des coockies
                 </a>
             </li>
             <li>
-                <a class="c" href="mentions-legales.php">Mentions légales</a>
+                <a class="c" href="mentionslegales.php">Mentions légales</a>
             </li>
         </ul>
     </nav>

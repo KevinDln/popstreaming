@@ -1,6 +1,7 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
+require "fonctionParentales.php";
 
 
 session_start();
@@ -35,7 +36,11 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 
             // Partie affichage
 
-            $tendances = getTendances($conn); // Récupération des tendances
+            if ($_SESSION['controle'] == 0) {
+                $tendances = getTendances($conn);
+
+            } // Récupération des tendances sans controle
+            else $tendances = getTendancesParent($conn);
             $number = 1;
             for ($i=0; $i <=1; $i++) { // Les lignes
                 for ($j=0; $j < 5 ; $j++) {
@@ -52,15 +57,10 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
         
     }
 
-
-
-
-
-           
             ?>
             
         </div>
-
+        <?php require "footer.php" ?>
     </body>
 
 </html>

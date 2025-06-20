@@ -2,6 +2,7 @@
 session_start();
 require "connectdb.php";
 require "fonctions.php";
+require "fonctionParentales.php";
 
 
 // Page pour afficher
@@ -10,14 +11,25 @@ require "fonctions.php";
 // On utilise la fonction de recherche et on renvoie sur la page les contenus retrouvés
 
 
-
-if (isset($_POST['film'] )) { // Première apparition sur la page
-    $mot = $_POST['film'];
-    $resultat = fonctionRecherche($mot, $conn);
-} else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
-    $mot = $_GET['search'];
-    $resultat = fonctionRecherche($mot, $conn);
+if ($_SESSION['controle'] == 0 ) {
+    if (isset($_POST['film'] )) { // Première apparition sur la page
+        $mot = $_POST['film'];
+        $resultat = fonctionRecherche($mot, $conn);
+    } else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
+        $mot = $_GET['search'];
+        $resultat = fonctionRecherche($mot, $conn);
+    }
 }
+else { // Controle parentale a 1
+    if (isset($_POST['film'] )) { // Première apparition sur la page
+        $mot = $_POST['film'];
+        $resultat = rechercheParent($mot, $conn);
+    } else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
+        $mot = $_GET['search'];
+        $resultat = rechercheParent($mot, $conn);
+    }
+}
+
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -101,7 +113,7 @@ $urlPrecedent .= "page=" . ($page - 1);
         <a href="<?php echo $urlSuivant?>"> Page suivante </a>
     <?php endif; ?>
 </div>
-
+<?php require "footer.php" ?>
 </body>
 
 </html>
