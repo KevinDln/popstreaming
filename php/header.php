@@ -8,7 +8,10 @@ if (isset($_SESSION['langue'])) {
     } elseif ($test == "español") {
         $langue = "ES";
     }
-} 
+} else {
+    $_SESSION['langue'] = "français";
+    $langue = "FR";
+}
 
 ?>
 

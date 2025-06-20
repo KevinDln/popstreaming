@@ -62,7 +62,7 @@ session_start();
 
     <tr>
         <td> Se déconnecter </td>
-        <td class="link"> <a href="#"> Déconnecter </a></td>
+        <td class="link"> <a href="deconnexion2.php"> Déconnecter </a></td>
     </tr>
 
     <tr>
