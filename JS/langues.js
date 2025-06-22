@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const langList = document.querySelector('.language-affichage');
     const langLinks = document.querySelectorAll('.language-affichage a');
 
+    langList.style.display="none";
+
     langButton.addEventListener('click', function(e) {
         e.stopPropagation();
         langList.style.display = (langList.style.display === 'block') ? 'none' : 'block';
