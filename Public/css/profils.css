@@ -6,15 +6,31 @@
     margin-left: 50px;
 }
 
-.p1{
-    font-size: 24px;
+.center {
+    margin-bottom: 50px;
 }
 
+.p1{
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.cercle-hover:hover {
+    border: 1px solid var(--Nuances-blanc);
+    border-radius: 50%;
+}
+
+.container-profil {
+    justify-content: center;
+}
 
 .profils {
     display: flex;
     justify-content: center;
-    gap: 68px;
+    gap: 20px;
     margin-top: 30px;
     flex-wrap: wrap;
 }
@@ -24,6 +40,7 @@
     flex-direction: column;
     align-items: center;
     color: var(--Nuances-blanc);
+    cursor: pointer;
 }
 
 .profil img {
@@ -48,6 +65,18 @@
 .ajouter .plus {
     font-size: 160px;
     color: var(--Nuances-blanc);
+}
+
+.btn-secondary {
+    display: flex;
+    justify-self: center;
+    margin-top: 50px;
+}
+
+.btn-secondary:hover {
+    color: var(--Nuances-blanc);
+    background-color: var(--Nuances-noir);
+    border: 1px solid var(--Nuances-blanc);
 }
 
 
