@@ -28,27 +28,27 @@
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/contact.php">Nous contacter
+                <a class="c" href="../php/nous_contacter.php">Nous contacter
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/conditions-utilisation.php">Conditions d’utilisation
+                <a class="c" href="../php/conditionUtilisation.php">Conditions d’utilisation
                 </a>
             </li>
             <li>
-                <a class="c" href="../php/confidentialite.php">Confidentialité
+                <a class="c" href="../php/confidentialites.php">Confidentialité
                 </a>
             </li>
             <li>
-                <a class="c" href="choix-publicite.php">Choix liée à la pub
+                <a class="c" href="../php/politiquePub.php">Choix liée à la pub
                 </a>
             </li>
             <li>
-                <a class="c" href="preferences-cookies.php">Préférence des coockies
+                <a class="c" href="../php/preferences_cookies.php">Préférence des cookies
                 </a>
             </li>
             <li>
-                <a class="c" href="mentions-legales.php">Mentions légales</a>
+                <a class="c" href="../php/mentionslegales.php">Mentions légales</a>
             </li>
         </ul>
     </nav>

@@ -1,0 +1,10 @@
+.div2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input6 {
+    position : absolute;
+    margin : 15px;
+}
