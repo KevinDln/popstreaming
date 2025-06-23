@@ -187,7 +187,7 @@ section {
 }
 
 .nav-actions {
-    position: fixed;
+    /*position: fixed;*/
     right: 50px;
     top: 30px;
 }
