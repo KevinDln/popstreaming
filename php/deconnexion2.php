@@ -21,14 +21,12 @@
         </a>
         <br>
 
-        <div class="container-deconnexion">
+        <div class="centrer">
             <h2> Se déconnecter </h2>
             <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
             <form action="../php/accueil.php">
-                <div class="flex gap">
-                    <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
-                    <button class="btn-secondary input" type="submit" > Rester connecter </button>
-                </div>
+                <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
+                <button class="btn-secondary input" type="submit" > Rester connecter </button>
             </form>
         </div>
         <?php require "footer.php"; ?>

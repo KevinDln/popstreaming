@@ -27,20 +27,17 @@
     <div class="flex">
         <?php require "nav.php"; ?>
 
-        <div class=container-deconnexion>
+        <div class=centrer>
             <h2> Se déconnecter </h2>
             <p class="p1"> Déconnectez-vous de votre compte Pop Streaming </p>
-            <form action="../php/accueil.php">
-                <div class="flex gap">
-                    <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
-                    <button class="btn-secondary input" type="submit" > Rester connecter </button>
-                </div>
+            <form action="accueil.php">
+                <button class="btn-primary input" type="submit" formaction="logout.php"> Déconnexion </button>
+                <button class="btn-secondary input" type="submit" > Rester connecter </button>
             </form>
         </div>
     </div>
 
     <script src="../JS/langues.js"></script>
-    <script src="../JS/header.js"></script>
     <script src="../JS/profil.js"></script>
     <script src="../JS/rechercher.js"></script>
 

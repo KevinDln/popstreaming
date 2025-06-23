@@ -26,7 +26,7 @@
     </a>
     <div class="flex center">
         <form method="POST" action="InscriptionTraitement.php" placeholder="Rechercher un film, une série..." >
-            <h1>Inscription</h1>
+            <h1>Incription</h1>
             <input class="input-fond-clair form-element" type="text" id="nom" name="nom" placeholder="Nom" required>
             <br>
             <input class="input-fond-clair form-element" type="text" id="prenom" name="prenom" placeholder="Prénom" required>

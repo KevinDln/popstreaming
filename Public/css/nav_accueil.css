@@ -32,12 +32,6 @@
   gap: 20px;
 }
 
-a.logo {
-  width: 100px;
-  height: 49px;
-  display:  block;
-}
-
 .header {
   padding: 20px;
   background-color: var(--Nuances-noir);
@@ -77,10 +71,9 @@ nav.menu {
   height: 100px;
   background: linear-gradient(360deg, rgba(12, 20, 25, 0.50) 0%, #0C1419 100%);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px 50px;
+  padding: 50px;
   align-content: center;
   width: 100%;
-  margin-bottom: 30px;
 }
 
 nav.menu .wrap {
