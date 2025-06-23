@@ -1,3 +1,12 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .p1 {
     color: var(--Nuances-blanc);
     font-size: 12px;
