@@ -78,7 +78,7 @@ foreach($result as $row){
                 </div>
             <?php else : ?>
                 <div class="cercle">
-                    <a href="selectProfil.php?">
+                    <a href="createProfil.php">
                         <span class="plus">+</span></a><br></a><br>
                 </div>
             <?php endif; ?>
@@ -96,7 +96,7 @@ foreach($result as $row){
 
             <?php else : ?>
                 <div class="cercle">
-                    <a href="affichageFilms.php">
+                    <a href="createProfil.php">
                         <span class="plus">+</span></a><br></a><br>
                 </div>
             <?php endif; ?>
@@ -112,7 +112,7 @@ foreach($result as $row){
                 </div>
             <?php else : ?>
                 <div class="cercle">
-                    <a href="selectProfil.php?">
+                    <a href="createProfil.php">
                         <span class="plus">+</span></a><br></a><br>
                 </div>
             <?php endif; ?>
@@ -129,7 +129,7 @@ foreach($result as $row){
                     </div>
                 <?php else : ?>
                     <div class="cercle">
-                        <a href="selectProfil.php?">
+                        <a href="createProfil.php">
                             <span class="plus">+</span></a><br></a><br>
                     </div>
                 <?php endif; ?>

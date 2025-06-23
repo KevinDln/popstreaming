@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+$urlprofil = "formProfil.php?profil=" . $_SESSION['profil'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,7 +31,7 @@
       <div class="section">
         <h2>Premier pas</h2>
           <div class="option">Rejoindre Pop Stream <a href="inscription.php">+</a></div>
-        <div class="option">Configuration de l’appareil <a href="#">+</a></div>
+        <div class="option">Configuration de l’appareil <a href="parametres.php">+</a></div>
       </div>
 
       <div class="section">
@@ -44,11 +52,11 @@
       <div class="quick-links">
         <h2>Liens rapides</h2>
         <ul>
-          <li><a href="#">Réinitialiser le mot de passe</a></li>
-          <li><a href="#">Mettre à jour l’e-mail</a></li>
-          <li><a href="#">Obtenir de l’aide pour vous identifier</a></li>
-          <li><a href="#">Mettre à jour le mode de paiement</a></li>
-          <li><a href="#">Demander des films ou des série TV</a></li>
+          <li><a href="<?php echo $urlprofil ?>">Réinitialiser le mot de passe</a></li>
+          <li><a href="<?php echo $urlprofil ?>">Mettre à jour l’e-mail</a></li>
+          <li><a href="nous_contacter.php">Obtenir de l’aide pour vous identifier</a></li>
+          <li><a href="parametres.php">Mettre à jour le mode de paiement</a></li>
+          <li><a href="nous_contacter.php">Demander des films ou des série TV</a></li>
         </ul>
 
         <div class="help-box">
