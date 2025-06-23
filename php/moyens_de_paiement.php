@@ -16,12 +16,12 @@
 
 <body>
 <nav>
-    <img src="../img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 
 </nav>
 <br>
 
-<a href="tarifs_et_avantages.php"><input class="chevron" type="image" src="../img/chevron-gauche.png"</a> <br>
+<a href="../php/tarifs_et_avantages.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png"</a> <br>
 <div class="center"><h1>Payez en ligne</h1>
 </div>
 
@@ -30,17 +30,17 @@
     <div class="center flex div1">
         <div>
             <input type="radio" id="mode" name="mode" value="">
-            <img src="../img/logo-cb.jpg" width="41" height="25" alt="CB">
+            <img src="../Public/img/logo-cb.jpg" width="41" height="25" alt="CB">
         </div>
 
         <div>
             <input type="radio" id="mode" name="mode" value="">
-            <img src="../img/Visa.jpg" width="41" height="25" alt="visa">
+            <img src="../Public/img/Visa.jpg" width="41" height="25" alt="visa">
         </div>
 
         <div>
             <input type="radio" id="mode" name="mode" value="">
-            <img src="../img/MasterCard.png" width="41" height="20" alt="MasterCard">
+            <img src="../Public/img/MasterCard.png" width="41" height="20" alt="MasterCard">
         </div>
     </div>
     <br>
@@ -54,7 +54,7 @@
 
             <div class="div2">
                 <input class="input" type="text" id="nomcarte" name="nomcarte" value="              Numéro de la carte">
-                <input class="input6" type="image" id="image" alt="carte" src="../img/credit-card.png" width="43" height="43">
+                <input class="input6" type="image" id="image" alt="carte" src="../Public/img/credit-card.png" width="43" height="43">
             </div><br>
             <input class="input2" type="nomcarte" id="nomcarte" name="nomcarte" value="    ... ... ... ..."><br>
 
@@ -71,9 +71,10 @@
         <input class="input4" type="nomcarte" id="nomcarte" name="nomcarte" value="    ...">
     </div><br>
 
-    <a href="pre_accueil.php"><input class="input5" type="submit" value="Payer"> </a> <br>
-
+    <a class="btn-primary" href="../php/modif_profils.php">Payer</a> <br>
 </div>
+
+
 <?php
 include "footer.php"
 ?>

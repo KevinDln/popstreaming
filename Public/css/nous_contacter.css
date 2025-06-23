@@ -1,0 +1,21 @@
+.p{
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+}
+
+.p1{
+    font-size: 18px;
+    color: var(--Nuances-blanc);
+}
+.p2{
+    font-size: 16px;
+    color: var(--Nuances-blanc);
+}
+
+.textarea {
+    color: var(--Nuances-noir);
+    background-color: var(--Nuances-blanc);
+
+    font-size: 15px;
+    border-radius: 10px;
+}

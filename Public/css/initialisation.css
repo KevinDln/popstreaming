@@ -1,0 +1,56 @@
+/* ------------------------------ CSS -- */
+@charset "utf-8";
+
+/*-----LESS:    width: ~"calc(50% - 20px)";*/
+/*-----CSS:    width: calc(50% - 20px);*/
+
+*{
+  box-sizing: border-box;
+}
+
+header, section, footer, aside, nav, main, article, figure {
+  display: block;
+}
+div, header, nav, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, a, ul, li, figure, figcaption, class, img {
+  margin: 0;
+  padding: 0;
+}
+
+img, object, embed, canvas, video, audio, picture, svg {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+.center {
+  width: 1400px;
+  margin: 0 auto;
+}
+.clear {
+  clear: both;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins-regular', sans-serif;
+}
+
+
+/* ------------------------ MEDIA QUERIES ---- */
+
+@media screen and (max-width: 1200px) {
+  .center {
+    width: 100%;
+    margin: 0;
+  }
+}
+

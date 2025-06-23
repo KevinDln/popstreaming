@@ -5,7 +5,7 @@
       <paths name="C:\xampp\htdocs\greta\popstreaming\">
         <serverdata>
           <mappings>
-            <mapping deploy="\" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -13,51 +13,56 @@
 </head>
 
 <body>
-<nav>
-    <img src="../img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 
-</nav>
-<br>
+    <nav>
+        <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 
-<a href="accueil.php"><input class="chevron" type="image" src="../img/chevron-gauche.png"</a>
+    </nav>
+    <br>
 
+    <a href="../php/accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
 
-<div class="center">
-    <h1>Qui est-ce ?</h1>
-</div> <br>
+    <div class="center">
+        <h1>Qui est-ce ?</h1>
+     <br>
 
+        <div class="profils">
+            <div class="profil">
+                <a href="ajout_profils.php"><img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
+                <p class="p1">Nom</p>
+            </div>
 
-<div class="profils">
-    <div class="profil">
-        <a href="ajout_profils.php"><img src="../img/defaut_profil.jpeg" alt="NOM"></a><br>
-        <p1>Nom</p1>
-    </div>
-
-    <div class="profil ajouter">
-        <a href="ajout_profils.php">
+        <div class="profil ajouter">
             <div class="cercle">
+                <a href="ajout_profils.php">
                 <span class="plus">+</span></a><br>
-    </div>
-</div>
-
-    <div class="profil ajouter">
-        <a href="ajout_profils.php">
+            </div>
+        </div>
+        <div class="profil ajouter">
             <div class="cercle">
+                <a href="ajout_profils.php">
                 <span class="plus">+</span></a><br>
-    </div>
-</div>
-
-    <div class="profil ajouter">
-        <a href="ajout_profils.php">
+            </div>
+        </div>
+        <div class="profil ajouter">
             <div class="cercle">
+                <a href="ajout_profils.php">
                 <span class="plus">+</span></a><br>
-    </div>
-</div>
-</div>
+            </div>
+        </div>
+        <div class="profil ajouter">
+            <div class="cercle">
+                <a href="ajout_profils.php">
+                <span class="plus">+</span></a><br>
+            </div>
+        </div>
+
+
+
 <br> <br>
 
-<a href="modif_profils.php"><input class="input5" type="submit" value="Gérer les Profils ?">
-</a>
+
+    <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
 <br>
 
 

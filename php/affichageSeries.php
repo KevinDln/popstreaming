@@ -61,7 +61,7 @@ $end = false;
 
 </head>
 
-<?php require "header.php";  ?>
+<?php require "nav_accueil.php";  ?>
 <body>
 <div class="genre" id="genre" name="genre">
     <!--- Div de stockage des genres de films --->

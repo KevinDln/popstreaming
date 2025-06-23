@@ -53,7 +53,9 @@ CREATE TABLE IF NOT EXISTS films (
     nb_vote INT UNSIGNED NOT NULL DEFAULT 0,
     rating DECIMAL(3,2) DEFAULT 0,
     content_duration INT(255),
-    trailer VARCHAR(255)
+    trailer VARCHAR(255),
+    backdrop_path VARCHAR(255) NOT NULL,
+    adult INT(1) NOT NULL DEFAULT 0
 );
 
 
@@ -69,7 +71,9 @@ CREATE TABLE IF NOT EXISTS series (
     nb_vote INT(255) NOT NULL DEFAULT 0,
     rating DECIMAL(3,2) DEFAULT 0,
     title VARCHAR(255) NOT NULL,
-    trailer VARCHAR(255)
+    trailer VARCHAR(255),
+    backdrop_path VARCHAR(255) NOT NULL,
+    adult INT(1) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS acteurs (
