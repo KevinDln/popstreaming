@@ -1,0 +1,30 @@
+<?php
+session_start();
+require 'connectdb.php';
+if (!isset ($_SESSION['id'])) {
+    header("location: connexion.php");
+    exit;
+}
+$id = $_SESSION['id'];
+$erreur = '';
+$succes = false;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $pin = $_POST['pin'] ?? '';
+    $confirmation = $_POST['pinconfirm'] ?? '';
+    if (empty($pin) or empty($confirmation)) {
+        echo "Les deux champs sont nécessaires";
+
+    } elseif ($pin !== $confirmation) {
+        echo "Les deux Codes Pin ne sont pas identiques";
+    } elseif (!preg_match('/^\d{6}$/', $pin)) {
+        $erreur = "Le PIN doit contenir 6 chiffres";
+    } else {
+        $hash = password_hash($pin, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("UPDATE profils SET pin = :pin WHERE id = :id");
+        $stmt->execute([':pin' => $hashed, ':id' => $id]);
+        $_SESSION['pin_last_updated'] = time();
+        $succes = true;
+    }
+}
+?>
