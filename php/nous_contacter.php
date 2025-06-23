@@ -13,10 +13,7 @@
     <link rel="stylesheet" href="../Public/css/nous_contacter.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
 
-
 </head>
-
-
 
 <body>
 
@@ -53,8 +50,5 @@ require "footer.php";
 <script src="../JS/rechercher.js"></script>
 
 </body>
-
-
-
 </html>
 

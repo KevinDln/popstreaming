@@ -5,7 +5,11 @@
     border-radius: 10px;
     margin-left: 50px;
 }
-
+.center{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .div1{
     gap: 120px;
 }
