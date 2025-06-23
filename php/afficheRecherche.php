@@ -94,14 +94,14 @@ $urlPrecedent .= "page=" . ($page - 1);
     </div>
 </div>
 </div>
-
-<input class="avant" type="image" src="../Public/img/btn-retour.png" alt="<"/>
-<input class="avant" type="text" value="1"/>
-<input class="avant" type="text" value="2"/>
-<input class="avant" type="text" value="3">
-<input class="avant" type="text" value="4"/>
-<input class="avant" type="image" src="../Public/img/btn-retour.png" alt="<"/>
-
+<div class="pagination">
+    <input class="avant" type="image" src="../Public/img/btn-pagination-gauche.png" alt="<"/>
+    <input class="avant" type="text" value="1"/>
+    <input class="avant" type="text" value="2"/>
+    <input class="avant" type="text" value="3">
+    <input class="avant" type="text" value="4"/>
+    <input class="avant" type="image" src="../Public/img/btn-pagination-droit.png" alt=">"/>
+</div>
 
 <?php
         $init = (12*$page);
@@ -132,10 +132,12 @@ $urlPrecedent .= "page=" . ($page - 1);
     <?php endif; ?>
 
 
-
+<script src="../JS/header.js"></script>
 <script src="../JS/langues.js"></script>
 <script src="../JS/profil.js"></script>
 <script src="../JS/rechercher.js"></script>
+<script src="../JS/parametres.js.js"></script>
+
 <?php
 require "footer.php";
 ?>
