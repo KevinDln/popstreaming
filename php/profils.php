@@ -57,8 +57,8 @@
             </div>
         </div>
         <br> <br>
-        <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
-</div>
+    <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
+    </div>
 
 </body>
 </html>
