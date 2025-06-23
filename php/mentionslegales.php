@@ -99,9 +99,11 @@
         </p>
     </div>
 </div>
+<script src="../JS/header.js"></script>
 <script src="../JS/langues.js"></script>
 <script src="../JS/profil.js"></script>
 <script src="../JS/rechercher.js"></script>
+<script src="../JS/parametres.js"></script>
 
 <?php require "footer.php";  ?>
 </body>

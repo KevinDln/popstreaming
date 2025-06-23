@@ -96,10 +96,10 @@ $urlPrecedent .= "page=" . ($page - 1);
 </div>
 
 <input class="avant" type="image" src="../Public/img/btn-retour.png" alt="<"/>
-<input class="avant" type="text" alt="1"/>
-<input class="avant" type="text" alt="2"/>
-<input class="avant" type="text" alt="3">3/>
-<input class="avant" type="text" alt="4"/>
+<input class="avant" type="text" value="1"/>
+<input class="avant" type="text" value="2"/>
+<input class="avant" type="text" value="3">
+<input class="avant" type="text" value="4"/>
 <input class="avant" type="image" src="../Public/img/btn-retour.png" alt="<"/>
 
 
