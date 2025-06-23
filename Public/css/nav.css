@@ -5,6 +5,12 @@
     justify-content: center; /* Centrage horizontal (si jamais navbar devient horizontale) */
 }
 
+
+a.logo {
+    width: 100px;
+    height: 49px;
+}
+
 .navbar ul {
     list-style: none;
     padding: 0;
