@@ -45,7 +45,6 @@ if ($_SESSION['controle'] == 0) { // pas de controle parentale
     $affiche = getAfficheParent($conn); // Récupération de l'affiche
 }
 
-
 ?>
 
 

@@ -2,7 +2,7 @@
 session_start();
 require "connectdb.php";
 
-//Page pour selectionner le profil et acceder a l'acceuil
+//Page pour selectionner le profil a modifier
 
 // Récupérer l'id de l'utilisateur connecté
 $id = $_SESSION['id']; // recuperation id
@@ -14,13 +14,15 @@ $result = $sql->get_result(); // Liste des profils récupéré
 $tableres = [];
 foreach($result as $row){
     $tableres[] = [
+        'id' => $row['id'],
         'nom' => $row['nom'],
         'img' => $row['img'],
     ];
 }
 
-?>
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,95 +40,108 @@ foreach($result as $row){
 
 <body>
 
-    <nav>
-        <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+<nav>
+    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
 
-    </nav>
+</nav>
+<br>
+
+<a href="accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
+
+<div class="center">
+    <h1>Qui est-ce ?</h1>
     <br>
 
-    <a href="../php/accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
+    <div class="profils">
+        <div class="profil">
+            <?php if (isset($tableres[0])) : ?>
+                <a href="formProfil.php?profil=<?php echo $tableres[0]['id'] ?>">
+                    <img src="<?php echo $tableres[0]['img'];?>" alt="NOM"></a><br>
+                <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
 
-    <div class="center">
-        <h1>Qui est-ce ?</h1>
-     <br>
+            <?php else : ?>
 
-        <div class="profils">
-            <div class="profil">
-                <a href="ajout_profils.php"><img src=<?php if (isset($tableres[0])) echo $tableres[0]['img'];
-                else echo "../Public/img/defaut_profil.jpeg" ?> alt="NOM"></a><br>
-                <p class="p1"><?php if (isset($tableres[0])) echo $tableres[0]['nom'];
-                    else echo "Nom";
-                    ?>     </p>
-            </div>
+                <a href="selectProfil.php?">
+                    <img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
+                <p class="p1"> Nom </p>
 
-            <div class="profil ajouter">
-                <div class="cercle">
-                    <a href="ajout_profils.php">
-                        <?php if (isset($tableres[1])) : ?>
-                        <img src=<img src=<?php if (isset($tableres[1])) echo $tableres[1]['img'];?>
-                        <?php else : ?>
-                        <span class="plus">+</span></a><br>
-                    <?php endif ?>
-                    <?php if (isset($tableres[1])) : ?>
-                    <p class="p1"><?php echo $tableres[1]['nom'];?>
-                        <?php endif?>
-                    </p>
+            <?php endif; ?>
+        </div>
+
+        <div class="profil ajouter">
+
+            <?php if (isset($tableres[1])) : ?>
+                <div class="profil">
+                    <a href="formProfil.php?profil=<?php echo $tableres[1]['id'] ?>">
+                        <img src="<?php echo $tableres[1]['img'];?>" alt="NOM"></a><br>
+                    <p class="p1"><?php echo $tableres[1]['nom']; ?> </p>
                 </div>
-            </div>
+            <?php else : ?>
+                <div class="cercle">
+                    <a href="selectProfil.php?">
+                        <span class="plus">+</span></a><br></a><br>
+                </div>
+            <?php endif; ?>
+
+        </div>
+
+        <div class="profil ajouter">
+            <?php if (isset($tableres[2])) : ?>
+                <div class="profil">
+                    <a href="formProfil.php?profil=<?php echo $tableres[2]['id'] ?>">
+                        <img src="<?php echo $tableres[2]['img'];?>" alt="NOM"></a><br>
+                    <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
+                </div>
+
+
+            <?php else : ?>
+                <div class="cercle">
+                    <a href="affichageFilms.php">
+                        <span class="plus">+</span></a><br></a><br>
+                </div>
+            <?php endif; ?>
+
+        </div>
+
+        <div class="profil ajouter">
+            <?php if (isset($tableres[3])) : ?>
+                <div class="profil">
+                    <a href="formProfil.php?profil=<?php echo $tableres[3]['id'] ?>">
+                        <img src="<?php echo $tableres[3]['img'];?>" alt="NOM"></a><br>
+                    <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
+                </div>
+            <?php else : ?>
+                <div class="cercle">
+                    <a href="selectProfil.php?">
+                        <span class="plus">+</span></a><br></a><br>
+                </div>
+            <?php endif; ?>
+
+        </div>
 
         <div class="profil ajouter">
             <div class="cercle">
-                <a href="ajout_profils.php">
-                    <?php if (isset($tableres[2])) : ?>
-                    <img src=<img src=<?php if (isset($tableres[2])) echo $tableres[2]['img'];?>
-                        <?php else : ?>
-                    <span class="plus">+</span></a><br>
-                <?php endif ?>
-                <?php if (isset($tableres[2])) : ?>
-                <p class="p1"><?php echo $tableres[2]['nom'];?>
-                   <?php endif?>
-                        </p>
+                <?php if (isset($tableres[4])) : ?>
+                    <div class="profil">
+                        <a href="formProfil.php?profil=<?php echo $tableres[4]['id'] ?>">
+                            <img src="<?php echo $tableres[4]['img'];?>" alt="NOM"></a><br>
+                        <p class="p1"><?php echo $tableres[4]['nom']; ?> </p>
+                    </div>
+                <?php else : ?>
+                    <div class="cercle">
+                        <a href="selectProfil.php?">
+                            <span class="plus">+</span></a><br></a><br>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
 
-            <div class="profil ajouter">
-                <div class="cercle">
-                    <a href="ajout_profils.php">
-                        <?php if (isset($tableres[3])) : ?>
-                        <img src=<img src=<?php if (isset($tableres[1])) echo $tableres[3]['img'];?>
-                        <?php else : ?>
-                        <span class="plus">+</span></a><br>
-                    <?php endif ?>
-                    <?php if (isset($tableres[3])) : ?>
-                    <p class="p1"><?php echo $tableres[3]['nom'];?>
-                        <?php endif?>
-                    </p>
-                </div>
-            </div>
-
-            <div class="profil ajouter">
-                <div class="cercle">
-                    <a href="ajout_profils.php">
-                        <?php if (isset($tableres[4])) : ?>
-                        <img src=<img src=<?php if (isset($tableres[4])) echo $tableres[4]['img'];?>
-                        <?php else : ?>
-                        <span class="plus">+</span></a><br>
-                    <?php endif ?>
-                    <?php if (isset($tableres[4])) : ?>
-                    <p class="p1"><?php echo $tableres[4]['nom'];?>
-                        <?php endif?>
-                    </p>
-                </div>
-            </div>
 
 
+        <br> <br>
 
-<br> <br>
-
-
-    <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
-<br>
-
+        <br>
+    </div>
 
 </body>
 </html>

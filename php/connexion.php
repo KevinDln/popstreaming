@@ -21,7 +21,6 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
         // Mail est dans la base de données donc on peut passer a la vérification du mot de passe
         if (password_verify($mdp,$row['mdp']) ) {
             // Si le mdp est bon, on peut rediriger a l'accueil
-            echo "Connexion réussie";
             $_SESSION['connected'] = true;
             $_SESSION['id'] = $row['id'];
             header("Location: accueil.php");

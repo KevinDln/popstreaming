@@ -20,6 +20,8 @@ foreach($result as $row){
     ];
 }
 
+
+
 ?>
 
 
@@ -54,7 +56,7 @@ foreach($result as $row){
         <div class="profils">
             <div class="profil">
                 <?php if (isset($tableres[0])) : ?>
-                <a href="selectProfil.php?profil=<?php echo $tableres[0]['id'] ?>">
+                <a href="accueil.php">
                 <img src="<?php echo $tableres[0]['img'];?>" alt="NOM"></a><br>
                 <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
 
@@ -68,66 +70,70 @@ foreach($result as $row){
             </div>
 
             <div class="profil ajouter">
-                <div class="cercle">
-                    <?php if (isset($tableres[1])) : ?>
-                        <a href="selectProfil.php?profil=<?php echo $tableres[1]['id'] ?>">
-                            <img src="<?php echo $tableres[1]['img'];?>" alt="NOM"></a><br>
+
+                <?php if (isset($tableres[1])) : ?>
+                    <div class="profil">
+                        <a href="accueil.php">
+                        <img src="<?php echo $tableres[1]['img'];?>" alt="NOM"></a><br>
                         <p class="p1"><?php echo $tableres[1]['nom']; ?> </p>
-
-                    <?php else : ?>
-
-                        <a href="selectProfil.php?">
+                        </div>
+                        <?php else : ?>
+                            <div class="cercle">
+                            <a href="selectProfil.php?">
                             <span class="plus">+</span></a><br></a><br>
+                            </div>
+                        <?php endif; ?>
 
-                    <?php endif; ?>
-                </div>
             </div>
 
         <div class="profil ajouter">
-            <div class="cercle">
-                <?php if (isset($tableres[2])) : ?>
-                    <a href="selectProfil.php?profil=<?php echo $tableres[2]['id'] ?>">
-                        <img src="<?php echo $tableres[2]['img'];?>" alt="NOM"></a><br>
-                    <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
+            <?php if (isset($tableres[2])) : ?>
+            <div class="profil">
+                <a href="accueil.php">
+                    <img src="<?php echo $tableres[2]['img'];?>" alt="NOM"></a><br>
+                <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
+            </div>
+
 
                 <?php else : ?>
-
-                    <a href="selectProfil.php?">
+                <div class="cercle">
+                    <a href="affichageFilms.php">
                         <span class="plus">+</span></a><br></a><br>
+                </div>
+                    <?php endif; ?>
 
-                <?php endif; ?>
-            </div>
         </div>
 
             <div class="profil ajouter">
-                <div class="cercle">
-                    <?php if (isset($tableres[3])) : ?>
-                        <a href="selectProfil.php?profil=<?php echo $tableres[3]['id'] ?>">
-                            <img src="<?php echo $tableres[3]['img'];?>" alt="NOM"></a><br>
-                        <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
-
+                <?php if (isset($tableres[3])) : ?>
+                <div class="profil">
+                    <a href="accueil.php">
+                        <img src="<?php echo $tableres[3]['img'];?>" alt="NOM"></a><br>
+                    <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
+                </div>
                     <?php else : ?>
-
+                    <div class="cercle">
                         <a href="selectProfil.php?">
                             <span class="plus">+</span></a><br></a><br>
+                    </div>
+                        <?php endif; ?>
 
-                    <?php endif; ?>
-                </div>
             </div>
 
             <div class="profil ajouter">
                 <div class="cercle">
                     <?php if (isset($tableres[4])) : ?>
-                        <a href="selectProfil.php?profil=<?php echo $tableres[4]['id'] ?>">
+                    <div class="profil">
+                        <a href="accueil.php">
                             <img src="<?php echo $tableres[4]['img'];?>" alt="NOM"></a><br>
                         <p class="p1"><?php echo $tableres[4]['nom']; ?> </p>
-
-                    <?php else : ?>
-
-                        <a href="selectProfil.php?">
+                    </div>
+                        <?php else : ?>
+                        <div class="cercle">
+                            <a href="selectProfil.php?">
                             <span class="plus">+</span></a><br></a><br>
-
-                    <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
                 </div>
             </div>
 
@@ -136,7 +142,7 @@ foreach($result as $row){
 <br> <br>
 
 
-    <a class="btn-secondary" href="../php/modif_profils.php">Gérer les profils ?</a>
+    <a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
 <br>
 
 
