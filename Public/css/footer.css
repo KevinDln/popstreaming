@@ -1,8 +1,6 @@
 .footer {
     padding: 50px;
     background-color: var(--Nuances-noir);
-    position: relative;
-    bottom: 0;
 }
 
 .c {

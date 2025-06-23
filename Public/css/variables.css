@@ -29,6 +29,14 @@ p {
     font-size: 12px;
     color: var(--Nuances-blanc);
 }
+
+a.logo {
+    width: 100px;
+    height: 49px;
+    display: block;
+    align-content: center;
+}
+
 .input-fond-sombre {
     color: var(--Nuances-blanc);
     background-color: var(--Nuances-noir);

@@ -11,17 +11,19 @@
     <link rel="stylesheet" href="../Public/css/font.css">
     <link rel="stylesheet" href="../Public/css/moyens.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
+    <link rel="stylesheet" href="../Public/css/nav_accueil.css">
 </head>
 
 
 <body>
-<nav>
-    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
-
-</nav>
+<header>
+    <?php require "nav_vide.php"; ?>
+</header>
 <br>
-
-<a href="../php/tarifs_et_avantages.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png"</a> <br>
+<a href="#" class="btn-retour" id="retour">
+    <img src="../Public/img/btn-retour.png" alt="Retour">
+</a>
+<br>
 <div class="center flex">
     <div>
     <h1>Payez en ligne</h1>
