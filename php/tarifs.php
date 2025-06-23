@@ -13,9 +13,16 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="../JS/tarifs.js"> </script>
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
+    <link rel="stylesheet" href="../Public/css/styles.css">
+    <link rel="stylesheet" href="../Public/css/variables.css">
+    <link rel="stylesheet" href="../Public/css/font.css">
+    <link rel="stylesheet" href="../Public/css/nav_accueil.css">
+    <link rel="stylesheet" href="../Public/css/connexion.css">
+    <link rel="stylesheet" href="../Public/css/footer.css">
 </head>
 
-<?php require "header.php"; // Changer par la bonne version du header ?>
+<?php require "nav_accueil.php"; // Changer par la bonne version du header ?>
 <body>
 
 <a href="pre_accueil.php" class="retour" id="retour"> Retour </a>  <!--- Rajouter l'image de la fleche apres  -->
@@ -76,7 +83,12 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
 
 <button onclick=getAbonnement()> Valider </button>
 
-
+<script src="../Public/js/menu_burger.js"></script>
+<script src="../JS/header.js"></script>
+<script src="../JS/parametres.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
 </body>
 
 </html>

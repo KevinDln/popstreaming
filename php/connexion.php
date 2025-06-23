@@ -93,6 +93,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
     <script src="../JS/header.js"></script>
     <script src="../JS/parametres.js"></script>
     <script src="../JS/langues.js"></script>
+
     </body>
 </html>
 

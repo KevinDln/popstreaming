@@ -13,7 +13,7 @@
         </li>
         <li>
             <a href="../php/affichageFilms.php">
-                <img src="../Public/img/clap.png/" height="24px" width="24px" alt=Films">
+                <img src="../Public/img/clap.png" height="24px" width="24px" alt="Films">
             </a>
         </li>
         <li>
