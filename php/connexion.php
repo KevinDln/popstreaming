@@ -60,32 +60,35 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
         ?>
     </header>
     <main>
+        <a href="#" class="btn-retour">
+            <img src="../Public/img/btn-retour.png" alt="">
+        </a>
         <div class="container flex center">
             <div class="connexion" id="connexion">
                 <?php if ($incorrect) : echo $message?>  <!-- Si on a remplis le formulaire avec informations incorrect -->
-                <?php else :?> <h1> Identifiez-vous <h1> <!-- Si on a pas remplis le formulaire dans un premier temps -->
+                <?php else :?> <!-- Si on a pas remplis le formulaire dans un premier temps -->
                         <?php endif;?>
                         <form method="POST" action="connexion.php">
-                            <input class="input-fond-clair" type="email" id="email" name="email" placeholder="Email ou numéro de mobile" required> <br> <br>
-                            <input class="input-fond-clair" type="password" id="mdp" name="mdp" placeholder="mot de passe" required>
-                            <input class="input-fond-clair" type="checkbox" onclick="showPassword()"> <br> <br>
-                            <input class="btn-primary" type="submit" name="identifier" value="M'identifier">
-                            <p> OU </p>
-                            <input class="btn-primary" type="submit" formaction="codeidentification.php" name="code" value="Utiliser un code d'identification" > <br>
-
-                            <a href="mdpoublie.php"> Mot de passe oublié ? </a> <br>
-                            <div class="flex">
-                                <input type="checkbox" id="souvenir" name="souvenir">
-                                <span>Se souvenir de moi </span>
+                            <h1> Identifiez-vous </h1>
+                            <input class="input-fond-clair form-element" type="email" id="email" name="email" placeholder="Email ou numéro de mobile" required>
+                            <div class="password-container form-element">
+                                <input class="input-fond-clair" type="password" id="mdp" name="mdp" placeholder="Mot de passe" required>
+                                <img src="../Public/img/eye-close.png" id="togglePassword" class="password-toggle" onclick="showPassword()">
                             </div>
-
-                            <p> Première visite sur Pop Streaming ? </p>
+                            <input class="btn-primary form-element" type="submit" name="identifier" value="M'identifier">
+                            <p class="form-element"> OU </p>
+                            <input class="btn-primary form-element" type="submit" formaction="codeidentification.php" name="code" value="Utiliser un code d'identification" >
+                            <a href="mdpoublie.php" class="form-element mdpoublie"> Mot de passe oublié ? </a>
+                            <div class="flex form-element element-gap">
+                                <input type="checkbox" id="souvenir" name="souvenir">
+                                <span class="se-souvenir-de-moi">Se souvenir de moi </span>
+                            </div>
+                            <p class="element-letf form-element"> Première visite sur Pop Streaming ? </p>
                             <input class="btn-primary" type="submit" formaction="inscription.php" value="Créer votre compte">
                         </form>
             </div>
         </div>
     </main>
-
     <script src="../Public/js/menu_burger.js"></script>
     <script src="../JS/header.js"></script>
     <script src="../JS/parametres.js"></script>

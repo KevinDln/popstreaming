@@ -23,9 +23,18 @@ nav.menu .wrap {
 
 header {
     padding: 0;
+    position: relative;
 }
 
+.nav-actions {
+    position: fixed;
+    right: 50px;
+    top: 30px;
+}
 
+.language-affichage li a:hover {
+    background-color: var(--Nuances-bleu);
+}
 
 
 @media screen and (max-width: 1200px) {

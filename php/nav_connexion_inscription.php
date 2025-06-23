@@ -2,7 +2,7 @@
     <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt="Logo"></a>
     <div class="nav-actions">
         <div class="langue">
-            <button class="langue-selection btn-FR">FR</button>
+            <button class="langue-selection btn-FR">FR <img class="switch-langue" src="../Public/img/drop-down-switch-langue.png" alt=""></i></button>
             <ul class="language-affichage ">
                 <li><a class="btn-FR1" href="#">FR</a></li>
                 <li><a class="btn-FR1" href="#">EN</a></li>
