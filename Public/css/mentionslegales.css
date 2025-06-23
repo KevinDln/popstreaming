@@ -1,6 +1,17 @@
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .p1 {
     color: var(--Nuances-blanc);
     font-size: 12px;
+    position: relative;
+    top: -100px;
 
 }
 .justifier {

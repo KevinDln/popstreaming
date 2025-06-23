@@ -22,7 +22,7 @@
     </nav>
 
     <nav>
-        <ul class="ul2">
+        <ul class="ul2 flex">
             <li>
                 <a class="c" href="../php/FAQ.php">FAQ
                 </a>

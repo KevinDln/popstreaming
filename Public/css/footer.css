@@ -1,11 +1,11 @@
 .footer {
     padding: 50px;
     background-color: var(--Nuances-noir);
+    margin-top: auto;
 }
 
 .c {
     font-size: 16px;
-    font-family: "Poppins-regular";
     color: #FAF5F5;
     text-decoration: none;
 }
@@ -21,9 +21,26 @@
 }
 
 .ul2{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
     color : #182832;
     padding: 0;
+}
+
+@media screen and (max-width: 1400px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .ul1 {
+        gap: 20px;
+    }
+    .ul2 {
+        display: block;
+        width:  100%;
+    }
 }
