@@ -9,6 +9,7 @@
 a.logo {
     width: 100px;
     height: 49px;
+    display: block;
 }
 
 .navbar ul {
