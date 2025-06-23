@@ -31,11 +31,11 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
             <img src="../Public/img/btn-retour.png" alt="Retour">
         </a>
 
-        <div class="center">
+        <div class="center container-tarifs">
             <h2> Abonnement </h2>
-            <p> Sélectionner le forfait qui vous convient </p>
+            <p> Sélectionner le forfait qui vous convient.</p>
 
-            <table>
+            <table class="table-pricing">
                 <thead>
                 <tr class="ligne-espace">
                     <td id="vide"> </td>
@@ -54,21 +54,21 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
                 <tr>
                     <td id="name"> HD disponible </td>
                     <td class="essentielcol"><img class="x-pointe" src="../Public/img/point-X.png" alt=""></td>
-                    <td class="standardcol"> V </td>
-                    <td class="premiumcol"> V </td>
+                    <td class="standardcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
+                    <td class="premiumcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
                 </tr>
 
                 <tr>
                     <td id="name"> Ultra HD disponible </td>
                     <td class="essentielcol"><img class="x-pointe" src="../Public/img/point-X.png" alt=""></td>
                     <td class="standardcol"><img class="x-pointe" src="../Public/img/point-X.png" alt=""></td>
-                    <td class="premiumcol"> V </td>
+                    <td class="premiumcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
                 </tr>
                 <tr>
                     <td id="name"> Pop Stream sur votre ordinateur, TV, smartphone et tablette </td>
-                    <td class="essentielcol"> V </td>
-                    <td class="standardcol"> V </td>
-                    <td class="premiumcol"> V </td>
+                    <td class="essentielcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
+                    <td class="standardcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
+                    <td class="premiumcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
                 </tr>
                 <tr>
                     <td id="name"> Ecrans disponilbe en simultané </td>
@@ -78,15 +78,17 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
                 </tr>
                 <tr>
                     <td id="name"> Annulable a tout moment </td>
-                    <td class="essentielcol"> V </td>
-                    <td class="standardcol"> V </td>
-                    <td class="premiumcol"> V </td>
+                    <td class="essentielcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
+                    <td class="standardcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
+                    <td class="premiumcol"><img class="btn-check" src="../Public/img/btn-check.png" alt=""></td>
                 </tr>
 
             </table>
 
-
-            <button onclick=getAbonnement()> Valider </button>
+            <div class="flex btn-gap">
+                <a class="conditions-annulation" href="">Conditions  d’annulation de l’abonnement</a>
+                <button class="btn-primary" onclick=getAbonnement()> Valider </button>
+            </div>
 
         </div>
 
