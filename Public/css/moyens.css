@@ -75,3 +75,18 @@
     position : absolute;
     margin : 15px;
 }
+
+@media screen and (max-width: 522px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+    .center {
+       padding: 20px;
+    }
+
+    .input, .input2 {
+        width:  300px;
+    }
+}

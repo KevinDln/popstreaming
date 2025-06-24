@@ -23,19 +23,29 @@ $end = false;
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Films </title>
+    <title>Catalogue</title>
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+    <link rel="stylesheet" href="../Public/css/nav.css">
+    <link rel="stylesheet" href="../Public/css/menu_burger.css">
+    <link rel="stylesheet" href="../Public/css/styles.css">
+    <link rel="stylesheet" href="../Public/css/variables.css">
+    <link rel="stylesheet" href="../Public/css/font.css">
+    <link rel="stylesheet" href="../Public/css/pre_accueil.css">
+    <link rel="stylesheet" href="../Public/css/strat_video.css">
+    <link rel="stylesheet" href="../Public/css/footer.css">
 </head>
-
-
 <body>
 
-<?php require "header.php"; // Changer par la bonne version du header  ?>
+<?php require "nav_pre_accueil.php"; ?>
 <div class="titre" id="titre">
-    <a href="pre_accueil.php" class="retour" id="retour"> Retour </a>  <!--- Rajouter l'image de la fleche apres  -->
-    <h2> Catalogue 2025 </h2>
+    <a href="#" class="btn-retour">
+        <img src="../Public/img/btn-retour.png" alt="">
+    </a>
+    <div class="center">
+        <h2> Catalogue 2025 </h2>
+    </div>
 </div>
 
 <div class="contenu" id="contenu" name="contenu">
@@ -117,6 +127,10 @@ $end = false;
 <!--- On "triche" un peu, on raffraichi juste la page pour un nouvel affichage de film en attendant -->
 <a href="catalogue.php"> Page suivante </a>
 <a href="catalogue.php"> Page précédente </a>
+
+<?php
+include "footer.php"
+?>
 
 </body>
 

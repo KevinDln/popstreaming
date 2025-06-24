@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <link rel="stylesheet" href="../Public/css/nav.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
     <link rel="stylesheet" href="../Public/css/ajout_profils.css">
+    <link rel="stylesheet" href="../Public/css/nav_accueil.css">
 </head>
 
 <body>
-<nav>
-    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
-</nav>
+<header>
+    <?php require "nav_vide.php"; ?>
+</header>
 <br>
-
-<a href="accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="bouton retour accueil"/></a>
+<a href="#" class="btn-retour">
+    <img src="../Public/img/btn-retour.png" alt="">
+</a>
 <div class="center container-profils">
-    <div class="profils ajouter flex">
+    <div class="profils ajouter">
         <div class="profil cercle">
             <span class="plus">+</span>
-            <p class="p1">Nom</p>
         </div>
+        <span class="add-photo">Ajouter une photo</span>
     </div>
     <div>
-        <input class="input1" type="text" name="pseudo" value="Pseudo"/><br><br>
-        <select class="input1" name="Type de profils">
-            <option value="Type de profil">Type de profil</option>
-            <option value="Adultes">Adultes</option>
-            <option value="Adolescents">Adolescents</option>
-            <option value="Jeunesse">Jeunesse</option>
-        </select>
+        <input class="input1" type="text" name="pseudo" placeholder="Pseudo..."/><br><br>
+        <div class="custom-select-container">
+            <select class="input1" name="Type de profils">
+                <option value="Type de profil">Type de profil</option>
+                <option value="Adultes">Adultes</option>
+                <option value="Adolescents">Adolescents</option>
+                <option value="Jeunesse">Jeunesse</option>
+            </select>
+            <div class="custom-select-icon">
+                <img src="../Public/img/btn-select-option.png" alt="Icon drop">
+            </div>
+        </div>
     </div>
     <br><br>
 

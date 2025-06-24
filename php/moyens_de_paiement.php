@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Paiement</title>
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <link rel="stylesheet" href="../Public/css/nav.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
