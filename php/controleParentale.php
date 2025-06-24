@@ -2,6 +2,10 @@
 
 session_start();
 require "connectdb.php";
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 // Page classique pour formulaire avec mot de passe
 // Va rediriger vers une page de traitement, qui va utiliser la fonction définie 

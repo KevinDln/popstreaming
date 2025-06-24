@@ -5,12 +5,12 @@ require "fonctionParentales.php";
 
 
 
-session_start();/*
+session_start();
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 
 // On veut l'affichage des films comme prévu, sans catégories cliqué de base. On veut les 15 premiers films de

@@ -2,6 +2,10 @@
 
 session_start();
 require "connectdb.php";
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 
 $profil = $_SESSION['profil'];

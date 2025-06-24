@@ -3,6 +3,10 @@ session_start();
 require "connectdb.php";
 require "fonctions.php";
 
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 // Page pour afficher
 //les résultats de la recherche
