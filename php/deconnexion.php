@@ -49,6 +49,5 @@
     <script src="../JS/rechercher.js"></script>
     <script src="../Public/js/menu_burger.js"></script>
 
-
     </body>
 </html>
