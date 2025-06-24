@@ -12,25 +12,33 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 }
 */
 
+$_SESSION['controle'] = 0;
+
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title> Tendances </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+        <link rel="stylesheet" href="../Public/css/nav_accueil.css">
+        <link rel="stylesheet" href="../Public/css/nav.css">
+        <link rel="stylesheet" href="../Public/css/styles.css">
+        <link rel="stylesheet" href="../Public/css/variables.css">
+        <link rel="stylesheet" href="../Public/css/font.css">
+        <link rel="stylesheet" href="../Public/css/affichageTendances.css">
+        <link rel="stylesheet" href="../Public/css/footer.css">
     </head>
 
-    <?php
-    include "nav_accueil.php"
-    ?>
-    <body>
-        
-        <?php require "nav.php"; // On inclut la barre de navigation ?>
+<body>
+<?php require "nav_accueil.php";  ?>
+    <a href="../php/pre_accueil.php">
+        <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/>
+    </a> <br>
 
-        <div class="contenu" id="contenu" name="contenu">
-            <?php
+<div class="flex center">
+    <?php require "nav.php"; // On inclut la barre de navigation ?>
+        <?php
 
             $init = 0;
 
@@ -47,21 +55,31 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
                     // Vérifier si l'index existe dans le tableau
                     if (isset($tendances[$init])) {                        
                         $img = $tendances[$init]['poster_path'];
-                        echo "<p> $number </p> <a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
+                        echo "
+    <div class='image-contain'>
+    <p class='format'> $number </p> <a href=''> <img src='$img' width='200' height='200'> </a>
+    </div>" ;
+
                         $number++;
                     }
                     $init++;
             
         } echo "<br>";
 
-        
     }
 
             ?>
             
-        </div>
-        <?php require "footer.php" ?>
-    </body>
+</div>
+
+
+<script src="../JS/header.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
+<script src="../JS/parametres.js"></script>
+<?php require "footer.php" ?>
+</body>
 
 </html>
 
