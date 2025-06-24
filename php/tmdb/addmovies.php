@@ -56,13 +56,20 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                 if (!empty($decode['results'])){ // Peut ajouter infos dans la bd
 
                     $sql = $conn->prepare("INSERT INTO films (title,genre,original_language,
-                    overview,release_year,content_duration,poster_path,trailer,rating,id_movie) 
-                        VALUES (?,?,?,?,?,?,?,?,?,?)");
+                    overview,release_year,content_duration,poster_path,trailer,rating,id_movie,backdrop_path,adult
+                    ,popularity,nb_vote) 
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 
                     // Chemin d'acces pour l'image du film
                     $chemin = 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'];
                     $video = "https://www.youtube.com/watch?v=" . $decode['results'][0]['key'];
+
+                    // vote moyen
+                    $avg = $movie['vote_average'];
+                    $popularity = $movie['popularity'];
+                    $backdrop_path = 'https://image.tmdb.org/t/p/w500' . $movie['backdrop_path']; // poster de fond
+                    $nb_vote = $movie['vote_count'];
 
                     // Verifie la valeur de adult
                     if ($movie['adult'] == false ) { 
@@ -72,8 +79,9 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                     }
 
 
-                    $sql->bind_param("ssssiissii",$movie['title'],$name, $movie['original_language'],
-                    $movie['overview'], $year, $movie['runtime'], $chemin,$video,$rating,$movie['id']);
+                    $sql->bind_param("ssssiissdisidi",$movie['title'],$name, $movie['original_language'],
+                    $movie['overview'], $year, $movie['runtime'], $chemin,$video,$avg,$movie['id'],$backdrop_path,
+                        $rating,$popularity,$nb_vote);
                     $sql->execute(); // A ajouté les valeurs dans la base de données
 
 

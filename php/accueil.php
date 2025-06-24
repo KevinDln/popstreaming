@@ -1,10 +1,12 @@
 <?php
 require "fonctions.php"; 
-require "connectdb.php"; 
+require "connectdb.php";
+require "fonctionParentales.php";
 
 
 
 session_start();
+if (!isset($_SESSION["controle"])) $_SESSION["controle"] = 1;
 /*
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
@@ -17,18 +19,31 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 // Mise en forme a faire dans le css 
 // Pour changer les images, on peut les changer dans le javascript loadContent.js
 
-$tendances = getTendances($conn); // Récupération des tendances
-$_SESSION['content'] = [
-"Action" => selectByGenreMovie("Action",$conn), // Récupération des films d'action
-"Fantastique" => selectByGenreMovie("Fantastique",$conn), // Récupération des films fantastiques
-"Comedie" => selectByGenreMovie("Comédie",$conn), // Récupération des films comédies
-"Drame" => selectByGenreShows("Drame",$conn), // Récupération des séries drames
-"Animation" => selectByGenreShows("Animation",$conn), // Récupération des séries d'animation
-"Mystere" => selectByGenreShows("Mystère",$conn), // Récupération des séries documentaires
-];
 
+if ($_SESSION['controle'] == 0) { // pas de controle parentale
+    $tendances = getTendances($conn); // Récupération des tendances
+    $_SESSION['content'] = [
+        "Action" => selectByGenreMovie("Action",$conn), // Récupération des films d'action
+        "Fantastique" => selectByGenreMovie("Fantastique",$conn), // Récupération des films fantastiques
+        "Comedie" => selectByGenreMovie("Comédie",$conn), // Récupération des films comédies
+        "Drame" => selectByGenreShows("Drame",$conn), // Récupération des séries drames
+        "Animation" => selectByGenreShows("Animation",$conn), // Récupération des séries d'animation
+        "Mystere" => selectByGenreShows("Mystère",$conn), // Récupération des séries documentaires
+    ];
+    $affiche = getAffiche($conn); // Récupération de l'affiche
 
-$affiche = getAffiche($conn); // Récupération de l'affiche
+} else {
+    $tendances = getTendancesParent($conn); // Récupération des tendances
+    $_SESSION['content'] = [
+        "Action" => selectByGenreMovieParent("Action",$conn), // Récupération des films d'action
+        "Fantastique" => selectByGenreMovieParent("Fantastique",$conn), // Récupération des films fantastiques
+        "Comedie" => selectByGenreMovieParent("Comédie",$conn), // Récupération des films comédies
+        "Drame" => selectByGenreShowsParent("Drame",$conn), // Récupération des séries drames
+        "Animation" => selectByGenreShowsParent("Animation",$conn), // Récupération des séries d'animation
+        "Mystere" => selectByGenreShowsParent("Mystère",$conn), // Récupération des séries documentaires
+    ];
+    $affiche = getAfficheParent($conn); // Récupération de l'affiche
+}
 
 ?>
 
@@ -49,7 +64,7 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
         
         <div class="affiche" id="affiche" name="affiche">
             <!--- Div de stockage de l'affiche, attendre css pour mise en forme --->
-            <img src="<?php echo $affiche[0]['poster_path']; ?>" alt="Affiche du film" width="80%" height="50%">
+            <img src="<?php echo $affiche[0]['backdrop_path']; ?>" alt="Affiche du film" width="80%" height="50%">
         </div>
 
         <div class="contenu" id="contenu" name="contenu">
@@ -118,5 +133,7 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
 
 
         </div>
-
+<?php require "footer.php" ?>
     </body>
+
+</html>

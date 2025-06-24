@@ -1,5 +1,13 @@
 <?php
 session_start();
+// Valeur du controle parentale
+
+if ($_SESSION['controle'] == 1 ) {
+    $controle = "Activé";
+} elseif ($_SESSION['controle'] == 0 ) {
+    $controle = "Désactivé";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +21,12 @@ session_start();
 
 </head>
 
-<?php require "header.php"; ?>
-<body>
 
+<body>
+<?php require "header.php"; ?>
+
+<a href="accueil.php"> retour </a>
+<?php require "nav.php" ?>
 <table class="parametres">
     <tr>
         <td> Langue </td>
@@ -26,7 +37,7 @@ session_start();
     <tr>
         <td> Controle parentale </td>
         <td class="link"> <a href="#"> Modifier </a> </td>
-        <td class="barre"> Désactivé </td>
+        <td class="barre"> <?php echo $controle ?> </td>
     </tr>
 
     <tr>

@@ -1,8 +1,23 @@
 function showPassword() {
-    var x = document.getElementById("mdp");
-    var y = document.getElementById("confirmmdp");
-    var toggleIcon = document.getElementById("togglePassword");
+    let x = document.getElementById("mdp");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
 
+function showPassword2() {
+    let x = document.getElementById("mdp2");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+function showPassword3() {
+    let x = document.getElementById("mdp3");
     if (x.type === "password") {
         x.type = "text";
         toggleIcon.src = "../Public/img/eye-open.png";
