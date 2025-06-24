@@ -4,12 +4,12 @@ require "fonctions.php";
 require "fonctionParentales.php";
 session_start();
 
-/*
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 $ActionAventure = "Action & Aventure";
 $urlA = "affichageSeries.php?genre=" . urlencode($ActionAventure);

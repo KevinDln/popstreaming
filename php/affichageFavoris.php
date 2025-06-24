@@ -3,12 +3,12 @@ require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
 require "fonctionParentales.php";
 session_start();
-/*
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 $user_id = $_SESSION['profil']; // A initialiser apres la connexion
 

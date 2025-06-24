@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 require "connectdb.php";
 
@@ -53,6 +57,8 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
         <link rel="stylesheet" href="../Public/css/font.css">
         <link rel="stylesheet" href="../Public/css/profils.css">
         <script src="../JS/mdp.js"> </script>
+        <script src="../JS/modifProfil.js"> </script>
+        <link rel="stylesheet" href="../Public/css/afficheprofils.css">
 
         <script>
             function changeName () {
@@ -83,12 +89,19 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
 <a href="profilsmodif.php"> Retour </a>
     <h1> Modifier le profil </h1>
 
-
-
-<div class="image">  <!-- Stocker l'image du profil, valeur a modifier -->
-    <img src="<?php echo $tableres[0]['img']?>" alt="profil" width="200" height="200">
-    <p> <?php echo  $tableres[0]['nom'] ?> </p>
+<div class="profile-section">
+    <div class="profile-image-container">
+        <div class="profilImage" id="profileImage" onclick="openImage()">
+           <div class="image">
+            <img src="<?php echo $tableres[0]['img']?>" alt="profil" width="200" height="200">
+            <p> <?php echo  $tableres[0]['nom'] ?> </p>
+            </div>
+        </div>
+        <p>Cliquer pour modifier la photo</p><br><br>
+    </div>
 </div>
+
+
 
 <div class="form">
 
@@ -116,6 +129,24 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
 
 
 </div>
+
+<div class="image-modal" id="imageModal">
+        <div class="image-content">
+            <div class="image-header">
+                <h2>Choisir une photo de profil</h2>
+                <p>Sélectionnez une image pour votre profil</p>
+            </div>
+            
+            <div class="image-grid" id="imageGrid">
+              
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="confirmImage()">Confirmer</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeImageModal()">Annuler</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 

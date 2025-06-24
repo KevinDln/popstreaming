@@ -1,6 +1,10 @@
 <?php
 session_start();
 require "connectdb.php";
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $userId = $_SESSION['profil']; // id du profil de l'utilisateur connecté
@@ -117,93 +121,9 @@ $delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);
     <link rel="stylesheet" href="../public/css/strat_video.css">
     <link rel="stylesheet" href="../public/css/footer.css">
     <link rel="stylesheet" href="../public/css/modal-info.css">
+    <link rel="stylesheet" href="../public/css/pageContenu.css">
 
-    <style> 
-        .modal{ /* Redéfinir les valeurs pour permettre a l'image d'etre le fond */
-            background: none;
-        }
-        .modal-content {
-            background: none;
-        }
-
-        #backButton {
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        background: transparent;
-        background-color: #EFBD3F;
-        padding: 0;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        z-index: 1000;
-        top: 8%; /* a modifier si on veut plus bas ou plus haut */
-        }
-
-        #backButton img {
-            width: 40px; 
-            height: auto;
-            display: block;
-        }
-
-        .test {
-            background-color:rgba(4, 15, 19, 0.1); 
-            padding-left: 20px;
-        }
-
-        .boutons-flex{
-            display: flex;
-            gap: 15px; 
-            margin-top: 20px;
-        }
-
-        #more-infos{
-            background-color:rgba(48, 80, 100, 0.71);
-        }
-        
-        
-
-.already-favoris {
-    background: none;
-    border: none;
-    padding: 0; /* Enlever le padding pour un meilleur contrôle */
-    cursor: pointer;
-    font-size: 45px; /* Taille du cœur uniquement */
-    color: #FFD700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1; /* Contrôler la hauteur de ligne */
-    width: auto;
-    height: auto;
-    padding-top: 10px;
-}
-
-.already-favoris:hover {
-    color:rgb(255, 255, 255);
-}
-
-
-#add-favoris {
-    background: none;
-    border: none;
-    padding: 0; /* Enlever le padding pour un meilleur contrôle */
-    cursor: pointer;
-    font-size: 45px; /* Taille du cœur uniquement */
-    color:rgb(255, 255, 255);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1; /* Contrôler la hauteur de ligne */
-    width: auto;
-    height: auto;
-    padding-top: 10px;
-}
-
-#add-favoris:hover {
-    color: #FFD700;
-}
-    </style>
+    
 
 </head>
 <body>

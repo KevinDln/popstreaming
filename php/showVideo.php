@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 if (isset($_GET['url'])) {
     $url = $_GET['url'];

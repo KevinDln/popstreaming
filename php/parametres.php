@@ -1,6 +1,10 @@
 <?php
 session_start();
 // Valeur du controle parentale
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 if ($_SESSION['controle'] == 1 ) {
     $controle = "Activé";

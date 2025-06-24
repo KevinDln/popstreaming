@@ -12,12 +12,12 @@ if (isset($_GET['id'])) {
     $_SESSION['profil'] = $_GET['id']; // On récupère l'id du profil
 }
 
-/*
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 // on veut 5 tendances actuelles, 3 films d'action, 
 // 3 fantastiques, 3 comédies, 3 drames, 3 séries d'animation et 3 documentaires
