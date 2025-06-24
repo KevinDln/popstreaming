@@ -137,7 +137,6 @@ foreach($result as $row){
                 </div>
             </div>
             </div>
-
         <br> <br>
         <a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
     </div>

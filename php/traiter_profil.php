@@ -1,7 +1,7 @@
 <?php
 require "connectdb.php";
 session_start();
-
+$id = $_SESSION['id'];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: createProfil.php');
@@ -24,14 +24,15 @@ if (empty($pseudo)) {
 if (!empty($erreurs)) {
     $_SESSION['erreurs'] = $erreurs;
     $_SESSION['form_data'] = $_POST;
-    header('Location: createProfil.php');
+    //header('Location: createProfil.php');
     exit;
 }
 
 // Faire ajout dans la base de données avec les urls
-echo $pseudo . "<br>";
-echo $type_profil . "<br>";
-echo $image_url . "<br>";
-   
+
+$sql = $conn->prepare("INSERT INTO profils (id_compte,nom, img, type) VALUES (?,?,?,?)");
+$sql->bind_param("isss", $id,$pseudo, $image_url, $type_profil);
+$sql->execute();
+header('Location: profils.php');
 
 ?>

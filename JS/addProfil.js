@@ -1,13 +1,13 @@
 const images = [ // Liste des images de profil
-    { id: 1, url: '', name: 'Profil 1' },
-    { id: 2, url: '', name: 'Profil 2' },
-    { id: 3, url: '', name: 'Profil 3' },
-    { id: 4, url: '', name: 'Profil 4' },
-    { id: 5, url: '', name: 'Profil 5' },
-    { id: 6, url: '', name: 'Profil 6' },
-    { id: 7, url: '', name: 'Profil 7' },
-    { id: 8, url: '', name: 'Profil 8' },
-    { id: 9, url: '', name: 'Profil 9' }
+    { id: 1, url: 'azeazeaz', name: 'Profil 1' },
+    { id: 2, url: 'zaeazezae', name: 'Profil 2' },
+    { id: 3, url: 'zaeazeazezae', name: 'Profil 3' },
+    { id: 4, url: 'zaeazezae', name: 'Profil 4' },
+    { id: 5, url: 'azeazeaze', name: 'Profil 5' },
+    { id: 6, url: 'azeazeaze', name: 'Profil 6' },
+    { id: 7, url: 'zaeazeazez', name: 'Profil 7' },
+    { id: 8, url: 'azeazeaze', name: 'Profil 8' },
+    { id: 9, url: 'azeazezae', name: 'Profil 9' }
 ];
 
 let selectedImageId = null;
@@ -115,20 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const profileType = document.getElementById('type-profils').value;
             const imageUrl = document.getElementById('selected_image_url').value;
             
-            if (!pseudo) {
-                e.preventDefault();
-                return false;
-            }
-            
-            if (!profileType) {
-                e.preventDefault();
-                return false;
-            }
-            
-            if (!imageUrl) {
-                e.preventDefault();
-                return false;
-            }
+
             
             console.log('Envoi des données vers PHP:', {
                 pseudo: pseudo,

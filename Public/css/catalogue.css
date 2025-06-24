@@ -37,7 +37,12 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1800px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
     .btn-left, .btn-right {
         display:  none;
     }

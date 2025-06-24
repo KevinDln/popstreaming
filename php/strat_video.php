@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Pop Streaming</title>
-    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
-    <link rel="stylesheet" href="../Public/css/nav.css">
-    <link rel="stylesheet" href="../Public/css/styles.css">
-    <link rel="stylesheet" href="../Public/css/variables.css">
-    <link rel="stylesheet" href="../Public/css/font.css">
-    <link rel="stylesheet" href="../Public/css/strat_video.css">
-    <link rel="stylesheet" href="../Public/css/footer.css">
-    <link rel="stylesheet" href="../Public/css/modal-info.css">
+    <link rel="stylesheet" href="../public/css/nav.css">
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/variables.css">
+    <link rel="stylesheet" href="../public/css/font.css">
+    <link rel="stylesheet" href="../public/css/strat_video.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/modal-info.css">
 </head>
 <body>
 <div class="container">
@@ -30,7 +29,7 @@
             <div class="flex">
                 <button class="btn">Commencer</button>
                 <a class="info-icon">
-                    <span><img src="../Public/img/info.png" alt=""></span>
+                    <span>i</span>
                     <span class="info-text">Plus d'infos</span>
                 </a>
             </div>
@@ -40,7 +39,7 @@
 <?php
 include "modal_info.php"
 ?>
-<script src="../Public/js/start_video.js"></script>
-<script src="../Public/js/modal_info.js"></script>
+<script src="http://localhost/popstreaming/Public/js/start_video.js"></script>
+<script src="http://localhost/popstreaming/Public/js/modal_info.js"></script>
 </body>
 </html>

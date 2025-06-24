@@ -85,8 +85,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                     $sql->execute(); // A ajouté les valeurs dans la base de données
 
 
-/*
-                    // PARTIE ACTEURS 
+                    // PARTIE ACTEURS
 
                     // Récupère les 5 premiers acteurs présent dans le film
                     // Partie la plus longue
@@ -97,7 +96,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
 
                         $name_cast = $cast['name'];
                         if (empty($cast['img'])){ //Vérifie si une image est bien récupéré
-                            $img = "../../img/default_profil.jpeg";
+                            $img = "../Public/img/defaut_profil.jpeg";
                         } else {
                             $img = 'https://image.tmdb.org/t/p/w500' . $cast['img'];
                         }
@@ -118,7 +117,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
 
 
                         
-                    }*/
+                    }
                     
             }
 

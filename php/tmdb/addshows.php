@@ -84,7 +84,7 @@ while ($year >= 2000) { // On va chercher le contenu jusqu'au années 1970
                     foreach($casting as $cast){
                         $name_cast = $cast['name'];
                         if (empty($cast['img'])){
-                            $img = "../../img/default_profil.jpeg";
+                            $img = "../Public/img/defaut_profil.jpeg";
                         } else {
                             $img = 'https://image.tmdb.org/t/p/w500' . $cast['img'];
                         }

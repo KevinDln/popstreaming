@@ -119,7 +119,8 @@ $end = false;
             // Vérifier si l'index existe dans le tableau
             if (isset($Series[$init]['poster_path'])) {
                 $img = $Series[$init]['poster_path'];
-                echo "<a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
+                $url2 = "strat_video.php?id=".$Series[$init]['id']."&type=shows";
+                echo "<a href=\"$url2\"> <img src='$img' width='200' height='200'> </a>" ;
                 $total++;
             }
             $init++;
