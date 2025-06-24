@@ -91,6 +91,7 @@ $urlPrecedent .= "page=" . ($page - 1);
                 for ($i=0; $i <=1; $i++) { // 2 lignes
                 for ($j=0; $j < 6 ; $j++) {
 
+<<<<<<< HEAD
                     if (isset($resultat[$init]['poster_path'])) {
                         $img = $resultat[$init]['poster_path'];
                         echo "<a href=\"\"><img src='$img' width='200' height='200' alt=''> </a>" ;
@@ -101,6 +102,21 @@ $urlPrecedent .= "page=" . ($page - 1);
             }
             $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
             //défini , on est a la fin de la liste
+=======
+                if (isset($resultat[$init]['poster_path'])) {
+                    $img = $resultat[$init]['poster_path'];
+                    if ($resultat[$init]['type'] == 'film' || $resultat[$init]['type'] == 'films')
+                        $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=films";
+                    else $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=shows";
+                    echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
+                    $total++;
+                }
+                $init++;
+            } echo "<br>";
+        }
+        $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
+                                                                        //défini , on est a la fin de la liste
+>>>>>>> 922e985f8401ccb025a57470d4ad3555a98ebd2a
 
             ?>
         </div>

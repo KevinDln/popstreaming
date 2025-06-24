@@ -67,7 +67,10 @@ if (isset($_GET['page'])) {
                 for ($j=0; $j < 5 ; $j++) {
                     if (isset($favoris[$init]['poster_path'])) {
                         $img = $favoris[$init]['poster_path'];
-                        echo "<a href=\"\"><img src='$img' width='200' height='200'> </a>" ;
+                        if ($favoris[$init]['type'] == 'film' || $favoris[$init]['type'] == 'films')
+                            $url2 = "strat_video.php?id=".$favoris[$init]['id']."&type=films";
+                        else $url2 = "strat_video.php?id=".$favoris[$init]['id']."&type=shows";
+                        echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
                         $total++;
                     }
                     $init++;

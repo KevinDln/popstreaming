@@ -36,7 +36,7 @@ foreach($result as $row){
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
-    <link rel="stylesheet" href="../Public/css/profils.css">
+    <link rel="stylesheet" href="../Public/css/profils.css?version1">
     <link rel="stylesheet" href="../Public/css/nav_accueil.css">
 </head>
 
@@ -60,7 +60,6 @@ foreach($result as $row){
                         <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
 
                         <?php else : ?>
-
                         <a href="selectProfil.php?">
                         <img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
                         <p class="p1"> Nom </p>
@@ -95,7 +94,8 @@ foreach($result as $row){
                         <?php else : ?>
                         <div class="cercle">
                             <a href="affichageFilms.php">
-                                <span class="plus">+</span></a><br>
+                                <span class="plus">+</span>
+                            </a><br>
                         </div>
                         <?php endif; ?>
                     </div>

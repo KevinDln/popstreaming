@@ -58,7 +58,7 @@ function loadPage(genre) {
       container.innerHTML = ''; 
       data.forEach(film => {
         const link = document.createElement('a');
-        link.href = `page.php?type=${film.type}&id=${film.id}`;  //page => a remplacer, type a récuperer et film.id a initialiser
+        link.href = `strat_video.php?id=${film.id}&type=${film.type}`;  //page => a remplacer, type a récuperer et film.id a initialiser
         const img = document.createElement('img');
         img.src = film.poster_path;
         img.style.width = '180px';
