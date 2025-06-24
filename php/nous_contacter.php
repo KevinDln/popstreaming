@@ -48,6 +48,7 @@ require "footer.php";
 <script src="../JS/langues.js"></script>
 <script src="../JS/profil.js"></script>
 <script src="../JS/rechercher.js"></script>
+<script src="../JS/parametres.js"></script>
 
 </body>
 </html>

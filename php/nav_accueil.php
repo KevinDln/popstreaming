@@ -1,8 +1,8 @@
 <nav class="flex space_between backgourd-rgba menu">
-    <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" height="78" width="180" alt=""></a>
+    <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">
-            <form action="../php/Recherche.php" method="POST">
+            <form action="../php/afficheRecherche.php" method="POST">
                 <input class="barre-de-recherche" type="search" name="film" placeholder="Rechercher un film, une série..." alt="recherche">
                 <button class="btn-recherche" type="submit"><img class="btn-search" src="../Public/img/btn-search.png" alt=""></button>
             </form>
