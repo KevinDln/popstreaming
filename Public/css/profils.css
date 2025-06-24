@@ -73,10 +73,10 @@ h1 {
 }
 
 .btn-secondary {
-    display: inline-flex;
+    display: flex;
     justify-self: center;
     margin-top: 50px;
-    justify-content: left;
+    justify-content: center;
 }
 
 .btn-secondary:hover {

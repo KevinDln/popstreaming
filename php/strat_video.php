@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 session_start();
 require "connectdb.php";
@@ -111,11 +109,9 @@ if ($type == "shows") $type = "Série";
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <?php
 include "modal_info.php"
 ?>
-=======
 
 <div id="infoModal" class="modal">
     <div class="modal-content">

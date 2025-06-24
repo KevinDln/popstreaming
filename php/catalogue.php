@@ -127,8 +127,8 @@ $end = false;
 
 
     <!--- On "triche" un peu, on raffraichi juste la page pour un nouvel affichage de film en attendant -->
-    <a class="btn-left" href="catalogue.php"><img src="../Public/img/btn-left.png" alt=""></a>
-    <a class="btn-right" href="catalogue.php"><img src="../Public/img/btn-right.png" alt=""></a>
+    <a class="btn-left" href="catalogue.php"><img class="btn-left" src="../Public/img/btn-left.png" alt=""></a>
+    <a class="btn-right" href="catalogue.php"><img class="btn-right" src="../Public/img/btn-right.png" alt=""></a>
 </div>
 
 

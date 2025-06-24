@@ -126,12 +126,13 @@ $end = false;
 
             ?>
             <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
-                <a href="<?php echo $urlPrecedent?>"> Page précedente </a> 
+                <a class="btn-right" href="<?php echo $urlPrecedent?>"><img src="../Public/img/btn-left.png" alt=""></a>
             <?php endif; ?>
             <?php if (!$end): ?>
-            <a href="<?php echo $urlSuivant?>"> Page suivante </a> 
+            <a class="btn-left" href="<?php echo $urlSuivant?>"><img src="../Public/img/btn-right.png" alt=""></a>
             <?php endif; ?>
         </div>
+
         <?php require "footer.php" ?>
     </body>
 
