@@ -1,4 +1,11 @@
 <nav class="flex backgourd-rgba menu">
+    <div class="menu-burger">
+        <div class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">

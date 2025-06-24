@@ -22,7 +22,7 @@
     height: 3px;
     width: 25px;
     margin: 3px 0;
-    background-color: white;
+    background-color: var(--Nuances-blanc);
     transition: all 0.3s ease;
 }
 
@@ -31,12 +31,55 @@
     gap: 15px;
 }
 
+.menu-links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+/* Style pour les listes déroulantes */
+.language-affichage, .options-affichage {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.language-affichage li, .options-affichage li {
+    padding: 10px;
+    text-align: center;
+}
+
+.language-affichage li:hover, .options-affichage li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Afficher les listes déroulantes au survol */
+.langue:hover .language-affichage,
+.profile-link:hover .options-affichage {
+    display: block;
+}
+
+/* Style pour l'image de profil */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
 .btn-primary {
-    color: white;
+    color: var(--Nuances-noir);
     text-decoration: none;
     padding: 10px 20px;
-    background-color: #FFD700;
-    border-radius: 5px;
+    background-color: var(--Nuances-jaune);
 }
 
 @media (max-width: 1200px) {
@@ -54,6 +97,28 @@
         display: flex; /* Affiché sur les petits écrans */
     }
 
+    .container-nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .container-nav.active {
+        display: flex;
+    }
+
+    .menu-links ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
     .menu-links {
         display: none; /* Masqué par défaut sur les petits écrans */
         position: absolute;
@@ -68,5 +133,9 @@
 
     .menu-links.active {
         display: flex; /* Affiché lorsque le menu est actif */
+    }
+
+    nav.menu {
+        padding: 10px 30px;
     }
 }

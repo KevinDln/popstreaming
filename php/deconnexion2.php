@@ -5,19 +5,22 @@
     <title> Déconnexion2 </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <link rel="stylesheet" href="../Public/css/nav_accueil.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
+    <link rel="stylesheet" href="../Public/css/menu_burger.css">
     <link rel="stylesheet" href="../Public/css/deconnexion.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
 </head>
     <body>
+    <header>
         <?php require "nav_accueil.php"; ?>
+    </header>
         <br>
-        <a href="../php/pre_accueil.php">
-            <input class="chevron" type="image" src="../Public/img/btn-retour.png"/>
+        <a href="#" class="btn-retour">
+            <img src="../Public/img/btn-retour.png" alt="">
         </a>
         <br>
 
