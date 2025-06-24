@@ -13,7 +13,7 @@ include 'footer.php';
 ?>
 <h1> Contrôle Parental</h1>
 <p>Entrez le mot de passe de votre compte pour gérer les paramètres de contrôle parental.</p>
-    <form method="post" action="#">
+    <form method="post" action="fonctioncontroleparental.php">
         <label for="mdp">Mot de passe:</label> <input type="password" id="mdp" name="mdp" required>
         <br>
         <input type="submit" id="submit" name="submit" value="Valider">
