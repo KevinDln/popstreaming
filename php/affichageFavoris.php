@@ -27,20 +27,29 @@ if (isset($_GET['page'])) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title> Films </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+        <link rel="stylesheet" href="../Public/css/nav.css">
+        <link rel="stylesheet" href="../Public/css/nav_accueil.css">
+        <link rel="stylesheet" href="../Public/css/styles.css">
+        <link rel="stylesheet" href="../Public/css/variables.css">
+        <link rel="stylesheet" href="../Public/css/font.css">
+        <link rel="stylesheet" href="../Public/css/footer.css">
+        <link rel="stylesheet" href="../Public/css/affichageFavoris.css">
     </head>
 
-    <?php require "nav_accueil.php";  ?>
-    <body>
-        
-        <?php require "nav.php"; // On inclut la barre de navigation ?>
 
-        <div class="contenu" id="contenu" name="contenu">
+<body>
+    <?php require "nav_accueil.php";  ?>
+    <a href="../php/pre_accueil.php">
+        <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/></a> <br>
+
+<div class="flex">
+    <?php require "nav.php"; // On inclut la barre de navigation ?>
+
             <?php
 
 
@@ -51,7 +60,7 @@ if (isset($_GET['page'])) {
             
             $total = 0;
             if (!$favoris) {
-                echo "<p> Vous n'avez pas de favoris pour le moment </p>";
+                echo "<p class='center'> Vous n'avez pas de favoris pour le moment </p>";
                 exit();
             }
             for ($i=0; $i <=1; $i++) { // Les lignes
@@ -76,7 +85,15 @@ if (isset($_GET['page'])) {
             <?php if (!$end): ?>
             <a href="<?php echo $urlSuivant?>"> Page suivante </a> 
             <?php endif; ?>
-        </div>
+    </div>
+
+    <script src="../JS/header.js"></script>
+    <script src="../JS/langues.js"></script>
+    <script src="../JS/profil.js"></script>
+    <script src="../JS/rechercher.js"></script>
+    <script src="../JS/parametres.js"></script>
+
+
         <?php require "footer.php" ?>
     </body>
 
