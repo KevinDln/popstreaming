@@ -167,7 +167,7 @@ if ($type == "shows") $type = "Série";
                 <?php endif; ?>
             </div>
         </div>
-        <button class="modal-btn">Commencer</button>
+        <a href="show" class="modal-btn" >Commencer </a>
     </div>
 </div>
 
