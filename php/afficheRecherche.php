@@ -94,7 +94,10 @@ $urlPrecedent .= "page=" . ($page - 1);
 
                 if (isset($resultat[$init]['poster_path'])) {
                     $img = $resultat[$init]['poster_path'];
-                    echo "<a href=\"\"><img src='$img' width='200' height='200'> </a>" ;
+                    if ($resultat[$init]['type'] == 'film' || $resultat[$init]['type'] == 'films')
+                        $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=films";
+                    else $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=shows";
+                    echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
                     $total++;
                 }
                 $init++;

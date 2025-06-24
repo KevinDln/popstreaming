@@ -63,7 +63,7 @@ if ($_SESSION['controle'] == 0) { // pas de controle parentale
         <?php require "nav.php"; // On inclut la barre de navigation ?>
         
         <div class="affiche" id="affiche" name="affiche">
-            <!--- Div de stockage de l'affiche, attendre css pour mise en forme --->
+            <!--- Div de stockage de l'affiche --->
             <img src="<?php echo $affiche[0]['backdrop_path']; ?>" alt="Affiche du film" width="80%" height="50%">
         </div>
 
@@ -78,7 +78,8 @@ if ($_SESSION['controle'] == 0) { // pas de controle parentale
                 for ($i=0; $i <5 ; $i++) { // Les lignes
                     if (isset($tendances[$init])) {
                         $img = $tendances[$init]['poster_path'];
-                        echo "<a href=\"\"> <img src='$img' width='250' height='200'> </a>" ;
+                        $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=films";
+                        echo "<a href=\"$url2\"> <img src='$img' width='250' height='200'> </a>" ;
                     }
                     $init++;
                 }

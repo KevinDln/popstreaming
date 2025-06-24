@@ -2,7 +2,7 @@
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">
-            <form action="../php/Recherche.php" method="POST">
+            <form action="afficheRecherche.php" method="POST">
                 <input class="barre-de-recherche" type="search" name="film" placeholder="Rechercher un film, une série..." alt="recherche">
                 <button class="btn-recherche" type="submit"><img class="btn-search" src="../Public/img/btn-search.png" alt=""></button>
             </form>

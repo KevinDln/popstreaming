@@ -7,7 +7,7 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     $type = $_GET['type'];
     // Récupération des infos film ou série + id
 
-    if ($type == "films") {
+    if ($type == "films" || $type == "film") {
         $sql = $conn->prepare("SELECT * from films WHERE id_movie = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
@@ -26,13 +26,13 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
             $result2[] = $row;
         } ;
         $sql2->close();
-        
 
 
 
 
 
-    } elseif ( $type == "shows") {
+
+    } elseif ( $type == "shows" || $type == "show") {
         $sql = $conn->prepare("SELECT * from series WHERE id_shows = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
@@ -60,9 +60,8 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
 
     }
 
-    var_dump($result2[1]);
-    
-    
+
+    var_dump($result);
 };
 
 if ($type == "shows") $type = "Série";
@@ -111,15 +110,18 @@ if ($type == "shows") $type = "Série";
 <div id="infoModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2><?php if ($type == "films") echo $result['title'];
+        <h2><?php if ($type == "films" || $type =="film") echo $result['title'];
             else echo $result[0]['title'] ?>
         </h2>
-        <p> <?php if ($type == "films") echo $result['overview'] ;
-            else  echo $result[0]['overview']
+        <p> <?php if ($type == "films" || $type =="film") echo $result['overview'] ;
+            else  echo $result[0]['overview'];
             ?> </p>
         <div class="modal-tags">
-            <span class="tag">Année: 16+</span>
-            <span class="tag"><?php echo $type ?></span>
+            <span class="tag"> <?php if ($type == "films" || $type =="film" ) echo "Film";
+                else echo "Série"?> </span>
+            <span class="tag"><?php if ($type == "films" || $type =="film") echo $result['release_year'];
+            else echo $result[0]['release_year']?>
+            </span>
             <?php
             $init = 0;
             while (isset($result[$init])) {

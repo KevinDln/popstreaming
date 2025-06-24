@@ -47,7 +47,10 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
                     // Vérifier si l'index existe dans le tableau
                     if (isset($tendances[$init])) {                        
                         $img = $tendances[$init]['poster_path'];
-                        echo "<p> $number </p> <a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
+                        if ($tendances[$init]['type'] == 'film' || $tendances[$init]['type'] == 'films')
+                            $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=films";
+                        else $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=shows";
+                        echo "<p> $number </p> <a href=\"$url2\"> <img src='$img' width='200' height='200'> </a>" ;
                         $number++;
                     }
                     $init++;
