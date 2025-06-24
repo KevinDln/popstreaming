@@ -61,6 +61,7 @@ $urlPrecedent .= "page=" . ($page - 1);
     <link rel="stylesheet" href="../Public/css/font.css">
     <link rel="stylesheet" href="../Public/css/recherche.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
+
 </head>
 
 
