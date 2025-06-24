@@ -35,6 +35,7 @@ $end = false;
     <link rel="stylesheet" href="../Public/css/pre_accueil.css">
     <link rel="stylesheet" href="../Public/css/strat_video.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
+    <link rel="stylesheet" href="../Public/css/catalogue.css">
 </head>
 <body>
 
@@ -48,85 +49,89 @@ $end = false;
     </div>
 </div>
 
-<div class="contenu" id="contenu" name="contenu">
-    <?php
-    $dejadedansfilm = []; // Tableau pour savoir si le film est deja montré dans le catalogue
-    $dejadedansserie = []; // Tableau pour savoir si le film est deja montré dans le catalogue
+<div class="contenu center" id="contenu" name="contenu">
+    <div class="images-container">
+        <?php
+        $dejadedansfilm = []; // Tableau pour savoir si le film est deja montré dans le catalogue
+        $dejadedansserie = []; // Tableau pour savoir si le film est deja montré dans le catalogue
 
 
-    for ($i = 0; $i < 3; $i++) {
-        if ($i == 1) { // Ligne 2, on en veut 1 de plus
-            for ($j = 0; $j < 9; $j++) {
-                $type = rand(0,1); // chiffre entre 0 et 1 pour savoir où récuperer l'image (films ou série)
-                $continuer = true;
-                while ($continuer) {
-                    $content = rand(0,count($table[$type])-1); // Max de contenu dans la table du type
-                    if ($type == 0) {
-                        // Sera des films
-                        if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
-                            // Affichage du contenu
-                            $img = $table[$type][$content]['poster_path'];
-                            echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
-                            $dejadedansfilm[] = $content;
-                            $continuer = false;
+        for ($i = 0; $i < 3; $i++) {
+            if ($i == 1) { // Ligne 2, on en veut 1 de plus
+                for ($j = 0; $j < 9; $j++) {
+                    $type = rand(0,1); // chiffre entre 0 et 1 pour savoir où récuperer l'image (films ou série)
+                    $continuer = true;
+                    while ($continuer) {
+                        $content = rand(0,count($table[$type])-1); // Max de contenu dans la table du type
+                        if ($type == 0) {
+                            // Sera des films
+                            if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
+                                // Affichage du contenu
+                                $img = $table[$type][$content]['poster_path'];
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
+                                $dejadedansfilm[] = $content;
+                                $continuer = false;
+                            }
+                        }
+                        if ($type == 1) {
+                            // Sera des series
+                            if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
+                                // Affichage du contenu
+                                $img = $table[$type][$content]['poster_path'];
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
+                                $dejadedansserie[] = $content;
+                                $continuer = false;
+
+                            }
                         }
                     }
-                    if ($type == 1) {
-                        // Sera des series
-                        if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
-                            // Affichage du contenu
-                            $img = $table[$type][$content]['poster_path'];
-                            echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
-                            $dejadedansserie[] = $content;
-                            $continuer = false;
+                } ;
 
+            }
+            else {
+                for ($j = 0; $j < 8; $j++) {
+                    $type = rand(0,1); // chiffre entre 0 et 1 pour savoir où récuperer l'image (films ou série)
+                    $continuer = true;
+                    while ($continuer) {
+                        $content = rand(0,count($table[$type])-1); // Max de contenu dans la table du type
+                        if ($type == 0) {
+                            // Sera des films
+                            if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
+                                // Affichage du contenu
+                                $img = $table[$type][$content]['poster_path'];
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
+                                $dejadedansfilm[] = $content;
+                                $continuer = false;
+
+                            }
                         }
-                    }
-                }
-            } ;
-
-        }
-        else {
-            for ($j = 0; $j < 8; $j++) {
-                $type = rand(0,1); // chiffre entre 0 et 1 pour savoir où récuperer l'image (films ou série)
-                $continuer = true;
-                while ($continuer) {
-                    $content = rand(0,count($table[$type])-1); // Max de contenu dans la table du type
-                    if ($type == 0) {
-                        // Sera des films
-                        if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
-                            // Affichage du contenu
-                            $img = $table[$type][$content]['poster_path'];
-                            echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
-                            $dejadedansfilm[] = $content;
-                            $continuer = false;
-
-                        }
-                    }
-                    if ($type == 1) {
-                        // Sera des series
-                        if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
-                            // Affichage du contenu
-                            $img = $table[$type][$content]['poster_path'];
-                            echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
-                            $dejadedansserie[] = $content;
-                            $continuer = false;
+                        if ($type == 1) {
+                            // Sera des series
+                            if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
+                                // Affichage du contenu
+                                $img = $table[$type][$content]['poster_path'];
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
+                                $dejadedansserie[] = $content;
+                                $continuer = false;
+                            }
                         }
                     }
                 }
             }
+            echo "<br>";
         }
-        echo "<br>";
-    }
 
 
-    ?>
+        ?>
+    </div>
 
+
+    <!--- On "triche" un peu, on raffraichi juste la page pour un nouvel affichage de film en attendant -->
+    <a class="btn-left" href="catalogue.php"><img src="../Public/img/btn-left.png" alt=""></a>
+    <a class="btn-right" href="catalogue.php"><img src="../Public/img/btn-right.png" alt=""></a>
 </div>
 
-<!--- On "triche" un peu, on raffraichi juste la page pour un nouvel affichage de film en attendant -->
-<a href="catalogue.php"> Page suivante </a>
-<a href="catalogue.php"> Page précédente </a>
+
 
 <?php
 include "footer.php"

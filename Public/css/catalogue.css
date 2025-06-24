@@ -1,0 +1,53 @@
+.btn-left {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-right {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-right img,
+.btn-left img {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.contenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.poster {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+@media screen and (max-width: 1800px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+    .btn-left, .btn-right {
+        display:  none;
+    }
+
+    .poster {
+        height: 180px;
+    }
+}

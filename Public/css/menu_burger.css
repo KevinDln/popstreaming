@@ -6,8 +6,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 20px 50px;
+    background: linear-gradient(360deg, rgba(12, 20, 25, 0.50) 0%, #0C1419 100%);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
 }
 
