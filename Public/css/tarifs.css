@@ -57,6 +57,7 @@ td#vide {
 
 .btn-gap {
     gap: 20px;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -112,5 +113,22 @@ td#vide {
     .btn-gap {
         justify-content: center;
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .conditions-annulation {
+        text-align: center;
+    }
+
+    .table-pricing {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .table-pricing th, .table-pricing td {
+        padding: 4px;
+        font-size: 12px;
     }
 }

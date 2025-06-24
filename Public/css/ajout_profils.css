@@ -41,6 +41,12 @@
     color: var(--Nuances-blanc);
 }
 
+.add-photo {
+    color: var(--Nuances-blanc);
+    margin-top: 20px;
+    display: block;
+}
+
 .ajouter .cercle {
     width: 250px;
     height: 250px;
@@ -56,9 +62,46 @@
     font-family:  "Poppins-regular";
     font-size: 16px;
     color: var(--Nuances-blanc);
+}
+
+.custom-select-container {
+    position: relative;
+    display: inline-block;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-weight: bold;
+}
+
+select option:checked {
+    background-color: var(--Nuances-jaune); /* Remplacez par la couleur de votre choix */
+    color: var(--Nuances-blanc);
+}
+
+/* Style pour l'option survolée */
+select option:hover {
+    background-color: #e0e0e0 !important;
+}
+
+.add-photo {
 
 }
 
+.custom-select-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-40%);
+    pointer-events: none; /* Permet aux clics de passer à travers l'icône */
+}
+
+.custom-select-icon img {
+    width: 15px; /* Ajustez la taille selon vos besoins */
+    height: 15px;
+}
 
 .input1 {
     border-radius: 10px;
@@ -67,11 +110,31 @@
     font-family:  "Poppins-regular";
     font-size: 16px;
     background-color: var(--Nuances-blanc);
-    border: 1px solid var(--Nuances-blanc);
     color :  var(--Nuances-noir);
     padding : 15px;
+    border: none;
+    outline: none;
 }
 
 .gap {
-    gap : 50px;
+    gap : 110px;
+    justify-content: space-between;
+}
+
+.btn-secondary {
+    font-weight: bold;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 50px;
+}
+
+@media screen and (max-width: 496px) {
+    .input1 {
+        width: 300px;
+    }
+
+    .gap {
+        gap: 12px;
+    }
 }
