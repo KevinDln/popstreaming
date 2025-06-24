@@ -66,77 +66,62 @@ $urlPrecedent .= "page=" . ($page - 1);
 
 <body>
 <?php require "nav_accueil.php";  ?>
-<a href="../php/pre_accueil.php">
-    <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/></a> <br>
+    <a href="../php/pre_accueil.php">
+        <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/></a> <br>
 
 <div class="flex">
 <?php require "nav.php"; // On inclut la barre de navigation ?>
 
     <!-- Affichage des contenus retrouvé -->
-<div class="flex ">
-    <div class="flex alignement">
-        <form action="afficheRecherche.php" method="POST">
-            <p>Rechercher</p>
-            <label for="film">Recherche </label>
-            <input  class="btn-secondary" type="search" id="film" name="film" placeholder=<?php if (isset($mot)) echo $mot ?> "Rechercher un film, une série...">
-        </form>
-    </div>
 
-    <div class="flex">
-        <p>Trier par</p>
-        <label for="film">Trier par </label>
-        <select class="input1 btn-secondary" name="Trier par">
-            <option value="Trier par">Trier par</option>
-            <option value="Top 10">Adultes</option>
-            <option value="Film">Adolescents</option>
-            <option value="Série">Jeunesse</option>
-        </select>
-    </div>
+        <div class="search-box">
+                <form action="afficheRecherche.php" method="POST">
+                    <p>Rechercher</p>
+                    <label for="film">Recherche </label>
+                    <input  class="btn-secondary" type="search" id="film" name="film" placeholder=<?php if (isset($mot)) echo $mot ?> "Rechercher un film, une série...">
+                </form>
+        </div>
+
+        <div class="img">
+            <?php
+            $init = (12*$page);
+            $total = 0;
+
+                for ($i=0; $i <=1; $i++) { // 2 lignes
+                for ($j=0; $j < 6 ; $j++) {
+
+                    if (isset($resultat[$init]['poster_path'])) {
+                        $img = $resultat[$init]['poster_path'];
+                        echo "<a href=\"\"><img src='$img' width='200' height='200' alt=''> </a>" ;
+                        $total++;
+                    }
+                    $init++;
+                } echo "<br>";
+            }
+            $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
+            //défini , on est a la fin de la liste
+
+            ?>
+        </div>
+
+        <div class="flex espacement">
+        <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
+            <a class='pagination' href="<?php echo $urlPrecedent?>"> Page précedente </a>
+        <?php endif; ?>
+        <?php if (!$end): ?>
+        <a class='pagination' href="<?php echo $urlSuivant?>"> Page suivante </a>
+        <?php endif; ?>
+        </div>
+
 </div>
-</div>
-<div class="pagination">
-    <input class="avant" type="image" src="../Public/img/btn-pagination-gauche.png" alt="<"/>
-    <input class="avant" type="text" value="1"/>
-    <input class="avant" type="text" value="2"/>
-    <input class="avant" type="text" value="3">
-    <input class="avant" type="text" value="4"/>
-    <input class="avant" type="image" src="../Public/img/btn-pagination-droit.png" alt=">"/>
-</div>
 
-<?php
-        $init = (12*$page);
-        $total = 0;
-
-        for ($i=0; $i <=1; $i++) { // 2 lignes
-            for ($j=0; $j < 6 ; $j++) {
-
-                if (isset($resultat[$init]['poster_path'])) {
-                    $img = $resultat[$init]['poster_path'];
-                    echo "<a href=\"\"><img src='$img' width='200' height='200' alt=''> </a>" ;
-                    $total++;
-                }
-                $init++;
-            } echo "<br>";
-        }
-        $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
-                                                                        //défini , on est a la fin de la liste
-
-
-    
-    ?>
-    <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
-        <a href="<?php echo $urlPrecedent?>"> Page précedente </a>
-    <?php endif; ?>
-    <?php if (!$end): ?>
-        <a href="<?php echo $urlSuivant?>"> Page suivante </a>
-    <?php endif; ?>
 
 
 <script src="../JS/header.js"></script>
 <script src="../JS/langues.js"></script>
 <script src="../JS/profil.js"></script>
 <script src="../JS/rechercher.js"></script>
-<script src="../JS/parametres.js.js"></script>
+<script src="../JS/parametres.js"></script>
 
 <?php
 require "footer.php";
