@@ -10,6 +10,11 @@
     margin-bottom: 30px;
 }
 
+.container-align {
+    text-align: center;
+
+}
+
 .p1{
     font-size: 20px;
 }
@@ -68,9 +73,10 @@ h1 {
 }
 
 .btn-secondary {
-    display: flex;
+    display: inline-flex;
     justify-self: center;
     margin-top: 50px;
+    justify-content: left;
 }
 
 .btn-secondary:hover {

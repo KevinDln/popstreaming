@@ -48,103 +48,99 @@ foreach($result as $row){
     <a href="#" class="btn-retour">
         <img src="../Public/img/btn-retour.png" alt="">
     </a>
-    <div class="center">
+    <div class="center container-align">
         <h1>Qui est-ce ?</h1>
-     <br>
-        <div class="container-profil flex">
-            <div class="profils">
-                <div class="profil">
-                    <?php if (isset($tableres[0])) : ?>
-                    <a href="accueil.php">
-                    <img src="<?php echo $tableres[0]['img'];?>" alt="NOM"></a><br>
-                    <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
+        <br>
+            <div class="container-profil flex">
+                <div class="profils">
+                    <div class="profil">
+                        <?php if (isset($tableres[0])) : ?>
+                        <a href="accueil.php">
+                        <img src="<?php echo $tableres[0]['img'];?>" alt="NOM"></a><br>
+                        <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
 
-                    <?php else : ?>
+                        <?php else : ?>
 
-                    <a href="selectProfil.php?">
-                    <img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
-                    <p class="p1"> Nom </p>
+                        <a href="selectProfil.php?">
+                        <img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
+                        <p class="p1"> Nom </p>
 
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+                    </div>
 
-                <div class="profil ajouter">
-
-                    <?php if (isset($tableres[1])) : ?>
+                    <div class="profil ajouter">
+                        <?php if (isset($tableres[1])) : ?>
                         <div class="cercle cercle-hover">
                             <a href="accueil.php">
                             <img src="<?php echo $tableres[1]['img'];?>" alt="NOM"></a><br>
                             <p class="p1"><?php echo $tableres[1]['nom']; ?> </p>
-                            </div>
-                            <?php else : ?>
-                                <div class="cercle">
-                                <a href="selectProfil.php?">
-                                <span class="plus">+</span></a><br></a><br>
-                                </div>
-                            <?php endif; ?>
-
-                </div>
-
-            <div class="profil ajouter">
-                <?php if (isset($tableres[2])) : ?>
-                <div class="cercle cercle-hover">
-                    <a href="accueil.php">
-                        <img src="<?php echo $tableres[2]['img'];?>" alt="NOM"></a><br>
-                    <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
-                </div>
-
-
-                    <?php else : ?>
-                    <div class="cercle">
-                        <a href="affichageFilms.php">
-                            <span class="plus">+</span></a><br></a><br>
-                    </div>
-                        <?php endif; ?>
-
-            </div>
-
-                <div class="profil ajouter">
-                    <?php if (isset($tableres[3])) : ?>
-                    <div class="cercle cercle-hover">
-                        <a href="accueil.php">
-                            <img src="<?php echo $tableres[3]['img'];?>" alt="NOM"></a><br>
-                        <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
-                    </div>
+                        </div>
                         <?php else : ?>
                         <div class="cercle">
                             <a href="selectProfil.php?">
-                                <span class="plus">+</span></a><br></a><br>
+                            <span class="plus">+</span>
+                            </a><br>
                         </div>
-                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
 
-                </div>
+                    <div class="profil ajouter">
+                        <?php if (isset($tableres[2])) : ?>
+                        <div class="cercle cercle-hover">
+                            <a href="accueil.php">
+                                <img src="<?php echo $tableres[2]['img'];?>" alt="NOM">
+                            </a><br>
+                            <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
+                        </div>
+                        <?php else : ?>
+                        <div class="cercle">
+                            <a href="affichageFilms.php">
+                                <span class="plus">+</span></a><br>
+                        </div>
+                        <?php endif; ?>
+                    </div>
 
-                <div class="profil ajouter">
+                    <div class="profil ajouter">
+                        <?php if (isset($tableres[3])) : ?>
+                        <div class="cercle cercle-hover">
+                            <a href="accueil.php">
+                                <img src="<?php echo $tableres[3]['img'];?>" alt="NOM">
+                            </a><br>
+                            <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
+                        </div>
+                        <?php else : ?>
+                        <div class="cercle">
+                            <a href="selectProfil.php?">
+                                <span class="plus">+</span>
+                            </a><br>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="profil ajouter">
                     <div class="cercle">
                         <?php if (isset($tableres[4])) : ?>
                         <div class="cercle cercle-hover">
                             <a href="accueil.php">
-                                <img src="<?php echo $tableres[4]['img'];?>" alt="NOM"></a><br>
+                                <img src="<?php echo $tableres[4]['img'];?>" alt="NOM">
+                            </a><br>
                             <p class="p1"><?php echo $tableres[4]['nom']; ?> </p>
                         </div>
-                            <?php else : ?>
-                            <div class="cercle">
-                                <a href="selectProfil.php?">
-                                <span class="plus">+</span></a><br></a><br>
-                            </div>
-                            <?php endif; ?>
+                        <?php else : ?>
+                        <div class="cercle">
+                            <a href="selectProfil.php?">
+                            <span class="plus">+</span>
+                            </a><br>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
+            </div>
 
-
-
-<br> <br>
-
-
-    <a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
-<br>
-
+        <br> <br>
+        <a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
+    </div>
 
 </body>
 </html>
