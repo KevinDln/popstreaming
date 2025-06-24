@@ -5,87 +5,99 @@ if (isset($_GET['url'])) {
     $url = $_GET['url'];
 }
 
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <title> Parametres </title>
+    <title> Popstreaming </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/css/variables.css">
+
+    <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
+#backButton {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: transparent;
+    background-color: #EFBD3F;
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    top: 8%; /* a modifier si on veut plus bas ou plus haut */
+}
+
+#backButton img {
+    width: 40px; /* adapte si tu veux plus petit ou plus grand */
+    height: auto;
+    display: block;
+}
+
+/* Pour cacher le bouton si on est en plein écran  */
+:fullscreen #backButton,
+:-webkit-full-screen #backButton,
+:-moz-full-screen #backButton,
+:-ms-fullscreen #backButton {
+    display: none;
+}
+
+
+</style>
 
 
 </head>
 
 
 <body>
-<?php require "header.php"; ?>
+<button id="backButton" onclick="history.back()"><img src="../Public/img/btn-retour.png" alt="retour"></button>
 
-<a href="accueil.php"> retour </a>
-<?php require "nav.php" ?>
-<table class="parametres">
-    <tr>
-        <td> Langue </td>
-        <td class="link"> <a href="#"> Modifier </a> </td>
-        <td class="barre"> <?php echo $_SESSION['langue'] ?> </td>
-    </tr>
+<iframe width="100%" height="100%"
+src="<?php echo htmlspecialchars($url)?>"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
 
-    <tr>
-        <td> Controle parentale </td>
-        <td class="link"> <a href="#"> Modifier </a> </td>
-        <td class="barre"> <?php echo $controle ?> </td>
-    </tr>
+<script>
+        function onFullscreenChange() {
+            const btn = document.getElementById('backButton');
+            if (
+                document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement
+            ) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'block';
+            }
+        }
 
-    <tr>
-        <td> Verrouillage des profils </td>
-        <td class="link"> <a href="#"> Modifier </a> </td>
-        <td class="barre"> Désactiver </td>
-    </tr>
-
-    <tr>
-        <td> Activités de visionnement </td>
-        <td class="link"> <a href="#"> Modifier </a></td>
-    </tr>
-
-    <tr>
-        <td> Évaluations </td>
-        <td class="link"> <a href="#">Modifier </a></td>
-    </tr>
-
-    <tr>
-        <td> Apparences des sous titres </td>
-        <td class="link"> <a href="#"> Modifier </a></td>
-    </tr>
-
-    <tr>
-        <td> Parametres de lecture </td>
-        <td class="link"> <a href="#"> Modifier </a></td>
-    </tr>
-
-    <tr>
-        <td> FAQ </td>
-        <td class="link"> <a href="#"> Voir </a></td>
-    </tr>
-
-    <tr>
-        <td> Se déconnecter </td>
-        <td class="link"> <a href="deconnexion2.php"> Déconnecter </a></td>
-    </tr>
-
-    <tr>
-        <td> Changer le moyen de paiement </td>
-        <td class="link"> <a href="#"> Voir </a></td>
-    </tr>
-
-    <tr>
-        <td> Accéder aux factures </td>
-        <td class="link"> <a href="#"> Voir </a></td>
-    </tr>
+        document.addEventListener('fullscreenchange', onFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+        document.addEventListener('mozfullscreenchange', onFullscreenChange);
+        document.addEventListener('MSFullscreenChange', onFullscreenChange);
+    </script>
 
 
-</table>
+
 
 </body>
 
 </html>
 
-?>

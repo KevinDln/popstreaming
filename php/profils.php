@@ -20,6 +20,11 @@ foreach($result as $row){
     ];
 }
 
+if (empty($tableres)) {
+    // Si aucun profil n'est trouvé, rediriger vers la page de création de profil
+    header("Location: createProfil.php");
+    exit();
+}
 
 
 ?>
@@ -47,7 +52,7 @@ foreach($result as $row){
     </nav>
     <br>
 
-    <a href="../php/accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
+    <a href="logout.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
 
     <div class="center">
         <h1>Qui est-ce ?</h1>
@@ -56,13 +61,14 @@ foreach($result as $row){
         <div class="profils">
             <div class="profil">
                 <?php if (isset($tableres[0])) : ?>
-                <a href="accueil.php">
+                    <?php $lien = "accueil.php?id=".$tableres[0]['id']; ?>
+                <a href="<?php echo $lien; ?>">
                 <img src="<?php echo $tableres[0]['img'];?>" alt="NOM"></a><br>
                 <p class="p1"><?php echo $tableres[0]['nom']; ?> </p>
 
                 <?php else : ?>
 
-                <a href="selectProfil.php?">
+                <a href="">
                 <img src="../Public/img/defaut_profil.jpeg" alt="NOM"></a><br>
                 <p class="p1"> Nom </p>
 
@@ -73,13 +79,14 @@ foreach($result as $row){
 
                 <?php if (isset($tableres[1])) : ?>
                     <div class="profil">
-                        <a href="accueil.php">
+                        <?php $lien = "accueil.php?id=".$tableres[1]['id']; ?>
+                            <a href="<?php echo $lien; ?>">
                         <img src="<?php echo $tableres[1]['img'];?>" alt="NOM"></a><br>
                         <p class="p1"><?php echo $tableres[1]['nom']; ?> </p>
                         </div>
                         <?php else : ?>
                             <div class="cercle">
-                            <a href="selectProfil.php?">
+                            <a href="">
                             <span class="plus">+</span></a><br></a><br>
                             </div>
                         <?php endif; ?>
@@ -89,7 +96,8 @@ foreach($result as $row){
         <div class="profil ajouter">
             <?php if (isset($tableres[2])) : ?>
             <div class="profil">
-                <a href="accueil.php">
+                <?php $lien = "accueil.php?id=".$tableres[2]['id']; ?>
+                <a href="<?php echo $lien; ?>">
                     <img src="<?php echo $tableres[2]['img'];?>" alt="NOM"></a><br>
                 <p class="p1"><?php echo $tableres[2]['nom']; ?> </p>
             </div>
@@ -97,7 +105,7 @@ foreach($result as $row){
 
                 <?php else : ?>
                 <div class="cercle">
-                    <a href="affichageFilms.php">
+                    <a href="">
                         <span class="plus">+</span></a><br></a><br>
                 </div>
                     <?php endif; ?>
@@ -107,13 +115,14 @@ foreach($result as $row){
             <div class="profil ajouter">
                 <?php if (isset($tableres[3])) : ?>
                 <div class="profil">
-                    <a href="accueil.php">
+                    <?php $lien = "accueil.php?id=".$tableres[3]['id']; ?>
+                <a href="<?php echo $lien; ?>">
                         <img src="<?php echo $tableres[3]['img'];?>" alt="NOM"></a><br>
                     <p class="p1"><?php echo $tableres[3]['nom']; ?> </p>
                 </div>
                     <?php else : ?>
                     <div class="cercle">
-                        <a href="selectProfil.php?">
+                        <a href="?">
                             <span class="plus">+</span></a><br></a><br>
                     </div>
                         <?php endif; ?>
@@ -124,13 +133,14 @@ foreach($result as $row){
                 <div class="cercle">
                     <?php if (isset($tableres[4])) : ?>
                     <div class="profil">
-                        <a href="accueil.php">
+                        <?php $lien = "accueil.php?id=".$tableres[4]['id']; ?>
+                <a href="<?php echo $lien; ?>">
                             <img src="<?php echo $tableres[4]['img'];?>" alt="NOM"></a><br>
                         <p class="p1"><?php echo $tableres[4]['nom']; ?> </p>
                     </div>
                         <?php else : ?>
                         <div class="cercle">
-                            <a href="selectProfil.php?">
+                            <a href="">
                             <span class="plus">+</span></a><br></a><br>
                         </div>
                         <?php endif; ?>

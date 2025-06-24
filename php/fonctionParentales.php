@@ -8,7 +8,7 @@ function selectByGenreMovieParent($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT id_movie, poster_path, backdrop_path FROM films WHERE genre= ? AND adult = 0 ORDER BY title");
+    $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path, backdrop_path FROM films WHERE genre= ? AND adult = 0 ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -36,7 +36,7 @@ function selectByGenreShowsParent($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT id_shows,poster_path , backdrop_path FROM series WHERE genre = (?) AND adult=0 ORDER BY title");
+    $sql = $conn->prepare("SELECT DISTINCT id_shows,poster_path , backdrop_path FROM series WHERE genre = (?) AND adult=0 ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -86,7 +86,7 @@ function selectByTypeParent($type,$conn) {
 
     if ($type == "films") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT id_movie,poster_path,backdrop_path FROM films WHERE idPK = (?) AND adult=0");
+        $sql = $conn->prepare("SELECT DISTINCT id_movie,poster_path,backdrop_path FROM films WHERE idPK = (?) AND adult=0");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
@@ -103,7 +103,7 @@ function selectByTypeParent($type,$conn) {
     }
     if ($type == "shows") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT id_shows, poster_path,backdrop_path FROM series WHERE idPK = (?) AND adult=0");
+        $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path,backdrop_path FROM series WHERE idPK = (?) AND adult=0");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
@@ -144,7 +144,7 @@ function selectByDecadeMoviesParent($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT id_movie, poster_path, backdrop_path FROM films WHERE release_year = (?) 
+            $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path, backdrop_path FROM films WHERE release_year = (?) 
                                                          AND adult = 0");
             $sql->bind_param("i", $year);
             $sql->execute();
@@ -168,7 +168,7 @@ function selectByDecadeMoviesParent($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT id_movie, poster_path,backdrop_path FROM films WHERE release_year = (?) AND adult = 0 ");
+            $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path,backdrop_path FROM films WHERE release_year = (?) AND adult = 0 ");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -206,7 +206,7 @@ function selectByDecadeShowsParent($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) 
+            $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) 
                                                           AND adult = 0 ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
@@ -230,7 +230,7 @@ function selectByDecadeShowsParent($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) 
+            $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) 
                                                           AND adult = 0 ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
@@ -310,7 +310,7 @@ function getAfficheParent($conn){
     $maxId = (int)$range['max'];
 
     $val = rand($minId, $maxId); // Min et Max selon la table et selon le type
-    $sql = $conn->prepare("SELECT id_movie, backdrop_path FROM films WHERE idPK = (?) AND adult = 0");
+    $sql = $conn->prepare("SELECT DISTINCT id_movie, backdrop_path FROM films WHERE idPK = (?) AND adult = 0");
 
     if (!$sql) return null;
 
@@ -345,7 +345,7 @@ function rechercheParent($mot, $conn){
 
     $tableresult = [ ];
     $titre = "%".$mot."%";
-    $stmt = $conn->prepare("SELECT * FROM films WHERE title LIKE ? AND adult = 0 ");
+    $stmt = $conn->prepare("SELECT DISTINCT * FROM films WHERE title LIKE ? AND adult = 0 ");
     $stmt->bind_param("s", $titre);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -365,7 +365,7 @@ function rechercheParent($mot, $conn){
 
         }
     }
-    $stmt = $conn->prepare("SELECT * FROM series WHERE title LIKE ? AND adult = 0");
+    $stmt = $conn->prepare("SELECT DISTINCT * FROM series WHERE title LIKE ? AND adult = 0");
     $stmt->bind_param("s", $titre);
     $stmt->execute();
     $result = $stmt->get_result();

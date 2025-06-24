@@ -6,7 +6,12 @@ require "fonctionParentales.php";
 
 
 session_start();
-if (!isset($_SESSION["controle"])) $_SESSION["controle"] = 1;
+if (!isset($_SESSION["controle"])) $_SESSION["controle"] = 1; // Par défaut le controle est activé
+
+if (isset($_GET['id'])) {
+    $_SESSION['profil'] = $_GET['id']; // On récupère l'id du profil
+}
+
 /*
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
@@ -64,7 +69,10 @@ if ($_SESSION['controle'] == 0) { // pas de controle parentale
         
         <div class="affiche" id="affiche" name="affiche">
             <!--- Div de stockage de l'affiche --->
-            <img src="<?php echo $affiche[0]['backdrop_path']; ?>" alt="Affiche du film" width="80%" height="50%">
+            <?php $urlaffiche = "strat_video.php?id=".$affiche[0]['id']."&type=films"; ?>
+            <a href="<?php echo $urlaffiche; ?>">
+                <img src="<?php echo $affiche[0]['backdrop_path']; ?>" alt="Affiche du film" width="80%" height="50%">
+            </a>
         </div>
 
         <div class="contenu" id="contenu" name="contenu">
