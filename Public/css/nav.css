@@ -31,4 +31,11 @@ a.logo {
 
 .navbar a img {
     display: block;
+    padding-bottom: 5px;
+    border-bottom: 4px solid transparent;
+    transition: border 0.3s ease;
+}
+
+#navbar a:hover img {
+    border-bottom: 4px solid var(--Nuances-jaune);
 }
