@@ -68,7 +68,7 @@ $end = false;
                             if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
                                 // Affichage du contenu
                                 $img = $table[$type][$content]['poster_path'];
-                                echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
                                 $dejadedansfilm[] = $content;
                                 $continuer = false;
                             }
@@ -78,7 +78,7 @@ $end = false;
                             if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
                                 // Affichage du contenu
                                 $img = $table[$type][$content]['poster_path'];
-                                echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
                                 $dejadedansserie[] = $content;
                                 $continuer = false;
 
@@ -99,7 +99,7 @@ $end = false;
                             if (!in_array($content, $dejadedansfilm)) { // On considere que l'indice est pas deja ajouté
                                 // Affichage du contenu
                                 $img = $table[$type][$content]['poster_path'];
-                                echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
                                 $dejadedansfilm[] = $content;
                                 $continuer = false;
 
@@ -110,7 +110,7 @@ $end = false;
                             if (!in_array($content, $dejadedansserie)) { // On considere que l'indice est pas deja ajouté
                                 // Affichage du contenu
                                 $img = $table[$type][$content]['poster_path'];
-                                echo "<a href=#> <img src='$img' width='150' height='200'>  </a>" ;
+                                echo "<a href=#> <img src='$img' width='150' height='200' class='poster'>  </a>" ;
                                 $dejadedansserie[] = $content;
                                 $continuer = false;
                             }
@@ -127,8 +127,8 @@ $end = false;
 
 
     <!--- On "triche" un peu, on raffraichi juste la page pour un nouvel affichage de film en attendant -->
-    <a class="btn-left" href="catalogue.php"> Page suivante </a>
-    <a class="btn-right" href="catalogue.php"> Page précédente </a>
+    <a class="btn-left" href="catalogue.php"><img src="../Public/img/btn-left.png" alt=""></a>
+    <a class="btn-right" href="catalogue.php"><img src="../Public/img/btn-right.png" alt=""></a>
 </div>
 
 
