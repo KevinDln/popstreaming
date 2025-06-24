@@ -10,7 +10,7 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 }
 */
 
-$user_id = $_SESSION['id']; // A initialiser apres la connexion
+$user_id = $_SESSION['profil']; // A initialiser apres la connexion
 
 // On veut l'affichage des films comme prévu, sans catégories cliqué de base. On veut les 15 premiers films de
 // retourné par la fonction selectByType("films"). Quand on cliquera sur la fleche on prendra les 15 suivants etc...

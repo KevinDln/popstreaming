@@ -23,7 +23,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
             // Si le mdp est bon, on peut rediriger a l'accueil
             $_SESSION['connected'] = true;
             $_SESSION['id'] = $row['id'];
-            header("Location: accueil.php");
+            header("Location: profils.php");
         }
         else {
 

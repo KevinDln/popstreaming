@@ -1,13 +1,13 @@
 const images = [ // Liste des images de profil
-    { id: 1, url: 'azeazeaz', name: 'Profil 1' },
-    { id: 2, url: 'zaeazezae', name: 'Profil 2' },
-    { id: 3, url: 'zaeazeazezae', name: 'Profil 3' },
-    { id: 4, url: 'zaeazezae', name: 'Profil 4' },
-    { id: 5, url: 'azeazeaze', name: 'Profil 5' },
-    { id: 6, url: 'azeazeaze', name: 'Profil 6' },
-    { id: 7, url: 'zaeazeazez', name: 'Profil 7' },
-    { id: 8, url: 'azeazeaze', name: 'Profil 8' },
-    { id: 9, url: 'azeazezae', name: 'Profil 9' }
+    { id: 1, url: '../Public/img/profil1.jpg', name: 'Profil 1' },
+    { id: 2, url: '../Public/img/profil2.jpg', name: 'Profil 2' },
+    { id: 3, url: '../Public/img/profil3.jpg', name: 'Profil 3' },
+    { id: 4, url: '../Public/img/profil4.jpg', name: 'Profil 4' },
+    { id: 5, url: '../Public/img/profil5.jpg', name: 'Profil 5' },
+    { id: 6, url: '../Public/img/profil6.jpg', name: 'Profil 6' },
+    { id: 7, url: '../Public/img/profil7.jpg', name: 'Profil 7' },
+    { id: 8, url: '../Public/img/profil8.jpg', name: 'Profil 8' },
+    { id: 9, url: '../Public/img/defaut_profil.jpeg', name: 'Profil 9' }
 ];
 
 let selectedImageId = null;

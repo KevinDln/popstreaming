@@ -1,8 +1,7 @@
-<nav class="flex space_between backgourd-rgba menu">
+<nav class="flex backgourd-rgba menu">
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
         <div class="recherche">
-            <form action="../php/afficheRecherche.php" method="POST">
             <form action="afficheRecherche.php" method="POST">
                 <input class="barre-de-recherche" type="search" name="film" placeholder="Rechercher un film, une série..." alt="recherche">
                 <button class="btn-recherche" type="submit"><img class="btn-search" src="../Public/img/btn-search.png" alt=""></button>
@@ -36,7 +35,4 @@
 
         </div>
     </div>
-    <script src="../JS/langues.js"></script>
-    <script src="../JS/profil.js"></script>
-    <script src="../JS/rechercher.js"></script>
- </nav>
+</nav>

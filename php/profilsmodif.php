@@ -29,7 +29,7 @@ foreach($result as $row){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gérer les profils </title>
 
     <link rel="stylesheet" href="../Public/css/nav.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
@@ -46,7 +46,7 @@ foreach($result as $row){
 </nav>
 <br>
 
-<a href="accueil.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
+<a href="profils.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
 
 <div class="center">
     <h1>Qui est-ce ?</h1>

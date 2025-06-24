@@ -36,7 +36,7 @@ if ($_SESSION['controle'] == 1 ) {
 
     <tr>
         <td> Controle parentale </td>
-        <td class="link"> <a href="#"> Modifier </a> </td>
+        <td class="link"> <a href="controleParentale.php"> Modifier </a> </td>
         <td class="barre"> <?php echo $controle ?> </td>
     </tr>
 

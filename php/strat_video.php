@@ -3,8 +3,10 @@ session_start();
 require "connectdb.php";
 
 if (isset($_GET['id']) && isset($_GET['type'])) {
+    $userId = $_SESSION['profil']; // id du profil de l'utilisateur connecté
     $id = $_GET['id'];
     $type = $_GET['type'];
+    $inFav = false;
     // Récupération des infos film ou série + id
 
     if ($type == "films" || $type == "film") {
@@ -12,7 +14,11 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
         $sql->bind_param("i", $id);
         $sql->execute();
         $res = $sql->get_result();
-        $result=$res->fetch_assoc();
+        $result=[];
+        while($row = $res->fetch_assoc()) {
+            $result[] = $row;
+        }
+        $res->free_result();
         $sql->close();
 
         // Récupération des acteurs
@@ -26,9 +32,23 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
             $result2[] = $row;
         } ;
         $sql2->close();
+        $lien = "showVideo.php?url=".$result[0]['trailer'];
+        $info = "infoVideo.php?id=".$id."&type=".$type;
+        $img = $result[0]['backdrop_path'];
 
 
+        // Vérifier si le film est dans les favoris
 
+        $checkSql = "SELECT * FROM favoris_films WHERE id_profil = ? AND id_film = ?";
+            if ($stmtCheck = $conn->prepare($checkSql)) {
+                $stmtCheck->bind_param("ii", $userId, $id);
+                $stmtCheck->execute();
+                if ($stmtCheck->get_result()->num_rows > 0) {
+                    $inFav = true; // Le film est déjà dans les favoris
+                } else {
+                    $inFav = false; // Le film n'est pas dans les favoris
+                }
+            }
 
 
 
@@ -57,20 +77,33 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
             $result2[] = $row;
         } ;
         $sql2->close();
+        $lien = "showVideo.php?url=".$result[0]['trailer'];
+        $info = "infoVideo.php?id=".$id."&type=".$type;
+        $img = $result[0]['backdrop_path'];
+
+        $checkSql = "SELECT * FROM favoris_series WHERE id_profil = ? AND id_serie = ?";
+            if ($stmtCheck = $conn->prepare($checkSql)) {
+                $stmtCheck->bind_param("ii", $userId, $id);
+                $stmtCheck->execute();
+                if ($stmtCheck->get_result()->num_rows > 0) {
+                    echo "Déjà dans les favoris.";
+                }
+            }
 
     }
 
-
-    var_dump($result);
 };
 
-if ($type == "shows") $type = "Série";
+if ($type == "shows" || $type == "show" ) $type = "Série";
+else $type = "Film";
+$fav = "addfavoris.php?id=".$id."&type=".strtolower($type); 
+$delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);
+
 
 ?>
 
 
 
->>>>>>> 922e985f8401ccb025a57470d4ad3555a98ebd2a
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -84,20 +117,106 @@ if ($type == "shows") $type = "Série";
     <link rel="stylesheet" href="../public/css/strat_video.css">
     <link rel="stylesheet" href="../public/css/footer.css">
     <link rel="stylesheet" href="../public/css/modal-info.css">
+
+    <style> 
+        .modal{ /* Redéfinir les valeurs pour permettre a l'image d'etre le fond */
+            background: none;
+        }
+        .modal-content {
+            background: none;
+        }
+
+        #backButton {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: transparent;
+        background-color: #EFBD3F;
+        padding: 0;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        top: 8%; /* a modifier si on veut plus bas ou plus haut */
+        }
+
+        #backButton img {
+            width: 40px; 
+            height: auto;
+            display: block;
+        }
+
+        .test {
+            background-color:rgba(4, 15, 19, 0.1); 
+            padding-left: 20px;
+        }
+
+        .boutons-flex{
+            display: flex;
+            gap: 15px; 
+            margin-top: 20px;
+        }
+
+        #more-infos{
+            background-color:rgba(48, 80, 100, 0.71);
+        }
+        
+        
+
+.already-favoris {
+    background: none;
+    border: none;
+    padding: 0; /* Enlever le padding pour un meilleur contrôle */
+    cursor: pointer;
+    font-size: 45px; /* Taille du cœur uniquement */
+    color: #FFD700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Contrôler la hauteur de ligne */
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+}
+
+.already-favoris:hover {
+    color:rgb(255, 255, 255);
+}
+
+
+#add-favoris {
+    background: none;
+    border: none;
+    padding: 0; /* Enlever le padding pour un meilleur contrôle */
+    cursor: pointer;
+    font-size: 45px; /* Taille du cœur uniquement */
+    color:rgb(255, 255, 255);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Contrôler la hauteur de ligne */
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+}
+
+#add-favoris:hover {
+    color: #FFD700;
+}
+    </style>
+
 </head>
 <body>
+
 <div class="container">
+    
     <div class="image-container">
-        <img src="http://localhost/popstreaming/public/img/images/video-destination-final.jpg" alt="Background Image">
     </div>
     <div class="content">
         <div class="size-container">
-            <h1>MARIUS</h1>
+            <h1><?php echo $result[0]['title'] ?> </h1>
             <p>
-                Auto-proclamé "Roi de Marseille", Marius est un guide touristique haut en couleur qui trimballe ses
-                clients dans son bus panoramique. Le jour où son véhicule tombe en panne mettant en péril son petit
-                business, il fait la rencontre de trois gamins du quartier qui prétendent être sur la piste d'un trésor.
-                Marius se retrouve alors engagé dans une dangereuse aventure...
+                <?php echo $result[0]['overview'] ?>
             </p>
             <div class="flex">
                 <button class="btn">Commencer</button>
@@ -109,24 +228,22 @@ if ($type == "shows") $type = "Série";
         </div>
     </div>
 </div>
-<?php
-include "modal_info.php"
-?>
 
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2><?php if ($type == "films" || $type =="film") echo $result['title'];
-            else echo $result[0]['title'] ?>
-        </h2>
-        <p> <?php if ($type == "films" || $type =="film") echo $result['overview'] ;
-            else  echo $result[0]['overview'];
-            ?> </p>
+<div id="infoModal" class="modal" style="background: url('<?php echo $img; ?>') 
+no-repeat center center fixed; background-size: cover;">
+<a href="accueil.php" id="backButton" onclick="history.back()">
+    <img src="../Public/img/btn-retour.png" alt="retour"></a>
+
+    <div class="modal-content" >
+        <div class="test">
+        <h2><?php echo $result[0]['title'] ?> </h2>
+
+        
+        <p> <?php echo $result[0]['overview'];?> </p>
+        
         <div class="modal-tags">
-            <span class="tag"> <?php if ($type == "films" || $type =="film" ) echo "Film";
-                else echo "Série"?> </span>
-            <span class="tag"><?php if ($type == "films" || $type =="film") echo $result['release_year'];
-            else echo $result[0]['release_year']?>
+            <span class="tag"> <?php echo $type ?> </span>
+            <span class="tag"><?php echo $result[0]['release_year']?>
             </span>
             <?php
             $init = 0;
@@ -138,47 +255,19 @@ include "modal_info.php"
 
             ?>
 
-            <span class="tag">Drames</span>
         </div>
-        <div class="modal-people flex">
-            <div class="person flex">
-                <?php if (isset($result2[0])) : ?>
-                <img src="<?php echo $result2[0]['img']?>" alt="Person 1">
-                <div class="wrap">
-                    <p><?php echo $result2[0]['nom']?></p>
-                </div>
-                <?php endif; ?>
-
-            </div>
-
-
-            <div class="person flex">
-                <?php if (isset($result2[1])) : ?>
-                <img src="<?php echo $result2[1]['img']?>" alt="Person 2">
-                <div class="wrap">
-                    <p><?php echo $result2[1]['nom']?></p>
-                </div>
-                <?php endif; ?>
-
-            </div>
-
-
-            <div class="person flex">
-                <?php if (isset($result2[2])) : ?>
-                <img src="<?php if (isset($result2[2])) echo $result2[2]['img']?>" alt="Person 3">
-
-                <div class="wrap">
-                    <p><?php echo $result2[2]['nom']?> </p>
-                </div>
-                <?php endif; ?>
-            </div>
         </div>
-        <button class="modal-btn">Commencer</button>
+    <div class="boutons-flex">
+        <a href="<?php echo $lien ?>" class="modal-btn" >Commencer </a>
+        <a href="<?php echo $info ?>" class="modal-btn" id="more-infos" >Plus d'infos </a>
+        <?php if ($inFav): ?>
+            <a href="<?php echo $delFav ?>" class="already-favoris" id="already-favoris">♥</a>
+        <?php else: ?>
+        <a href="<?php echo $fav ?>" id="add-favoris" >♥</a>
+        <?php endif; ?>
+    </div>
     </div>
 </div>
 
->>>>>>> 922e985f8401ccb025a57470d4ad3555a98ebd2a
-<script src="http://localhost/popstreaming/Public/js/start_video.js"></script>
-<script src="http://localhost/popstreaming/Public/js/modal_info.js"></script>
 </body>
 </html>

@@ -31,11 +31,11 @@ $year = 2025;
 $genreMovies = [];
 $tab_acteur_film = [];
 
-while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 1970  ) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categories as $name => $genreId) {
         // Recupere toutes les informations du films
         // On prends 10 films par catégorie, 150 films par années
-        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 2);
+        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 5);
 
         /* 
         Ajout dans la base de données les informations nécessaires
@@ -62,13 +62,13 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
 
 
                     // Chemin d'acces pour l'image du film
-                    $chemin = 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'];
-                    $video = "https://www.youtube.com/watch?v=" . $decode['results'][0]['key'];
+                    $chemin = 'https://image.tmdb.org/t/p/original' . $movie['poster_path'];
+                    $video = "https://www.youtube.com/embed/" . $decode['results'][0]['key'];
 
                     // vote moyen
                     $avg = $movie['vote_average'];
                     $popularity = $movie['popularity'];
-                    $backdrop_path = 'https://image.tmdb.org/t/p/w500' . $movie['backdrop_path']; // poster de fond
+                    $backdrop_path = 'https://image.tmdb.org/t/p/original' . $movie['backdrop_path']; // poster de fond
                     $nb_vote = $movie['vote_count'];
 
                     // Verifie la valeur de adult
@@ -98,7 +98,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                         if (empty($cast['img'])){ //Vérifie si une image est bien récupéré
                             $img = "../Public/img/defaut_profil.jpeg";
                         } else {
-                            $img = 'https://image.tmdb.org/t/p/w500' . $cast['img'];
+                            $img = 'https://image.tmdb.org/t/p/original' . $cast['img'];
                         }
 
                         #Vérifie si l'acteur a deja été ajouté 
