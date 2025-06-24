@@ -152,7 +152,7 @@
 
 
 
-        <!-- CORRECTION HTML - Section formulaire -->
+
 <form id="profileForm" method="POST" action="traiter_profil.php">
     <div class="profile-section">
         <div class="profile-image-container">
@@ -181,9 +181,9 @@
 
     <input type="submit" value="Valider">
     <input type="button" value="Annuler" onclick="annulerProfil()">
-</form>
-    </div>
 
+    </div>
+    </form>
     
     <div class="image-modal" id="imageModal">
         <div class="image-content">

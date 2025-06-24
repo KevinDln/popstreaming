@@ -112,7 +112,8 @@ $end = false;
                 for ($j=0; $j < 5 ; $j++) {
                     if (isset($films[$init]['poster_path'])) {
                         $img = $films[$init]['poster_path'];
-                        echo "<a href=\"\"><img src='$img' width='200' height='200'> </a>" ;
+                        $url2 = "strat_video.php?id=".$films[$init]['id']."&type=films";
+                        echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
                         $total++;
                     }
                     $init++;

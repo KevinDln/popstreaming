@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS profils (
     id_compte INT(11) NOT NULL,
     nom VARCHAR(255) NOT NULL,
     img VARCHAR(255) NOT NULL,
-    controle_parental INT(1) NOT NULL DEFAULT 0,
+    controle_parental INT(1) NOT NULL DEFAULT 1,
+    type ENUM('jeunesse','ado','adulte') NOT NULL DEFAULT 'jeunesse',
     CONSTRAINT FOREIGN KEY (id_compte) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS films (
     genre VARCHAR(255) NOT NULL,
     original_language VARCHAR(4) NOT NULL,
     overview TEXT NOT NULL,
-    popularity DECIMAL(4,2) NOT NULL DEFAULT 0,
+    popularity DECIMAL(8,2) NOT NULL DEFAULT 0,
     release_year YEAR(4) NOT NULL,
     poster_path VARCHAR(255),
     nb_vote INT UNSIGNED NOT NULL DEFAULT 0,
@@ -65,7 +66,7 @@ CREATE TABLE IF NOT EXISTS series (
     genre VARCHAR(255) NOT NULL,
     original_language VARCHAR(4) NOT NULL,
     overview TEXT NOT NULL,
-    popularity DECIMAL(4,2) NOT NULL DEFAULT 0,
+    popularity DECIMAL(8,2) NOT NULL DEFAULT 0,
     release_year YEAR(4) NOT NULL,
     poster_path VARCHAR(255),
     nb_vote INT(255) NOT NULL DEFAULT 0,
