@@ -50,16 +50,15 @@ if (empty($tableres)) {
 </head>
 
 <body>
-<header>
-    <?php require "nav_vide.php"; ?>
-</header>
+<nav>
+    <img src="../Public/img/logo_POP_STREAMING.png" height="78" width="180" alt="logo">
+
+</nav>
     <br>
 
-    <a href="logout.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"</a>
+    <a href="logout.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"></a>
 
-    <a href="#" class="btn-retour">
-        <img src="../Public/img/btn-retour.png" alt="">
-    </a>
+
     <div class="center">
         <h1>Qui est-ce ?</h1>
      <br>
