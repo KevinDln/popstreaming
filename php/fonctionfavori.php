@@ -25,6 +25,4 @@ function supprimmeseriesfavoris($id_serie, $id_utilisateur, $conn)
     $delete_sql->bind_param("ii", $id_serie,$id_utilisateur);
     $delete_sql->execute();
 }
-supprimmefilmsfavoris(1, 7, $conn);
-supprimmeseriesfavoris(1, 7, $conn);
 ?>
