@@ -1,3 +1,20 @@
+<?php
+if (isset($_SESSION['langue'])) {
+    $test = $_SESSION['langue'];
+    if ($test == "français") {
+        $langue = "FR";
+    } elseif ($test == "english") {
+        $langue = "EN";
+    } elseif ($test == "español") {
+        $langue = "ES";
+    }
+} else {
+    $_SESSION['langue'] = "français";
+    $langue = "FR";
+}
+
+?>
+
 <nav class="flex space_between backgourd-rgba menu">
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
     <div class="flex wrap container-nav">
@@ -8,7 +25,7 @@
             </form>
         </div>
         <div class="nav-actions">
-            <a href="#">
+            <a href="../php/notifications.php">
                 <img src="../Public/img/bell.svg" alt="Notifications">
             </a>
         </div>
@@ -38,4 +55,7 @@
     <script src="../JS/langues.js"></script>
     <script src="../JS/profil.js"></script>
     <script src="../JS/rechercher.js"></script>
+    <script src="../JS/header.js"></script
+    <script src="../JS/parametres.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  </nav>
