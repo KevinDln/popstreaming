@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title> Déconnexion2 </title>
+    <title> Déconnexion </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 

@@ -31,11 +31,11 @@ $year = 2025;
 $genreMovies = [];
 $tab_acteur_film = [];
 
-while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
+while ($year >= 1970  ) { // On va chercher le contenu jusqu'au années 1970
     foreach ($categories as $name => $genreId) {
         // Recupere toutes les informations du films
         // On prends 10 films par catégorie, 150 films par années
-        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 2);
+        $genreMovies[$name] = $movieApi->getMoviesByGenreAndYear($genreId, $year, 5);
 
         /* 
         Ajout dans la base de données les informations nécessaires
@@ -56,13 +56,20 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                 if (!empty($decode['results'])){ // Peut ajouter infos dans la bd
 
                     $sql = $conn->prepare("INSERT INTO films (title,genre,original_language,
-                    overview,release_year,content_duration,poster_path,trailer,rating,id_movie) 
-                        VALUES (?,?,?,?,?,?,?,?,?,?)");
+                    overview,release_year,content_duration,poster_path,trailer,rating,id_movie,backdrop_path,adult
+                    ,popularity,nb_vote) 
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 
                     // Chemin d'acces pour l'image du film
-                    $chemin = 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'];
-                    $video = "https://www.youtube.com/watch?v=" . $decode['results'][0]['key'];
+                    $chemin = 'https://image.tmdb.org/t/p/original' . $movie['poster_path'];
+                    $video = "https://www.youtube.com/embed/" . $decode['results'][0]['key'];
+
+                    // vote moyen
+                    $avg = $movie['vote_average'];
+                    $popularity = $movie['popularity'];
+                    $backdrop_path = 'https://image.tmdb.org/t/p/original' . $movie['backdrop_path']; // poster de fond
+                    $nb_vote = $movie['vote_count'];
 
                     // Verifie la valeur de adult
                     if ($movie['adult'] == false ) { 
@@ -72,13 +79,13 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
                     }
 
 
-                    $sql->bind_param("ssssiissii",$movie['title'],$name, $movie['original_language'],
-                    $movie['overview'], $year, $movie['runtime'], $chemin,$video,$rating,$movie['id']);
+                    $sql->bind_param("ssssiissdisidi",$movie['title'],$name, $movie['original_language'],
+                    $movie['overview'], $year, $movie['runtime'], $chemin,$video,$avg,$movie['id'],$backdrop_path,
+                        $rating,$popularity,$nb_vote);
                     $sql->execute(); // A ajouté les valeurs dans la base de données
 
 
-/*
-                    // PARTIE ACTEURS 
+                    // PARTIE ACTEURS
 
                     // Récupère les 5 premiers acteurs présent dans le film
                     // Partie la plus longue
@@ -89,9 +96,9 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
 
                         $name_cast = $cast['name'];
                         if (empty($cast['img'])){ //Vérifie si une image est bien récupéré
-                            $img = "../../img/default_profil.jpeg";
+                            $img = "../Public/img/defaut_profil.jpeg";
                         } else {
-                            $img = 'https://image.tmdb.org/t/p/w500' . $cast['img'];
+                            $img = 'https://image.tmdb.org/t/p/original' . $cast['img'];
                         }
 
                         #Vérifie si l'acteur a deja été ajouté 
@@ -110,7 +117,7 @@ while ($year >= 2000  ) { // On va chercher le contenu jusqu'au années 1970
 
 
                         
-                    }*/
+                    }
                     
             }
 

@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 $genre = $_GET['genre'] ?? null;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;

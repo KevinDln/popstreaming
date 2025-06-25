@@ -2,7 +2,12 @@
 session_start();
 require "connectdb.php";
 require "fonctions.php";
+require "fonctionParentales.php";
 
+if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
+    header("Location: pre_accueil.php");
+    exit();
+}
 
 // Page pour afficher
 //les résultats de la recherche
@@ -10,14 +15,25 @@ require "fonctions.php";
 // On utilise la fonction de recherche et on renvoie sur la page les contenus retrouvés
 
 
-
-if (isset($_POST['film'] )) { // Première apparition sur la page
-    $mot = $_POST['film'];
-    $resultat = fonctionRecherche($mot, $conn);
-} else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
-    $mot = $_GET['search'];
-    $resultat = fonctionRecherche($mot, $conn);
+if ($_SESSION['controle'] == 0 ) {
+    if (isset($_POST['film'] )) { // Première apparition sur la page
+        $mot = $_POST['film'];
+        $resultat = fonctionRecherche($mot, $conn);
+    } else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
+        $mot = $_GET['search'];
+        $resultat = fonctionRecherche($mot, $conn);
+    }
 }
+else { // Controle parentale a 1
+    if (isset($_POST['film'] )) { // Première apparition sur la page
+        $mot = $_POST['film'];
+        $resultat = rechercheParent($mot, $conn);
+    } else if (isset($_GET['search'])) { // Minimum deuxieme apparition sur la page ?
+        $mot = $_GET['search'];
+        $resultat = rechercheParent($mot, $conn);
+    }
+}
+
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -90,20 +106,33 @@ $urlPrecedent .= "page=" . ($page - 1);
                 for ($i=0; $i <=1; $i++) { // 2 lignes
                 for ($j=0; $j < 6 ; $j++) {
 
-                    if (isset($resultat[$init]['poster_path'])) {
-                        $img = $resultat[$init]['poster_path'];
-                        echo "<a href=\"\"><img src='$img' width='200' height='200' alt=''> </a>" ;
-                        $total++;
-                    }
-                    $init++;
-                } echo "<br>";
-            }
-            $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
-            //défini , on est a la fin de la liste
+                if (isset($resultat[$init]['poster_path'])) {
+                    $img = $resultat[$init]['poster_path'];
+                    if ($resultat[$init]['type'] == 'film' || $resultat[$init]['type'] == 'films')
+                        $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=films";
+                    else $url2 = "strat_video.php?id=".$resultat[$init]['id']."&type=shows";
+                    echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
+                    $total++;
+                }
+                $init++;
+            } echo "<br>";
+        }
+        $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
+                                                                        //défini , on est a la fin de la liste
 
             ?>
         </div>
 
+    
+    ?>
+    <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
+        <a href="<?php echo $urlPrecedent?>"> Page précedente </a>
+    <?php endif; ?>
+    <?php if (!$end): ?>
+        <a href="<?php echo $urlSuivant?>"> Page suivante </a>
+    <?php endif; ?>
+</div>
+<?php require "footer.php" ?>
         <div class="flex espacement">
         <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
             <a class='pagination' href="<?php echo $urlPrecedent?>"> Page précedente </a>

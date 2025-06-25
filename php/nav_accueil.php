@@ -1,3 +1,17 @@
+<?php
+require "connectdb.php";
+
+$sql = $conn->prepare("SELECT img FROM profils WHERE id = ?");
+$sql->bind_param("i", $_SESSION['profil']);
+$sql->execute();
+$res = $sql->get_result();
+$result = $res->fetch_assoc();
+
+?>
+
+
+<nav class="flex backgourd-rgba menu">
+    <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
 <nav class="flex space_between backgourd-rgba menu">
     <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" height="78" width="180" alt=""></a>
     <div class="flex wrap container-nav">
@@ -25,7 +39,7 @@
         <div class="nav-actions">
             <div class="profile-link">
                 <a href="../php/profils.php">
-                    <img class="photo-profils profile-image" src="../Public/img/defaut_profil.jpeg" alt="Photo de profil">
+                    <img class="photo-profils profile-image" src="<?php echo $result[0]['img']?>" alt="Photo de profil">
                 </a>
                 <ul class="options-affichage">
                     <li><a class="p" href="../php/modif_profils.php">Mon compte</a></li>

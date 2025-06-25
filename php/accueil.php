@@ -1,34 +1,54 @@
 <?php
 require "fonctions.php"; 
-require "connectdb.php"; 
+require "connectdb.php";
+require "fonctionParentales.php";
 
 
 
 session_start();
-/*
+if (!isset($_SESSION["controle"])) $_SESSION["controle"] = 1; // Par défaut le controle est activé
+
+if (isset($_GET['id'])) {
+    $_SESSION['profil'] = $_GET['id']; // On récupère l'id du profil
+}
+
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 // on veut 5 tendances actuelles, 3 films d'action, 
 // 3 fantastiques, 3 comédies, 3 drames, 3 séries d'animation et 3 documentaires
 // Mise en forme a faire dans le css 
 // Pour changer les images, on peut les changer dans le javascript loadContent.js
 
-$tendances = getTendances($conn); // Récupération des tendances
-$_SESSION['content'] = [
-"Action" => selectByGenreMovie("Action",$conn), // Récupération des films d'action
-"Fantastique" => selectByGenreMovie("Fantastique",$conn), // Récupération des films fantastiques
-"Comedie" => selectByGenreMovie("Comédie",$conn), // Récupération des films comédies
-"Drame" => selectByGenreShows("Drame",$conn), // Récupération des séries drames
-"Animation" => selectByGenreShows("Animation",$conn), // Récupération des séries d'animation
-"Mystere" => selectByGenreShows("Mystère",$conn), // Récupération des séries documentaires
-];
 
+if ($_SESSION['controle'] == 0) { // pas de controle parentale
+    $tendances = getTendances($conn); // Récupération des tendances
+    $_SESSION['content'] = [
+        "Action" => selectByGenreMovie("Action",$conn), // Récupération des films d'action
+        "Fantastique" => selectByGenreMovie("Fantastique",$conn), // Récupération des films fantastiques
+        "Comedie" => selectByGenreMovie("Comédie",$conn), // Récupération des films comédies
+        "Drame" => selectByGenreShows("Drame",$conn), // Récupération des séries drames
+        "Animation" => selectByGenreShows("Animation",$conn), // Récupération des séries d'animation
+        "Mystere" => selectByGenreShows("Mystère",$conn), // Récupération des séries documentaires
+    ];
+    $affiche = getAffiche($conn); // Récupération de l'affiche
 
-$affiche = getAffiche($conn); // Récupération de l'affiche
+} else {
+    $tendances = getTendancesParent($conn); // Récupération des tendances
+    $_SESSION['content'] = [
+        "Action" => selectByGenreMovieParent("Action",$conn), // Récupération des films d'action
+        "Fantastique" => selectByGenreMovieParent("Fantastique",$conn), // Récupération des films fantastiques
+        "Comedie" => selectByGenreMovieParent("Comédie",$conn), // Récupération des films comédies
+        "Drame" => selectByGenreShowsParent("Drame",$conn), // Récupération des séries drames
+        "Animation" => selectByGenreShowsParent("Animation",$conn), // Récupération des séries d'animation
+        "Mystere" => selectByGenreShowsParent("Mystère",$conn), // Récupération des séries documentaires
+    ];
+    $affiche = getAfficheParent($conn); // Récupération de l'affiche
+}
 
 ?>
 
@@ -48,8 +68,11 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
         <?php require "nav.php"; // On inclut la barre de navigation ?>
         
         <div class="affiche" id="affiche" name="affiche">
-            <!--- Div de stockage de l'affiche, attendre css pour mise en forme --->
-            <img src="<?php echo $affiche[0]['poster_path']; ?>" alt="Affiche du film" width="80%" height="50%">
+            <!--- Div de stockage de l'affiche --->
+            <?php $urlaffiche = "strat_video.php?id=".$affiche[0]['id']."&type=films"; ?>
+            <a href="<?php echo $urlaffiche; ?>">
+                <img src="<?php echo $affiche[0]['backdrop_path']; ?>" alt="Affiche du film" width="80%" height="50%">
+            </a>
         </div>
 
         <div class="contenu" id="contenu" name="contenu">
@@ -63,7 +86,8 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
                 for ($i=0; $i <5 ; $i++) { // Les lignes
                     if (isset($tendances[$init])) {
                         $img = $tendances[$init]['poster_path'];
-                        echo "<a href=\"\"> <img src='$img' width='250' height='200'> </a>" ;
+                        $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=films";
+                        echo "<a href=\"$url2\"> <img src='$img' width='250' height='200'> </a>" ;
                     }
                     $init++;
                 }
@@ -118,5 +142,7 @@ $affiche = getAffiche($conn); // Récupération de l'affiche
 
 
         </div>
-
+<?php require "footer.php" ?>
     </body>
+
+</html>

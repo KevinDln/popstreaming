@@ -1,15 +1,16 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
+require "fonctionParentales.php";
 session_start();
-/*
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
 
-$user_id = $_SESSION['id']; // A initialiser apres la connexion
+
+$user_id = $_SESSION['profil']; // A initialiser apres la connexion
 
 // On veut l'affichage des films comme prévu, sans catégories cliqué de base. On veut les 15 premiers films de
 // retourné par la fonction selectByType("films"). Quand on cliquera sur la fleche on prendra les 15 suivants etc...
@@ -57,7 +58,10 @@ if (isset($_GET['page'])) {
                 for ($j=0; $j < 5 ; $j++) {
                     if (isset($favoris[$init]['poster_path'])) {
                         $img = $favoris[$init]['poster_path'];
-                        echo "<a href=\"\"><img src='$img' width='200' height='200'> </a>" ;
+                        if ($favoris[$init]['type'] == 'film' || $favoris[$init]['type'] == 'films')
+                            $url2 = "strat_video.php?id=".$favoris[$init]['id']."&type=films";
+                        else $url2 = "strat_video.php?id=".$favoris[$init]['id']."&type=shows";
+                        echo "<a href=\"$url2\"><img src='$img' width='200' height='200'> </a>" ;
                         $total++;
                     }
                     $init++;
@@ -76,7 +80,7 @@ if (isset($_GET['page'])) {
             <a href="<?php echo $urlSuivant?>"> Page suivante </a> 
             <?php endif; ?>
         </div>
-
+        <?php require "footer.php" ?>
     </body>
 
 </html>

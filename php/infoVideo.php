@@ -7,10 +7,8 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 }
 
 if (isset($_GET['id']) && isset($_GET['type'])) {
-    $userId = $_SESSION['profil']; // id du profil de l'utilisateur connecté
     $id = $_GET['id'];
     $type = $_GET['type'];
-    $inFav = false;
     // Récupération des infos film ou série + id
 
     if ($type == "films" || $type == "film") {
@@ -18,7 +16,6 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
         $sql->bind_param("i", $id);
         $sql->execute();
         $res = $sql->get_result();
-        $result=[];
         while($row = $res->fetch_assoc()) {
             $result[] = $row;
         }
@@ -37,22 +34,6 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
         } ;
         $sql2->close();
         $lien = "showVideo.php?url=".$result[0]['trailer'];
-        $info = "infoVideo.php?id=".$id."&type=".$type;
-        $img = $result[0]['backdrop_path'];
-
-
-        // Vérifier si le film est dans les favoris
-
-        $checkSql = "SELECT * FROM favoris_films WHERE id_profil = ? AND id_film = ?";
-            if ($stmtCheck = $conn->prepare($checkSql)) {
-                $stmtCheck->bind_param("ii", $userId, $id);
-                $stmtCheck->execute();
-                if ($stmtCheck->get_result()->num_rows > 0) {
-                    $inFav = true; // Le film est déjà dans les favoris
-                } else {
-                    $inFav = false; // Le film n'est pas dans les favoris
-                }
-            }
 
 
 
@@ -82,26 +63,13 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
         } ;
         $sql2->close();
         $lien = "showVideo.php?url=".$result[0]['trailer'];
-        $info = "infoVideo.php?id=".$id."&type=".$type;
-        $img = $result[0]['backdrop_path'];
 
-        $checkSql = "SELECT * FROM favoris_series WHERE id_profil = ? AND id_serie = ?";
-            if ($stmtCheck = $conn->prepare($checkSql)) {
-                $stmtCheck->bind_param("ii", $userId, $id);
-                $stmtCheck->execute();
-                if ($stmtCheck->get_result()->num_rows > 0) {
-                    echo "Déjà dans les favoris.";
-                }
-            }
 
     }
 
 };
 
-if ($type == "shows" || $type == "show" ) $type = "Série";
-else $type = "Film";
-$fav = "addfavoris.php?id=".$id."&type=".strtolower($type); 
-$delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);
+if ($type == "shows") $type = "Série";
 
 
 ?>
@@ -121,15 +89,9 @@ $delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);
     <link rel="stylesheet" href="../public/css/strat_video.css">
     <link rel="stylesheet" href="../public/css/footer.css">
     <link rel="stylesheet" href="../public/css/modal-info.css">
-    <link rel="stylesheet" href="../public/css/pageContenu.css">
-
-    
-
 </head>
 <body>
-
 <div class="container">
-    
     <div class="image-container">
     </div>
     <div class="content">
@@ -149,20 +111,16 @@ $delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);
     </div>
 </div>
 
-<div id="infoModal" class="modal" style="background: url('<?php echo $img; ?>') 
-no-repeat center center fixed; background-size: cover;">
-<a href="accueil.php" id="backButton" onclick="history.back()">
-    <img src="../Public/img/btn-retour.png" alt="retour"></a>
-
-    <div class="modal-content" >
-        <div class="test">
-        <h2><?php echo $result[0]['title'] ?> </h2>
-
-        
-        <p> <?php echo $result[0]['overview'];?> </p>
-        
+<div id="infoModal" class="modal">
+    
+    <div class="modal-content">
+        <button class="close" onclick="history.back()">&times;</button>
+        <h2><?php echo $result[0]['title'] ?>
+        </h2>
+        <p> <?php echo $result[0]['overview'];
+            ?> </p>
         <div class="modal-tags">
-            <span class="tag"> <?php echo $type ?> </span>
+            <span class="tag"> <?php echo "Série"?> </span>
             <span class="tag"><?php echo $result[0]['release_year']?>
             </span>
             <?php
@@ -176,16 +134,40 @@ no-repeat center center fixed; background-size: cover;">
             ?>
 
         </div>
+        <div class="modal-people flex">
+            <div class="person flex">
+                <?php if (isset($result2[0])) : ?>
+                <img src="<?php echo $result2[0]['img']?>" alt="Person 1">
+                <div class="wrap">
+                    <p><?php echo $result2[0]['nom']?></p>
+                </div>
+                <?php endif; ?>
+
+            </div>
+
+
+            <div class="person flex">
+                <?php if (isset($result2[1])) : ?>
+                <img src="<?php echo $result2[1]['img']?>" alt="Person 2">
+                <div class="wrap">
+                    <p><?php echo $result2[1]['nom']?></p>
+                </div>
+                <?php endif; ?>
+
+            </div>
+
+
+            <div class="person flex">
+                <?php if (isset($result2[2])) : ?>
+                <img src="<?php if (isset($result2[2])) echo $result2[2]['img']?>" alt="Person 3">
+
+                <div class="wrap">
+                    <p><?php echo $result2[2]['nom']?> </p>
+                </div>
+                <?php endif; ?>
+            </div>
         </div>
-    <div class="boutons-flex">
         <a href="<?php echo $lien ?>" class="modal-btn" >Commencer </a>
-        <a href="<?php echo $info ?>" class="modal-btn" id="more-infos" >Plus d'infos </a>
-        <?php if ($inFav): ?>
-            <a href="<?php echo $delFav ?>" class="already-favoris" id="already-favoris">♥</a>
-        <?php else: ?>
-        <a href="<?php echo $fav ?>" id="add-favoris" >♥</a>
-        <?php endif; ?>
-    </div>
     </div>
 </div>
 

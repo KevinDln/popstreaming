@@ -2,7 +2,7 @@
 
 
 // Environnement pour contourner le blocage proxy du GRETA ('dev' pour le greta ou 'prod' pour environnement ouvert)
-define('ENV', 'dev');
+define('ENV', 'prod');
 
 
 $PROXY_CONFIG = [

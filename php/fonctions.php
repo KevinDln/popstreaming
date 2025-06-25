@@ -2,9 +2,6 @@
 require_once "connectdb.php"; // Connexion a la base de données
 // Fonctions de recherches selon les informations passés
 
-
-// PLUS TARD, VA DEVOIR RAJOUTER LE CONTROLE PARENTALE SI ON LE FAIT, PAS LA PRIORITÉ ATM
-
 function selectByGenreMovie($genre,$conn){
     /* Fonction permettant de récuperer TOUTES les informations selon le genre passé en argument
     @args : $genre => $string : le genre du contenu a rechercher
@@ -12,7 +9,7 @@ function selectByGenreMovie($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT id_movie, poster_path, backdrop_path FROM films WHERE genre = (?) ORDER BY title");
+    $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path, backdrop_path FROM films WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -39,7 +36,7 @@ function selectByGenreShows($genre,$conn){
     */
 
     $result = [];
-    $sql = $conn->prepare("SELECT id_shows,poster_path , backdrop_path FROM series WHERE genre = (?) ORDER BY title");
+    $sql = $conn->prepare("SELECT DISTINCT id_shows,poster_path , backdrop_path FROM series WHERE genre = (?) ORDER BY title");
     if ($sql) {
         $sql->bind_param("s", $genre);
         $sql->execute();
@@ -89,7 +86,7 @@ function selectByType($type,$conn) {
 
     if ($type == "films") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT id_movie,poster_path,backdrop_path FROM films WHERE idPK = (?)");
+        $sql = $conn->prepare("SELECT DISTINCT id_movie,poster_path,backdrop_path FROM films WHERE idPK = (?)");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
@@ -106,7 +103,7 @@ function selectByType($type,$conn) {
     }
     if ($type == "shows") {
         // On veut retrouver les films
-        $sql = $conn->prepare("SELECT id_shows, poster_path,backdrop_path FROM series WHERE idPK = (?)");
+        $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path,backdrop_path FROM series WHERE idPK = (?)");
         foreach ($tableau as $id) {
             $sql->bind_param("i", $id);
             $sql->execute();
@@ -147,7 +144,7 @@ function selectByDecadeMovies($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT id_movie, poster_path, backdrop_path FROM films WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path, backdrop_path FROM films WHERE release_year = (?)");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -170,7 +167,7 @@ function selectByDecadeMovies($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT id_movie, poster_path,backdrop_path FROM films WHERE release_year = (?)");
+            $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path,backdrop_path FROM films WHERE release_year = (?)");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -209,7 +206,7 @@ function selectByDecadeShows($year,$conn) {
         }
 
         while ($year <= $i) {
-            $sql = $conn->prepare("SELECT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) ORDER BY title");
+            $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -232,7 +229,7 @@ function selectByDecadeShows($year,$conn) {
 
         $max = $year + 9; // derniere année de la décennie
         while ($year <= $max) {
-            $sql = $conn->prepare("SELECT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) ORDER BY title");
+            $sql = $conn->prepare("SELECT DISTINCT id_shows, poster_path, backdrop_path FROM series WHERE release_year = (?) ORDER BY title");
             $sql->bind_param("i", $year);
             $sql->execute();
             $result = $sql->get_result();
@@ -259,13 +256,14 @@ function getTendances($conn) {
     */
 
     $tableau = [];
-    $sql = $conn->prepare("SELECT id_movie, poster_path, backdrop_path FROM films ORDER BY popularity DESC LIMIT 5");
-    $sql2 = $conn->prepare("SELECT id_shows, poster_path, backdrop_path FROM series ORDER BY popularity DESC LIMIT 5");
+    $sql = $conn->prepare("SELECT DISTINCT id_movie, poster_path, backdrop_path FROM films ORDER BY popularity DESC LIMIT 5");
+    $sql2 = $conn->prepare("SELECT DISTINCT id_shows, poster_path, backdrop_path FROM series ORDER BY popularity DESC LIMIT 5");
    
     if ($sql) { 
         $sql->execute();
         $result = $sql->get_result();
         foreach ($result as $res) {
+
             $tableau[] = [
                 'id' => $res['id_movie'], // Ajoute l'id de la série
                 'backdrop_path' => $res['backdrop_path'],
@@ -306,8 +304,8 @@ function getMyList($userId, $conn) {
     $tableauSerie = [];
     $idPresentFilm = [];
     $idPresentSerie = [];
-    $sql = $conn->prepare("SELECT id_film FROM favoris_films WHERE id_utilisateur = (?)");
-    $sql2 = $conn->prepare("SELECT id_serie FROM favoris_series WHERE id_utilisateur = (?)");
+    $sql = $conn->prepare("SELECT DISTINCT id_film FROM favoris_films WHERE id_profil = (?)");
+    $sql2 = $conn->prepare("SELECT DISTINCT id_serie FROM favoris_series WHERE id_profil = (?)");
 
     if ($sql) { 
         $sql->bind_param("i", $userId);
@@ -399,7 +397,7 @@ function getAffiche($conn){
     $maxId = (int)$range['max'];
 
     $val = rand($minId, $maxId); // Min et Max selon la table et selon le type
-    $sql = $conn->prepare("SELECT id_movie, backdrop_path FROM films WHERE idPK = (?)");
+    $sql = $conn->prepare("SELECT DISTINCT id_movie, backdrop_path FROM films WHERE idPK = (?)");
     
     if (!$sql) return null;
     
@@ -426,6 +424,32 @@ function getAffiche($conn){
 }
 
 
+function addFavoris($id, $type, $profilId, $conn) {
+    /*
+    Fonction permettant d'ajouter un film ou une série dans les favoris
+    @args : $id => int : l'id du film ou de la série
+            $type => string : le type de contenu (film ou série)
+            $profilId => int : l'id du profil de l'utilisateur
+            $conn => mysqli : la connexion a la base de données
+    return bool : true si l'ajout a réussi, false sinon
+    */
+
+    if ($type == "film") {
+        $sql = $conn->prepare("INSERT INTO favoris_films (id_film, id_profil) VALUES (?, ?)");
+    } elseif ($type == "show") {
+        $sql = $conn->prepare("INSERT INTO favoris_series (id_serie, id_profil) VALUES (?, ?)");
+    } else {
+        return false; // Type non reconnu
+    }
+
+    if ($sql) {
+        $sql->bind_param("ii", $id, $profilId);
+        return $sql->execute();
+    }
+    
+    return false; // Erreur lors de la préparation de la requête
+}
+
 // Fonction de Nico
 function fonctionRecherche($mot, $conn){
     if ($mot == "") { // Si on clique sur rechercher sans avoir inscrit d'élément
@@ -436,7 +460,7 @@ function fonctionRecherche($mot, $conn){
 
     $tableresult = [ ];
     $titre = "%".$mot."%";
-    $stmt = $conn->prepare("SELECT * FROM films WHERE title LIKE ? ");
+    $stmt = $conn->prepare("SELECT DISTINCT * FROM films WHERE title LIKE ? ");
     $stmt->bind_param("s", $titre);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -456,7 +480,7 @@ function fonctionRecherche($mot, $conn){
 
         }
     }
-    $stmt = $conn->prepare("SELECT * FROM series WHERE title LIKE ? ");
+    $stmt = $conn->prepare("SELECT DISTINCT * FROM series WHERE title LIKE ? ");
     $stmt->bind_param("s", $titre);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -477,6 +501,52 @@ function fonctionRecherche($mot, $conn){
     }
 
     return $tableresult;
+}
+
+
+function controleparental($id, $mdp, $profilid, $conn) {
+    if (empty($id) || !is_numeric($id) || $id <= 0 || empty($mdp)) {
+        return false;
+    }
+    try {
+        $stmt = $conn->prepare("SELECT mdp FROM utilisateur WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            if (password_verify($mdp, $row ['mdp'])){
+                $stmt2 = $conn -> prepare("SELECT controle_parental FROM profils WHERE id = ?");
+                $stmt2 -> bind_param("i", $profilid);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+                $profil = $result2->fetch_assoc();
+                    if ($profil['controle_parental'] == 1) {
+                        $stmt2 = $conn -> prepare("UPDATE profils SET controle_parental = 0 WHERE id = ?");
+                        $stmt2 -> bind_param("i", $profilid);
+                        $stmt2->execute();
+                        $_SESSION['controle'] = 0;
+                        header("Location: parametres.php");
+                    } elseif ($profil['controle_parental'] == 0) {
+                        $stmt2 = $conn -> prepare("UPDATE profils SET controle_parental = 1 WHERE id = ?");
+                        $stmt2 -> bind_param("i", $profilid);
+                        $stmt2->execute();
+                        $_SESSION['controle'] = 1;
+                        header('Location: parametres.php');
+                        exit;
+                    } else {
+                        echo "erreur le profil n'existe pas ou ne correspond pas";
+                    }
+            } else {
+                echo "mdp incorrecte";
+            }
+
+        } else {
+            return false;
+        }
+    } catch (Exception $e) {
+        error_log("erreur de contrôle parental : " . $e->getMessage());
+        return false;
+    }
 }
 
 
@@ -519,7 +589,40 @@ echo $test[0]['poster_path']; // Doit retourner une affiche aléatoire d'un film
 $test = getMyList(1, $conn); // Doit retourner la liste des films et séries favoris de l'utilisateur avec id 1
 var_dump($test); // GOOD
 
+
+
+
+
+$test = selectByGenreMovieParent("Comédie",$conn); // good (on a pas de film avec adult =1)
+var_dump($test);
+
+
+$test = selectByGenreShowsParent("Comédie",$conn); // GOOD
+var_dump($test);
+
+$test = selectByTypeParent("films",$conn); // Good
+var_dump($test);
+
+$test = selectByDecadeMoviesParent(2010,$conn);
+var_dump($test); // Doit retourner les films des années 2010 jusqu'a 2019 GOOD
+
+$test = selectByDecadeShows(2010,$conn);
+var_dump($test); // good
+
+$test = getTendancesParent($conn);
+var_dump($test) // Doit retourner les tendances du moment GOOD
+
+$test = getAfficheParent($conn);
+echo $test[0]['backdrop_path']; // Doit retourner une affiche aléatoire d'un film GOOD
+
+$test = rechercheParent("d",$conn);
+var_dump($test); // good
+
+
 */
 
+
+//$test = addFavoris(1, "film", 1, $conn); // Doit ajouter le film avec l'id 1 dans les favoris de l'utilisateur avec l'id 1
+//$test2 = addFavoris(1, "show", 1, $conn); // Doit ajouter la série avec l'id 1 dans les favoris de l'utilisateur avec l'id 1
 
 ?>

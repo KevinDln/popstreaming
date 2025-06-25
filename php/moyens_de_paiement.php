@@ -67,8 +67,7 @@
         <input class="input4" type="nomcarte" id="nomcarte" name="nomcarte" value="    ...">
     </div><br>
 
-    <a class="btn-primary" href="../php/modif_profils.php">Payer</a> <br>
-    </div>
+    <a class="btn-primary" href="inscription.php">Payer</a> <br>
 </div>
 
 

@@ -1,14 +1,15 @@
 <?php
 require "connectdb.php"; // Connexion a la base de données
 require "fonctions.php";
+require "fonctionParentales.php";
 session_start();
 
-/*
+
 if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     header("Location: pre_accueil.php");
     exit();
 }
-*/
+
 
 $ActionAventure = "Action & Aventure";
 $urlA = "affichageSeries.php?genre=" . urlencode($ActionAventure);
@@ -93,21 +94,33 @@ $end = false;
     // Vérifier si un GET est passé en parametre
     // Si un get n'est pas défini
 
-    if (!isset($_GET['genre'])) {
+    if (!isset($_GET['genre']) && $_SESSION['controle'] == 1) {
+        $Series = selectByTypeParent("shows",$conn);
+
+    }
+
+    elseif (!isset($_GET['genre']) && $_SESSION['controle'] == 0) {
         $Series = selectByType("shows",$conn);
 
-
-
-    } else { // Un get a été défini =>
-        $Series = selectByGenreShows($_GET['genre'],$conn);
     }
+
+    elseif (isset($_GET['genre']) && $_SESSION['controle'] == 0) {
+        $Series = selectByGenreShows($_GET['genre'],$conn);
+
+    }
+
+    else { // Un get a été défini =>
+        $Series = selectByGenreShowsParent($_GET['genre'],$conn);
+    }
+
     $total = 0;
     for ($i=0; $i <=2; $i++) { // Les lignes
         for ($j=0; $j < 5 ; $j++) {
             // Vérifier si l'index existe dans le tableau
             if (isset($Series[$init]['poster_path'])) {
                 $img = $Series[$init]['poster_path'];
-                echo "<a href=\"\"> <img src='$img' width='200' height='200'> </a>" ;
+                $url2 = "strat_video.php?id=".$Series[$init]['id']."&type=shows";
+                echo "<a href=\"$url2\"> <img src='$img' width='200' height='200'> </a>" ;
                 $total++;
             }
             $init++;
@@ -131,7 +144,7 @@ $end = false;
             <?php endif; ?>
 
 </div>
-
+<?php require "footer.php" ?>
 </body>
 
 </html>
