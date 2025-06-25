@@ -86,7 +86,7 @@ $urlPrecedent .= "page=" . ($page - 1);
         <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/></a> <br>
 
 <div class="flex">
-<?php require "nav.php"; // On inclut la barre de navigation ?>
+    <?php require "nav.php"; // On inclut la barre de navigation ?>
 
     <!-- Affichage des contenus retrouvé -->
 
@@ -118,19 +118,20 @@ $urlPrecedent .= "page=" . ($page - 1);
             } echo "<br>";
         }
         $end = !(($total == 12 && isset($resultat[$init]))); // Si on a pas 12 ou que le suivant n'est pas
-                                                                        //défini , on est a la fin de la liste
+        //défini , on est a la fin de la liste
 
             ?>
         </div>
 
-    
-    ?>
-    <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
-        <a href="<?php echo $urlPrecedent?>"> Page précedente </a>
-    <?php endif; ?>
-    <?php if (!$end): ?>
-        <a href="<?php echo $urlSuivant?>"> Page suivante </a>
-    <?php endif; ?>
+    <div class="flex espacement">
+        <?php if (isset($_GET['page']) && $_GET['page'] > 0): ?>
+            <a class='pagination' href="<?php echo $urlPrecedent?>"> Page précedente </a>
+        <?php endif; ?>
+        <?php if (!$end): ?>
+            <a class='pagination' href="<?php echo $urlSuivant?>"> Page suivante </a>
+        <?php endif; ?>
+    </div>
+
 </div>
 <?php require "footer.php" ?>
         <div class="flex espacement">

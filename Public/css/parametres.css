@@ -1,0 +1,32 @@
+table {
+    color: var(--Nuances-blanc);
+    width: 40% ;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Assure que les bordures entre les cellules sont fusionnées */
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Ajoute une bordure inférieure à chaque cellule */
+}
+
+.styled-table th {
+    background-color: #f2f2f2; /* Fond gris clair pour les en-têtes */
+}
+a {
+    display: inline-block;
+    color: var(--Nuances-blanc);
+}
+
+@media screen and (max-width: 1400px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+}

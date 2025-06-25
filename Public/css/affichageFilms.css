@@ -1,0 +1,128 @@
+.btn-retour {
+    left: 60px;
+    margin-bottom: 60px;
+}
+
+.navbar ul {
+    height: auto;
+}
+
+.genre {
+    padding: 0 200px 0 50px;
+}
+
+.poster{
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.genre ul li a  {
+    color: var(--Nuances-blanc);
+    padding: 10px 0 5px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.genre ul li a:hover {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--Nuances-jaune);
+}
+
+.container-search {
+    padding-left: 50px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+label {
+    color: var(--Nuances-blanc);
+    margin-right: 20px;
+}
+
+.custom-select-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-40%);
+    pointer-events: none; /* Permet aux clics de passer à travers l'icône */
+}
+
+.custom-select-icon img {
+    width: 15px; /* Ajustez la taille selon vos besoins */
+    height: 15px;
+}
+
+.custom-select-container {
+    position: relative;
+    display: inline-block;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-weight: bold;
+}
+
+.input1 {
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.btn-secondary {
+    padding: 10px;
+}
+
+.content-search {
+    position: relative;
+}
+
+.icon-search {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20%;
+    right: 20px;
+}
+
+.btn-left {
+    position: relative;
+    left: 415px;
+    top: 50%;
+}
+
+.btn-right {
+    position: relative;
+    left: -50px;
+    bottom: 200px;
+}
+
+.btn-right img,
+.btn-left img {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-search {
+    display: none;
+}
+
+.contenu {
+    position: relative;
+}
+
+.search-box form input {
+    width: 350px;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+
+

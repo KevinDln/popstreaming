@@ -11,6 +11,13 @@ $result = $res->fetch_assoc();
 
 
 <nav class="flex backgourd-rgba menu">
+    <div class="menu-burger">
+        <div class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
 <nav class="flex space_between backgourd-rgba menu">
     <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" height="78" width="180" alt=""></a>
@@ -28,7 +35,7 @@ $result = $res->fetch_assoc();
         </div>
         <div class="nav-actions">
             <div class="langue">
-                <button class="langue-selection btn-FR">FR</button>
+                <button class="langue-selection btn-FR">FR <img class="switch-langue" src="../Public/img/drop-down-switch-langue.png" alt=""></i></button>
                 <ul class="language-affichage ">
                     <li><a class="btn-FR1" href="#">FR</a></li>
                     <li><a class="btn-FR1" href="#">EN</a></li>
@@ -39,7 +46,7 @@ $result = $res->fetch_assoc();
         <div class="nav-actions">
             <div class="profile-link">
                 <a href="../php/profils.php">
-                    <img class="photo-profils profile-image" src="<?php echo $result[0]['img']?>" alt="Photo de profil">
+                    <img class="photo-profils profile-image" src="../Public/img/defaut_profil.jpeg" alt="Photo de profil">
                 </a>
                 <ul class="options-affichage">
                     <li><a class="p" href="../php/modif_profils.php">Mon compte</a></li>
