@@ -59,7 +59,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
         ?>
     </header>
     <main>
-        <a href="#" class="btn-retour">
+        <a href="pre_accueil.php" class="btn-retour">
             <img src="../Public/img/btn-retour.png" alt="">
         </a>
         <div class="container flex center">

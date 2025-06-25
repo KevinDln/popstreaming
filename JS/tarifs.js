@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target.closest('.essentiel')) {
             e.preventDefault();
             essentiel.forEach(function (essentielCol) {
-                essentielCol.style.backgroundColor = "var(--Nuances-jaune)";
+                essentielCol.style.backgroundColor = "var(--Nuances-jaune-fonce)";
             });
             standard.forEach(function (standardCol) {
                 standardCol.style.backgroundColor = "var(--Nuances-blanc)";
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             premium.forEach(function (premiumCol) {
                 premiumCol.style.backgroundColor = "var(--Nuances-blanc)";
             });
-            tarifEssentiel.style.backgroundColor = "var(--Nuances-jaune)";
+            tarifEssentiel.style.backgroundColor = "var(--Nuances-jaune-fonce)";
             tarifStandard.style.backgroundColor = "var(--Nuances-blanc)";
             tarifPremium.style.backgroundColor = "var(--Nuances-blanc)";
 
@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 essentielCol.style.backgroundColor = "var(--Nuances-blanc)";
             });
             standard.forEach(function (standardCol) {
-                standardCol.style.backgroundColor = "var(--Nuances-jaune)";
+                standardCol.style.backgroundColor = "var(--Nuances-jaune-fonce)";
             });
             premium.forEach(function (premiumCol) {
                 premiumCol.style.backgroundColor = "var(--Nuances-blanc)";
             });
             tarifEssentiel.style.backgroundColor = "var(--Nuances-blanc)";
-            tarifStandard.style.backgroundColor = "var(--Nuances-jaune)";
+            tarifStandard.style.backgroundColor = "var(--Nuances-jaune-fonce)";
             tarifPremium.style.backgroundColor = "var(--Nuances-blanc)";
         } else if (e.target.closest('.premium')) {
             e.preventDefault();
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             tarifEssentiel.style.backgroundColor = "var(--Nuances-blanc)";
             tarifStandard.style.backgroundColor = "var(--Nuances-blanc)";
-            tarifPremium.style.backgroundColor = "var(--Nuances-jaune)";
+            tarifPremium.style.backgroundColor = "var(--Nuances-jaune-fonce)";
         }
 
     });
@@ -60,17 +60,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function getAbonnement() {
     let url = "moyens_de_paiement.php?abo="
-    if (document.querySelector('.essentiel').style.backgroundColor == "var(--Nuances-jaune)") {
+    if (document.querySelector('.essentiel').style.backgroundColor == "var(--Nuances-jaune-fonce)") {
         // Pas idéal, serait mieux de faire un let avant pour définir une variable directement
         url += "essentiel";
         window.location.replace(url);
     }
-    else if (document.querySelector('.standard').style.backgroundColor == "var(--Nuances-jaune)") {
+    else if (document.querySelector('.standard').style.backgroundColor == "var(--Nuances-jaune-fonce)") {
         url += "standard";
         window.location.replace(url);
 
     }
-    else if (document.querySelector('.premium').style.backgroundColor == "var(--Nuances-jaune)") {
+    else if (document.querySelector('.premium').style.backgroundColor == "var(--Nuances-jaune-fonce)") {
         url += "premium";
         window.location.replace(url);
     }

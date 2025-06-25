@@ -20,7 +20,7 @@
     <?php require "nav_vide.php"; ?>
 </header>
 <br>
-<a href="#" class="btn-retour" id="retour">
+<a href="tarifs.php" class="btn-retour" id="retour">
     <img src="../Public/img/btn-retour.png" alt="Retour">
 </a>
 <br>
