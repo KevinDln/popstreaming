@@ -1,5 +1,5 @@
 <?php
-require_once "connectdb.php"; // Connexion a la base de données
+
 // Fonctions de recherches selon les informations passés
 
 function selectByGenreMovie($genre,$conn){

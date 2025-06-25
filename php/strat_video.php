@@ -90,7 +90,9 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
                 $stmtCheck->bind_param("ii", $userId, $id);
                 $stmtCheck->execute();
                 if ($stmtCheck->get_result()->num_rows > 0) {
-                    echo "Déjà dans les favoris.";
+                    $inFav = true; // Le film est déjà dans les favoris
+                } else {
+                    $inFav = false;
                 }
             }
 
@@ -98,7 +100,7 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
 
 };
 
-if ($type == "shows" || $type == "show" ) $type = "Série";
+if ($type == "shows" || $type == "show" ) $type = "Shows";
 else $type = "Film";
 $fav = "addfavoris.php?id=".$id."&type=".strtolower($type); 
 $delFav = "deletefavoris.php?id=".$id."&type=".strtolower($type);

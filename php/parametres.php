@@ -6,6 +6,8 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
     exit();
 }
 
+
+
 if ($_SESSION['controle'] == 1 ) {
     $controle = "Activé";
 } elseif ($_SESSION['controle'] == 0 ) {
@@ -13,30 +15,28 @@ if ($_SESSION['controle'] == 1 ) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <title> Paramètres </title>
-    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
-    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
+    <title> Parametres </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/css/nav_accueil.css">
     <link rel="stylesheet" href="../Public/css/nav.css">
-    <link rel="stylesheet" href="../Public/css/parametres.css">
     <link rel="stylesheet" href="../Public/css/menu_burger.css">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
-    <link rel="stylesheet" href="../Public/css/nav_accueil.css">
     <link rel="stylesheet" href="../Public/css/footer.css">
+    <link rel="stylesheet" href="../Public/css/footer.css">
+    <link rel="stylesheet" href="../Public/css/parametres.css">
+
 </head>
 
 
 <body>
-
-    <?php require "nav_accueil.php"; ?>
+<?php require "nav_accueil.php"; ?>
 
 <a href="#" class="btn-retour" id="retour">
     <img src="../Public/img/btn-retour.png" alt="Retour">
@@ -186,17 +186,17 @@ if ($_SESSION['controle'] == 1 ) {
         </table>
     </div>
 </div>
+<?php require "footer.php" ?>
+
 
 <script src="../JS/header.js"></script>
 <script src="../JS/langues.js"></script>
 <script src="../JS/profil.js"></script>
 <script src="../JS/rechercher.js"></script>
 <script src="../JS/parametres.js"></script>
-<script src="../Public/js/toggle_faq.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<?php
-require "footer.php";
-?>
+
 </body>
 
 </html>

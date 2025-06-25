@@ -60,9 +60,8 @@ $end = false;
         <link rel="stylesheet" href="../Public/css/footer.css">
     </head>
     <body>
-        <haeder>
+
             <?php require "nav_accueil.php";  ?>
-        </haeder>
         <main>
             <div class="flex">
                 <div class="wrap">

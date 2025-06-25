@@ -151,14 +151,15 @@ if (empty($tableres)) {
                         <?php endif; ?>
                 </div>
             </div>
+        </div>
+    </div>
+<a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
+
+
+<br> <br>
 
 
 
-<br> <br>.
-
-
-
-    <a class="btn-secondary" href="profilsmodif.php">Gérer les profils ?</a>
 <br>
 
 

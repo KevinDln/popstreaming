@@ -85,4 +85,10 @@ h1 {
     border: 1px solid var(--Nuances-blanc);
 }
 
+.btn-secondary {
+    width: 250px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 

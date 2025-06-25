@@ -5,7 +5,6 @@
 .language-affichage {
   display: none; /* cache la liste de langues */
   position: absolute; /* pour que la liste s'affiche en superposition */
-  background: white;
   border: 1px solid #ccc;
   list-style: none;
   padding: 0;
@@ -30,9 +29,6 @@
 
 .container-nav {
   gap: 20px;
-  justify-content: flex-end; /* Aligne les éléments à droite */
-  align-items: center; /* Centre les éléments verticalement */
-  gap: 20px; /* Espace entre les éléments */
 }
 
 a.logo {
@@ -84,7 +80,6 @@ nav.menu {
   align-content: center;
   width: 100%;
   margin-bottom: 30px;
-  align-items: center;
 }
 
 nav.menu .wrap {

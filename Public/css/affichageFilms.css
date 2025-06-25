@@ -94,7 +94,7 @@ select {
 .btn-left {
     position: relative;
     left: 415px;
-    top: 50%;
+    bottom: 200px;
 }
 
 .btn-right {

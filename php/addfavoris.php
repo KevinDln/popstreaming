@@ -49,7 +49,7 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
                     echo "Déjà dans les favoris.";
                 } else {
                     // Ajouter aux favoris
-                    if ($stmtAdd = $conn->prepare("INSERT INTO favoris_films (id_profil, id_serie) VALUES (?, ?)")) {
+                    if ($stmtAdd = $conn->prepare("INSERT INTO favoris_series (id_profil, id_serie) VALUES (?, ?)")) {
                         $stmtAdd->bind_param("ii", $userId, $id);
                         if ($stmtAdd->execute()) {
                             echo "Ajouté aux favoris.";
