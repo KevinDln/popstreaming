@@ -26,18 +26,20 @@ $_SESSION['controle'] = 0;
         <link rel="stylesheet" href="../Public/css/styles.css">
         <link rel="stylesheet" href="../Public/css/variables.css">
         <link rel="stylesheet" href="../Public/css/font.css">
-        <link rel="stylesheet" href="../Public/css/affichageTendances.css">
         <link rel="stylesheet" href="../Public/css/footer.css">
+        <link rel="stylesheet" href="../Public/css/affichageTendances.css">
     </head>
 
 <body>
 <?php require "nav_accueil.php";  ?>
     <a href="../php/pre_accueil.php">
         <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/>
-    </a> <br>
+    </a>
 
-<div class="flex center">
+<div class="flex">
     <?php require "nav.php"; // On inclut la barre de navigation ?>
+    <div class="image-contain flex">
+
         <?php
 
             $init = 0;
@@ -56,20 +58,22 @@ $_SESSION['controle'] = 0;
                     if (isset($tendances[$init])) {                        
                         $img = $tendances[$init]['poster_path'];
                         echo "
-    <div class='image-contain'>
-    <p class='format'> $number </p> <a href=''> <img src='$img' width='200' height='200'> </a>
-    </div>" ;
+                            <p class='format'> $number </p> <a class='a' href=''> <img class='img' src='$img' alt='img'> </a>
+                            " ;
 
                         $number++;
                     }
                     $init++;
             
-        } echo "<br>";
+        } echo "<br> ";
 
     }
 
             ?>
-            
+
+
+
+</div>
 </div>
 
 

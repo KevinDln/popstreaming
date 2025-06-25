@@ -1,0 +1,147 @@
+.chevron {
+    background-color: var(--Nuances-jaune);
+    width: 53px;
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.container {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.left-panel {
+    flex: 1 1 60%;
+    min-width: 300px;
+}
+
+.right-panel {
+    flex: 1 1 30%;
+    min-width: 250px;
+    padding-left: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    margin-bottom: 30px;
+
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background-color:  var(--Nuances-bleu-fonce);
+    color: var(--Nuances-blanc);
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.option {
+    background-color: var(--Nuances-blanc);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: var(--Nuances-blanc);
+}
+
+.quick-links {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.quick-links h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.quick-links a {
+    color: var(--Nuances-blanc);
+    text-decoration: none;
+}
+
+.quick-links a:hover {
+    text-decoration: underline;
+}
+
+.help-box {
+    background-color: var(--Nuances-bleu-fonce);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.help-link {
+    color: var(--Nuances-blanc);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+.contact-button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact-button button {
+    background-color: var(--Nuances-jaune);
+    color: var(--Nuances-noir);
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-button button:hover {
+    background-color: var(--Nuances-jaune);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
