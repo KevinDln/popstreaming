@@ -10,7 +10,7 @@ require "connectdb.php";
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = $_GET['id'];
     $type = $_GET['type'];
-    
+
     // Ajout aux favoris
     if (isset($_SESSION['profil'])) { // id du profil de l'utilisateur connecté
         $userId = $_SESSION['profil'];

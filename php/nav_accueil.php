@@ -22,6 +22,12 @@ if (isset($_SESSION['langue'])) {
 }
 ?>
 
+<style>
+    .p a:hover{
+        color: yellow;
+    }
+
+</style>
 
 <nav class="flex backgourd-rgba menu">
     <a class="logo" href="accueil.php"><img src="../Public/img/logo-pop-streaming.png" alt=""></a>
@@ -33,7 +39,7 @@ if (isset($_SESSION['langue'])) {
             </form>
         </div>
         <div class="nav-actions">
-            <a href="#">
+            <a href="notifications.php">
                 <img src="../Public/img/bell.svg" alt="Notifications">
             </a>
         </div>
@@ -54,8 +60,8 @@ if (isset($_SESSION['langue'])) {
                     <img class="photo-profils profile-image" src="<?php echo $result['img']?>" alt="Photo de profil">
                 </a>
                 <ul class="options-affichage">
-                    <li><a class="p" href="../php/modif_profils.php">Mon compte</a></li>
-                    <li><a class="p" href="../php/deconnexion.php">Se déconnecter</a></li>
+                    <li><a class="p" href="../php/modif_profils.php" >Mon compte</a></li>
+                    <li><a class="p" href="deconnexion.php">Se déconnecter</a></li>
                 </ul>
             </div>
 

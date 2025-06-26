@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (isset($_SESSION['connected'])) {
+    if ($_SESSION['connected'] == true) {
+        header('Location: profils.php');
+    }
+}
 
 require "connectdb.php";
 require "fonctions.php";

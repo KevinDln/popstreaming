@@ -2,6 +2,13 @@
 require "connectdb.php"; // Connexion a la BD
 session_start();
 
+if (isset($_SESSION['connected'])) {
+    if ($_SESSION['connected'] == true) {
+        header('Location: profils.php');
+    }
+}
+
+
 $incorrect = false;
 // Partie vérification des informations passés dans le formulaire
 $message = "Email ou mot de passe incorrect, veuillez réessayer";
