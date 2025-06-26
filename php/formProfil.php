@@ -89,6 +89,8 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
 
 <a href="profilsmodif.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"></a>
     <h1> Modifier le profil </h1>
+<form class="profileForm bloc-droite flex" method="POST" action="valideModifs.php">
+
 <div class="profil cercle">
 <div class="profile-section">
     <div class="profile-image-container">
@@ -106,7 +108,7 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
 
 <div class="form">
 
-    <form class="bloc-droite flex" method="POST" action="valideModifs.php">
+
 
         <input class="input1" id="name" type="text" value="<?php echo $tableres[0]['nom'] ?>" name="nom" readOnly>
         <a onclick="changeName()"> modifier </a> <br>
@@ -115,10 +117,13 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
         <a onclick="changeEmail()"> modifier </a>
 
         <br>
-        <input class="input1" id="mdp" type="password" value="zaezeazezae"  name="mdp" readOnly>
+        <input class="input1" id="mdp" type="password" value=""  name="mdp" readOnly>
         <a href="<?php echo $url?>"> modifier </a>
         <input type="checkbox" onclick="showPassword()">
         <br>
+
+        <input type="hidden" id="selected_image_id" name="image_id" value="">
+        <input type="hidden" id="selected_image_url" name="image_url" value="">
 
         <input class="input1" type="text" placeholder="Gérer les profils des utilisateurs" readOnly>
         <input type="submit" formaction="profilsmodif.php" value="Modifier">

@@ -105,7 +105,6 @@ function annulerProfil() {
     }
 }
 
-// Partie à corriger dans votre JavaScript - Section validation
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('profileForm');
