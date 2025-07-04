@@ -8,7 +8,7 @@
     </div>
     <a class="logo" href=""><img src="../Public/img/logo-pop-streaming.png" alt="Logo"></a>
     <div class="menu-links">
-        <a href="" class="btn-primary">S'inscrire</a>
-        <a href="" class="btn-primary">S'identifier</a>
+        <a href="tarifs.php" class="btn-primary">S'inscrire</a>
+        <a href="connexion.php" class="btn-primary">S'identifier</a>
     </div>
 </nav>

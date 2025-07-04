@@ -12,7 +12,7 @@
 }
 
 .burger-icon {
-    display: none; /* Masqué par défaut */
+    display: none; / Masqué par défaut /
     flex-direction: column;
     cursor: pointer;
 }
@@ -50,11 +50,11 @@
     }
 
     .burger-icon {
-        display: flex; /* Affiché sur les petits écrans */
+        display: flex; / Affiché sur les petits écrans /
     }
 
     .menu-links {
-        display: none; /* Masqué par défaut sur les petits écrans */
+        display: none; / Masqué par défaut sur les petits écrans /
         position: absolute;
         top: 60px;
         left: 0;
@@ -66,6 +66,6 @@
     }
 
     .menu-links.active {
-        display: flex; /* Affiché lorsque le menu est actif */
-    }
+        display: flex; / Affiché lorsque le menu est actif */
+}
 }

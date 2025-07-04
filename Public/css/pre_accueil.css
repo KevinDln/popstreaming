@@ -1,3 +1,53 @@
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.dov {
+    width:  100%;
+}
+
+.navbar {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    z-index: 2;
+}
+
+.block {
+    display: block;
+}
+
+.btn-left {
+    position: relative;
+    transform: translateY(-50%);
+    width:  60px;
+    bottom: -20px;
+}
+
+.btn-right {
+    position: relative;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width:  60px;
+}
+
+.btn-right img,
+.btn-left img {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
 header {
     position: relative;
     width: 100%;
@@ -37,6 +87,23 @@ header::before {
 
 }
 
+.affiche{
+    width: 100%;
+}
+
+.img-header  {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    margin: 0;
+    padding: 0;
+
+}
+
 .container-header h1 {
     margin: 0;
     color: white;
@@ -49,14 +116,19 @@ h2 {
 }
 
 .container-header p {
-    width: 50%;
-    margin-top: 20px;
+    width: 80%;
+    position: absolute;
+    margin-top: 40px;
+    font-size: 20px;
 }
 
-.tendances-actuelles {
-    margin-top: -150px;
-    margin-left: 400px;
+.container-header h1 {
+    position: absolute;
+    width: 80%;
+    color: #EFBD3F;
+    margin-top: -130px;
 }
+
 
 .slider-container {
     overflow: hidden;
@@ -79,7 +151,10 @@ h2 {
 }
 
 .tendances-actuelles {
-    display: none;
+    position: relative;
+    margin-top: -200px;
+    height: 500px;
+    margin-bottom: 20px;
 }
 
 .films-tendances {
@@ -90,14 +165,16 @@ h2 {
     font-size: 150px;
     color: var(--Nuances-blanc);
     position: relative;
-    bottom: -100px;
-    right: -30px;
+    bottom: -180px;
+    right: -45px;
     margin-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 
 .card-film {
-    width: 190px;
+    padding-top: 50px;
+    width: 160px;
     height: auto;
     margin: 0 10px;
 }
@@ -249,7 +326,7 @@ h2 {
     }
 
     footer {
-    display: none
+        display: none
     }
 
     p {

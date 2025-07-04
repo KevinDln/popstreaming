@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../JS/mdp.js"> </script>
     <title>Inscription</title>
-    <!--<link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
+    <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
     <link rel="stylesheet" href="../Public/css/styles.css">
     <link rel="stylesheet" href="../Public/css/variables.css">
     <link rel="stylesheet" href="../Public/css/font.css">
     <link rel="stylesheet" href="../Public/css/nav_connexion_inscription.css">
-    <link rel="stylesheet" href="../Public/css/connexion.css">-->
+    <link rel="stylesheet" href="../Public/css/connexion.css">
 </head>
 
 

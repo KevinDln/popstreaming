@@ -12,25 +12,35 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
 }
 
 
+$_SESSION['controle'] = 0;
+
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title> Tendances </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+        <link rel="stylesheet" href="../Public/css/nav_accueil.css">
+        <link rel="stylesheet" href="../Public/css/nav.css">
+        <link rel="stylesheet" href="../Public/css/styles.css">
+        <link rel="stylesheet" href="../Public/css/variables.css">
+        <link rel="stylesheet" href="../Public/css/font.css">
+        <link rel="stylesheet" href="../Public/css/footer.css">
+        <link rel="stylesheet" href="../Public/css/affichageTendances.css">
     </head>
 
-    <?php
-    include "nav_accueil.php"
-    ?>
-    <body>
-        
-        <?php require "nav.php"; // On inclut la barre de navigation ?>
+<body>
+<?php require "nav_accueil.php";  ?>
+    <a href="../php/pre_accueil.php">
+        <input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"/>
+    </a>
 
-        <div class="contenu" id="contenu" name="contenu">
-            <?php
+<div class="flex">
+    <?php require "nav.php"; // On inclut la barre de navigation ?>
+    <div class="image-contain flex">
+
+        <?php
 
             $init = 0;
 
@@ -47,24 +57,33 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
                     // Vérifier si l'index existe dans le tableau
                     if (isset($tendances[$init])) {                        
                         $img = $tendances[$init]['poster_path'];
-                        if ($tendances[$init]['type'] == 'film' || $tendances[$init]['type'] == 'films')
-                            $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=films";
-                        else $url2 = "strat_video.php?id=".$tendances[$init]['id']."&type=shows";
-                        echo "<p> $number </p> <a href=\"$url2\"> <img src='$img' width='200' height='200'> </a>" ;
+                        echo "
+                            <p class='format'> $number </p> <a class='a' href=''> <img class='img' src='$img' alt='img'> </a>
+                            " ;
+
                         $number++;
                     }
                     $init++;
             
-        } echo "<br>";
+        } echo "<br> ";
 
-        
     }
 
             ?>
-            
-        </div>
-        <?php require "footer.php" ?>
-    </body>
+
+
+
+</div>
+</div>
+
+
+<script src="../JS/header.js"></script>
+<script src="../JS/langues.js"></script>
+<script src="../JS/profil.js"></script>
+<script src="../JS/rechercher.js"></script>
+<script src="../JS/parametres.js"></script>
+<?php require "footer.php" ?>
+</body>
 
 </html>
 

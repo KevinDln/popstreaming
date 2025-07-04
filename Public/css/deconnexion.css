@@ -1,3 +1,8 @@
+html {
+    height: 100vh;
+    position: relative;
+}
+
 .chevron {
     background-color: var(--Nuances-jaune);
     width: 53px;
@@ -32,4 +37,34 @@
 
 .btn-secondary {
     height: 49px;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .navbar {
+        display: none;
+    }
+
+    .p1 {
+        margin-bottom: 20px;
+    }
+
+    .input {
+        margin: 0;
+    }
+
+    .gap {
+        justify-content: center;
+    }
+
+}
+

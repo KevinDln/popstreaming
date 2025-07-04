@@ -5,7 +5,6 @@
 .language-affichage {
   display: none; /* cache la liste de langues */
   position: absolute; /* pour que la liste s'affiche en superposition */
-  background: white;
   border: 1px solid #ccc;
   list-style: none;
   padding: 0;

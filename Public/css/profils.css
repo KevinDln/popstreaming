@@ -10,6 +10,11 @@
     margin-bottom: 30px;
 }
 
+.container-align {
+    text-align: center;
+
+}
+
 .p1{
     font-size: 20px;
 }
@@ -71,12 +76,19 @@ h1 {
     display: flex;
     justify-self: center;
     margin-top: 50px;
+    justify-content: center;
 }
 
 .btn-secondary:hover {
     color: var(--Nuances-blanc);
     background-color: var(--Nuances-noir);
     border: 1px solid var(--Nuances-blanc);
+}
+
+.btn-secondary {
+    width: 250px;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 

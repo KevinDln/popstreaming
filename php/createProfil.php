@@ -22,6 +22,7 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
         <link rel="stylesheet" href="../Public/css/variables.css">
         <link rel="stylesheet" href="../Public/css/font.css">
         <link rel="stylesheet" href="../Public/css/profils.css">
+        <link rel="stylesheet" href="../Public/css/ajout_profils.css">
         <script src="../JS/addProfil.js"></script>
         <link rel="stylesheet" href="../Public/css/afficheprofils.css">
 
@@ -41,7 +42,7 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] != true) {
                 <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24" id="plusIcon">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                 </svg>
-                <img id="selectedImage" style="display: none;" alt="Image sélectionnée">
+                <img id="selectedImage" style="display: none; width: 200px; height: 200px;" alt="Image sélectionnée">
             </div>
             <p>Ajouter une photo</p><br><br>
         </div>

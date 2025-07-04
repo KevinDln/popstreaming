@@ -7,12 +7,13 @@
         <title> Déconnexion </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+        <link rel="icon" href="../Public/img/icon-pop-streaming.png" type="image/png">
         <link rel="stylesheet" href="../Public/css/nav_accueil.css">
         <link rel="stylesheet" href="../Public/css/nav.css">
         <link rel="stylesheet" href="../Public/css/styles.css">
         <link rel="stylesheet" href="../Public/css/variables.css">
         <link rel="stylesheet" href="../Public/css/font.css">
+        <link rel="stylesheet" href="../Public/css/menu_burger.css">
         <link rel="stylesheet" href="../Public/css/deconnexion.css">
         <link rel="stylesheet" href="../Public/css/footer.css">
     </head>
@@ -20,10 +21,11 @@
 
     <body>
     <?php require "nav_accueil.php"; ?>
-        <br>
-        <a href="../php/pre_accueil.php">
-            <input class="chevron" type="image" src="../Public/img/btn-retour.png"/>
-        </a> <br>
+    <br>
+    <a href="#" class="btn-retour">
+        <img src="../Public/img/btn-retour.png" alt="">
+    </a>
+    <br>
     <div class="flex">
         <?php require "nav.php"; ?>
 
@@ -39,11 +41,13 @@
         </div>
     </div>
 
+    <?php require "footer.php"; ?>
+
     <script src="../JS/langues.js"></script>
     <script src="../JS/header.js"></script>
     <script src="../JS/profil.js"></script>
     <script src="../JS/rechercher.js"></script>
+    <script src="../Public/js/menu_burger.js"></script>
 
-    <?php require "footer.php"; ?>
     </body>
 </html>

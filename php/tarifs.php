@@ -27,7 +27,7 @@ $newdate = date('d/m/Y',strtotime('+1 month',strtotime($date)));
         <?php require "nav_vide.php"; ?>
     </header>
     <main>
-        <a href="#" class="btn-retour" id="retour">
+        <a href="pre_accueil.php" class="btn-retour" id="retour">
             <img src="../Public/img/btn-retour.png" alt="Retour">
         </a>
 

@@ -19,9 +19,9 @@ a.logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px; /* Espace entre les icônes */
-    height: 60vh; /* Toute la hauteur de l'écran */
-    justify-content: center; /* Centrage vertical */
+    gap: 60px; / Espace entre les icônes /
+    height: 60vh; / Toute la hauteur de l'écran /
+    justify-content: center; / Centrage vertical */
 }
 
 .navbar li {

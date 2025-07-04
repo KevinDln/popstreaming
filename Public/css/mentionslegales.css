@@ -10,10 +10,24 @@ body {
 .p1 {
     color: var(--Nuances-blanc);
     font-size: 12px;
-    position: relative;
     top: -100px;
 
 }
 .justifier {
     text-align: justify;
 }
+
+@media screen and (max-width: 1400px) {
+    .center {
+        width: 100%;
+        margin: 0;
+    }
+
+    .p1 {
+        padding: 20px;
+        width: 60%;
+    }
+
+}
+
+

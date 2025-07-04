@@ -56,6 +56,7 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
         <link rel="stylesheet" href="../Public/css/variables.css">
         <link rel="stylesheet" href="../Public/css/font.css">
         <link rel="stylesheet" href="../Public/css/profils.css">
+        <link rel="stylesheet" href="../Public/css/modif_profils.css">
         <script src="../JS/mdp.js"> </script>
         <script src="../JS/modifProfil.js"> </script>
         <link rel="stylesheet" href="../Public/css/afficheprofils.css">
@@ -86,12 +87,14 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
 
 <body>
 
-<a href="profilsmodif.php"> Retour </a>
+<a href="profilsmodif.php"><input class="chevron" type="image" src="../Public/img/btn-retour.png" alt="<"></a>
     <h1> Modifier le profil </h1>
+<form class="profileForm bloc-droite flex" method="POST" action="valideModifs.php">
 
+<div class="profil cercle">
 <div class="profile-section">
     <div class="profile-image-container">
-        <div class="profilImage" id="profileImage" onclick="openImage()">
+        <div class="profil cercle" id="profileImage" onclick="openImage()">
            <div class="image">
             <img src="<?php echo $tableres[0]['img']?>" alt="profil" width="200" height="200">
             <p> <?php echo  $tableres[0]['nom'] ?> </p>
@@ -100,31 +103,34 @@ $url = "modifMdp.php?id=" . $_SESSION['id'];
         <p>Cliquer pour modifier la photo</p><br><br>
     </div>
 </div>
-
+</div>
 
 
 <div class="form">
 
-    <form class="formulaire" method="POST" action="valideModifs.php">
 
-        <input id="name" type="text" value="<?php echo $tableres[0]['nom'] ?>" name="nom" readOnly>
+
+        <input class="input1" id="name" type="text" value="<?php echo $tableres[0]['nom'] ?>" name="nom" readOnly>
         <a onclick="changeName()"> modifier </a> <br>
 
-        <input id="mail" type="email" value="<?php echo $tableres2[0]['email']?>" name="mail" readOnly>
+        <input class="input1" id="mail" type="email" value="<?php echo $tableres2[0]['email']?>" name="mail" readOnly>
         <a onclick="changeEmail()"> modifier </a>
 
         <br>
-        <input id="mdp" type="password" value="zaezeazezae"  name="mdp" readOnly>
+        <input class="input1" id="mdp" type="password" value=""  name="mdp" readOnly>
         <a href="<?php echo $url?>"> modifier </a>
         <input type="checkbox" onclick="showPassword()">
         <br>
 
-        <input type="text" placeholder="Gérer les profils des utilisateurs" readOnly>
+        <input type="hidden" id="selected_image_id" name="image_id" value="">
+        <input type="hidden" id="selected_image_url" name="image_url" value="">
+
+        <input class="input1" type="text" placeholder="Gérer les profils des utilisateurs" readOnly>
         <input type="submit" formaction="profilsmodif.php" value="Modifier">
 
 <br> <br>
-        <input type="submit" value="Sauvegarder les modifications">
-        <input type="submit" formaction="#" value="Annuler">
+        <input class="btn-primary" type="submit" value="Sauvegarder les modifications">
+        <a class="input3" href="profilsmodif.php"> Annuler </a>
     </form>
 
 

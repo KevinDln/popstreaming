@@ -2,6 +2,13 @@
 require "connectdb.php"; // Connexion a la BD
 session_start();
 
+if (isset($_SESSION['connected'])) {
+    if ($_SESSION['connected'] == true) {
+        header('Location: profils.php');
+    }
+}
+
+
 $incorrect = false;
 // Partie vérification des informations passés dans le formulaire
 $message = "Email ou mot de passe incorrect, veuillez réessayer";
@@ -59,7 +66,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'] ) ) {
         ?>
     </header>
     <main>
-        <a href="#" class="btn-retour">
+        <a href="pre_accueil.php" class="btn-retour">
             <img src="../Public/img/btn-retour.png" alt="">
         </a>
         <div class="container flex center">
